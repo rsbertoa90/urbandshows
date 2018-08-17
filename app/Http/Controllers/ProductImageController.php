@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ProductImage;
+
 
 class ProductImageController extends Controller
 {
@@ -21,10 +23,20 @@ class ProductImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $image = $request->file('image');
+        $path = $image->storePublicly('/images/products');
+        $path = '/storage/'.$path;
+        $new = ProductImage::create([
+                'product_id' => $request->product,
+                'url' => $path,
+                'order'=>2]);
+
+        return $new;
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -79,6 +91,6 @@ class ProductImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ProductImage::destroy($id);
     }
 }

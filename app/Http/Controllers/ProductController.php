@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class ProductController extends Controller
 {
@@ -21,9 +22,13 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return Product::create($request->only(['price',
+                                                'category_id',
+                                                'name',
+                                                'code'
+                                              ]));
     }
 
     /**

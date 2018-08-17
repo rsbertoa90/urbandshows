@@ -1,14 +1,28 @@
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 // Variables
+// Variables
+
 @import "variables";
 
 // Bootstrap
+@import "reset";
 @import '~bootstrap/scss/bootstrap';
-// @import '~animate.css/animate.min.css'
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+@import '~animate.css/animate.min.css';
+@import '~bootstrap/dist/css/bootstrap.css'; 
+@import '~bootstrap-vue/dist/bootstrap-vue.css';
+@import '~font-awesome/scss/font-awesome.scss';
+
+@import 'helpers'; 
+
+a {
+  color: inherit;
+  text-decoration: none;
+  :hover {
+    color: inherit
+  }
 }
+
+

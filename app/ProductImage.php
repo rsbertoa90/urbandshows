@@ -9,4 +9,6 @@ class ProductImage extends Model
     //
     protected $guarded =[];
     protected $table ="product_images";
+
+    
 }

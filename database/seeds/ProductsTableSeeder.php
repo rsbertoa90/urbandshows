@@ -20,11 +20,8 @@ class ProductsTableSeeder extends Seeder
             
              // $path = strstr($path, '/storage');
             $products = factory(App\Product::class,5)
-                ->create(['name'=>($category->name.' '.$key)]);
-            foreach ($products as $product)
-             {
-               $product->categories()->attach($category);
-             }
+                ->create(['name'=>($category->name.' '.$key),
+                          'category_id'=>$category->id]);
         }
     }
 }

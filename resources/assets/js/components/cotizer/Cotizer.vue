@@ -1,16 +1,16 @@
 <template>
     <div class="container">   
-        <div class="row w-100 d-flex justify-content-center">
-                 <img src="/storage/images/app/logo.png" style="width : 200px ; height: 100px" alt="logo">
-             </div>
+      
              <hr>
         <div id="accordion">
-            <div v-for="category in categories" :key="category.id" class="card flex-wrap">
-                <div class="card-header" :id="category.id">
+            <div v-for="category in categories" 
+                  :key="'category-'+category.id" 
+                  class="card flex-wrap">
+                <div class="card-header" :id="'card'+category.id">
                     <h5 class="mb-0">
                         <button class="btn  btn-link w-100 text-left" 
                                 data-toggle="collapse" 
-                                :data-target="'#'+category.name" 
+                                :data-target="'#acordion'+category.id" 
                                 aria-expanded="true" 
                                 :aria-controls="category.name">
                                  
@@ -19,20 +19,26 @@
                         </button>
                     </h5>
                 </div>
-                <div :id="category.name" class="collapse collapsed " aria-labelledby="headingOne" data-parent="#accordion">
+                <div :id="'acordion'+category.id" class="collapse collapsed " aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
                        <table class="table table-striped table-bordered ">
                            <thead class="">
-                               <th v-if="$mq != 'sm'">Foto</th>
-                               <th class="nametd">Nombre</th>
-                               <th class="">Precio</th>
-                               <th class="">Quiero</th>
+                               <th>Foto</th>
+                               <th>Producto</th>
+                               <th>Precio</th>
+                               <th>Quiero</th>
                                <th v-if="$mq != 'sm'" class="">Subtotal</th>
                            </thead>
                            <tbody>
                                <tr v-for="product in category.products" :key="product.id">
-                                   <td v-if="$mq != 'sm'" > <img style="width : 150px" :src="product.images[0].url" :alt="product.name" @click="show(product.images[0].url)"> </td>
-                                   <td style="cursor:pointer" @click="show(product.images[0].url)">  {{product.name.trim()}} </td>
+                                   <td>
+                                        <img v-if="product.images.length > 0" 
+                                            class="sampleImage" :src="product.images[0].url" 
+                                            :alt="product.name" @click="show(product)"> 
+                                        <img v-else style="width : 150px" src="/storage/images/app/no-image.png" 
+                                            alt="no-image">
+                                    </td>
+                                   <td style="cursor:pointer" @click="show(product)">  {{product.name.trim()}} </td>
                                    <td class="text-info text-center font-weight-bold">${{product.price | price}}</td>
                                    
                                    <td v-if="!product.paused"><input type="number" min="0" class="form-control " v-model="product.units">
@@ -72,17 +78,24 @@
         <div>
             <cotizer-form :list="list" :total="total"></cotizer-form>
         </div>
+        <carousel ref="modal" :product ="carouselProduct"></carousel>
     </div>
 </template>
 
 <script>
+ import { mapActions } from 'vuex';
+ import { mapGetters } from 'vuex';
+    import carousel from './Carousel.vue';
     export default {
+        components : {carousel},
         data(){
             return {
-                categories : [],
-                list : []
+                list : [],
+                showCarousel : false,
+                carouselProduct : null
             }
         },
+
         watch : {
             total() {
                    var result = [];
@@ -102,6 +115,10 @@
             }
         },
         computed: {
+            ...mapGetters({
+                categories : 'categories/getCategories'
+            }),
+            
             total() {
                 var vm = this;
                 var tot = 0;
@@ -118,34 +135,29 @@
                 return tot;
             }
         },
-        created(){
-            var vm = this;
-            $.ajax({
-                url : 'api/categories',
-                success(response){
-                    vm.categories = response;
-                }
-            });
-        },
+
         methods:
         {
-            
-            show(url){
-                var content = document.createElement("img");
-                $(content).attr('src',url);
-                content.style.width = '100%';
-                swal({content : content});
+            show(product){
+                this.carouselProduct = product;
+                this.showCarousel = true;
+
+                let element = this.$refs.modal.$el;
+              
+                $(element).modal('show');
             }
-        },
-        filters : {
-            price(value){
-                return  value.toFixed(2);
-            }
-        }
+        },     
     }
 </script>
 
 <style scoped>
+    input[type="number"]{
+        max-width: 70px;
+    }
+    .sampleImage{
+        width: 60px;
+    }
+
    .btn-link {color : black;}
     #total {
         position: fixed;
@@ -167,6 +179,7 @@
     }
     
     @media(min-width: 600px){
+        .sampleImage{width: 150px;}
         table{ font-size: 1rem; font-weight: normal}
         td {white-space: normal;}
         .card-body,.container{padding:1.25rem}

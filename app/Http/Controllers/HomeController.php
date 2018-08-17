@@ -24,15 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (Auth::check() && Auth::user()->isAdmin())
+        {
+            return redirect('/admin');
+        }
         return view('home');
     }
 
     public function Cotizer()
     {
-        if (Auth::check() && Auth::user()->isAdmin())
-        {
-            return view('admin.tableView');
-        }
         return view('cotizer');
     }
 }

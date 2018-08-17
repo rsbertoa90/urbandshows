@@ -22,7 +22,7 @@
                             <h5 class="mb-0">
                                 <button class="btn  btn-link w-100 btn-block text-left" 
                                         data-toggle="collapse" 
-                                        :data-target="'#'+category.name" 
+                                        :data-target="'#category-'+category.id" 
                                         aria-expanded="true" 
                                         :aria-controls="category.name"
                                        >
@@ -30,13 +30,15 @@
                                 </button>
                             </h5>
                         </div>
-                        <div :id="category.name" class="collapse collapsed " aria-labelledby="headingOne" data-parent="#accordion">
+                        <div :id="'category-'+category.id" class="collapse collapsed" 
+                              aria-labelledby="headingOne" 
+                              data-parent="#accordion">
                             <div class="card-body">
                             <table class="table table-striped table-bordered ">
                                 <thead class="">
                                     <th >imagen</th>
                                     <th>Codigo</th>
-                                    <th>Nombre</th>
+                                    <th>Producto</th>
                                     <th>Precio</th>
                                 </thead>
                                 <transition-group tag="tbody" 
@@ -44,7 +46,12 @@
                                                     leave-active-class="animated fadeOutDown faster position-absolute ">
                                     <tr v-for="product in category.products" :key="product.id">
                                         <td >
-                                            <img :src="product.images[0].url" :alt="product.name" @click="imgModal(product)"> 
+                                            <img v-if="product.images.length > 0" 
+                                                  :src="product.images[0].url" 
+                                                  :alt="product.name" 
+                                                  @click="imgModal(product)">  
+                                            <img v-else src="/storage/images/app/no-image.png" 
+                                                alt="no-image" @click="imgModal(product)"> 
                                         </td>
                                         <td>  
                                             <input v-model.lazy="product.code" @change="saveChange(product,'code')" type="text" class="nametd"> 
@@ -179,6 +186,7 @@ import adminCreate from './Create.vue';
                 url : 'api/categories',
                 success(response){
                     vm.categories = response;
+                    // console.log (vm.categories);
                 }
             });
 

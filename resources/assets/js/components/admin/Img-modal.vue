@@ -9,11 +9,33 @@
         </button>
       </div>
       <div class="modal-body">
-          <img class="img-small w-50 " :src="product.images[0].url" :alt="product.name">
+          
           <form enctype="multipart/form-data" name="uploader" >
-          <csrf></csrf>
-            <div class="d-flex flex-column">
-                <label for="" class="text-info font-weight-bold">Cambiar</label>
+           <b-carousel  
+                        :controls="product.images.length > 1"
+                        id="carousel"
+                        background="#ababab"
+                        :interval="4000"
+                        img-width="600"
+                        >
+                  
+                  <b-carousel-slide v-if="product.images.length > 0" v-for="img in product.images" :key="img.id"
+                                     :img-src="img.url">
+                        <button class="btn btn-sm btn-danger"
+                                @click.prevent="deleteImage(img)">X</button>
+                  </b-carousel-slide>
+                  <b-carousel-slide v-else
+                                    img-src="/storage/images/app/no-image.png">
+                        <button class="btn btn-sm btn-danger"
+                                @click.prevent="deleteImage(img)">X</button>
+                  </b-carousel-slide>
+
+
+           </b-carousel>
+
+
+            <div class="d-flex flex-column mt-3">
+                <label class="text-info font-weight-bold">Nueva Imagen </label>
                 <input type="file" name="file"  accept="image/x-png,image/gif,image/jpeg">
             </div>   
            
@@ -40,33 +62,45 @@
         
         
         methods : {
+            deleteImage(image){
+                this.$http.delete('/admin/product/image/'+image.id)
+                    .then(()=>{
+                        this.$emit('refresh')
+                         $('#image-modal').modal('hide');
+                        });
+            },
             save :  function(event){
                 var vm =this;
                 var file = $('input[type="file"]')[0].files[0];
-                this.file = file;
-                // console.log(file);
-                
-                
-                var fdata =  new FormData();
-                fdata.append('image',file);
-                fdata.append('product',this.product.id)
-                // console.log(fdata);
-                
+                if (file == null){
+                    swal('No se ha seleccionado una imagen','','error');
+                } else {
 
-                $.ajax({
-                    url: "/admin/product/image",
-                    type: "post",
-                    data: fdata,
-                    // async: false,
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    files : true,
-                    success: function () {
-                       $('#image-modal').modal('hide');
-                        vm.$emit('refresh');
-                    },
-                });
+                    this.file = file;
+                    // console.log(file);
+                    
+                    
+                    var fdata =  new FormData();
+                    fdata.append('image',file);
+                    fdata.append('product',this.product.id)
+                    // console.log(fdata);
+                    
+    
+                    $.ajax({
+                        url: "/admin/product/image",
+                        type: "post",
+                        data: fdata,
+                        // async: false,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        files : true,
+                        success: function () {
+                           $('#image-modal').modal('hide');
+                           vm.$emit('refresh');
+                        },
+                    });
+                }
 
         
         },

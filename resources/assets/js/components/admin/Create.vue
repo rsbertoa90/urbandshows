@@ -30,14 +30,6 @@
                  <label for="" class="col-12">Precio</label>
                  <input min='0' required v-model.trim="formData.price"  type="number" class="col-12">
              </div>
-             <div  class="col-2 row">
-                 <label for="" class="col-12">Unidades x bulto</label>
-                 <input   min='0' required  v-model.trim="formData.pck_units" type="number" class="col-12">
-             </div>
-             <div class="col-2 row">
-                 <label for="" class="col-12">Precio x mayor</label>
-                 <input   min='0' required v-model.trim="formData.pck_price"  type="number" class="col-12">
-             </div>
              <button type="submit" class="btn btn-outline-success align-self-end justify-self-end"> GUARDAR </button>
          </form>
     </div>
@@ -80,10 +72,7 @@
             },
             resetForm(){
                 this.formData =  {
-
                     price :null,
-                    pck_price :null,
-                    pck_units :null,
                     category_id : null,
                     name : null,
                     code :null
@@ -99,9 +88,7 @@
                         
                          var duplicated = this.categories.find(function(el){
                              return el.name.toLowerCase() == vm.newCategory.toLowerCase();
-                         });
-                         console.log('dup',duplicated);
-                         
+                         }); 
                          if (duplicated != null){
                              swal ('Error', `Ya existe la categoria ${vm.newCategory}`,'error');
                          }else {
@@ -109,11 +96,12 @@
                                 .then(response => {
                                     var category = response.data;
                                     vm.formData.category_id = category.id;
-                                    vm.$http.post('/admin/product/',vm.formData).then(response => {
-                                        vm.$emit('productSaved',response.data);
-                                        //   console.log(response.data);
-                                         swal('Product guardado','','success');
-                                          vm.resetForm();
+                                    vm.$http.post('/admin/product/',vm.formData)
+                                        .then(response => {
+                                            vm.$emit('productSaved',response.data);
+                                            //   console.log(response.data);
+                                            swal('Product guardado','','success');
+                                            vm.resetForm();
                                         
                                     });
                                 });

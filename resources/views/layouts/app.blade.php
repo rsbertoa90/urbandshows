@@ -28,18 +28,21 @@
         <div id="app" class="container">
             <div class="row">
                 <app-navbar class="col-12"></app-navbar>
-                <app-side-menu class="col-4" 
+                <app-side-menu class="col-3" 
                                 v-if="$mq =='lg'" 
-                                style="margin-left:-15px">
+                                style="margin-left:-6%">
                 </app-side-menu>
 
-                    <div class="col-12 col-lg-8 w-100 row">
-                                <main class="py-4">
-                                    @yield('content')
+                    <div class="col-12 col-lg-9 w-100 row" style="margin-left:0.2%">
+                                <main class="py-4 w-100">
+                                    @yield('contentA')
                                 </main>
                     
                     </div> 
     
+            </div>
+            <div class="row">
+                @yield('contentB')
             </div>
             <app-footer></app-footer>
         </div>

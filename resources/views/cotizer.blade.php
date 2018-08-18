@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
-@section('content')
+@section('contentA')
     <app-cotizer></app-cotizer>
 @endsection

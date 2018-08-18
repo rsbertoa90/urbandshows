@@ -31,7 +31,7 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function Cotizer()
+    public function cotizer()
     {
         return view('cotizer');
     }

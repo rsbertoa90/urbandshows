@@ -41,9 +41,7 @@ $color-back: #ff97dd;
 
     .side-borders{
         border-left: 1px solid #aaaaaa;
-        border-right: 1px solid #aaaaaa;
-        
-        margin-left: 19%;
+        margin-left: 7%;
     }
 
     ul{

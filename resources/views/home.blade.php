@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
-@section('content')
-    <app-home></app-home>
+@section('contentA')
+    <app-home-a></app-home-a>
+@endsection
+
+@section('contentB')
+    <app-home-b></app-home-b>
 @endsection

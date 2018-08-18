@@ -30,13 +30,13 @@
         </div>
 
         <div class="row bg-first nav-row">
-            <div class="col-4 white-bold  row p-0">
-                <div class=" offset-3 w-100 col-9  bg-focus bb-second p-3 ">
+            <div class="col-3 white-bold p-0">
+                <div class="focus-nav-item">
                     <span class="fa fa-bars white-bold mr-1"></span>
                     Productos Mayorista Mates Fabi
                 </div>
             </div>
-            <div class="row col-8">
+            <div class="row col-9">
                 <ul class="navbar">
                     <li>Hace tu pedido</li>
                     <li>Regalos Empresariales</li>
@@ -82,6 +82,14 @@ $color-focus: #ff0aaf;
 
 // Rosa claro es ff97dd
 $color-back: #ff97dd;
+
+.focus-nav-item
+{
+    background-color: $color-focus;
+    width: 80%;
+    margin-left: 10%;
+    padding: 15px 6px;
+}
 
 .fa-phone-volume{
     font-size: 2rem;

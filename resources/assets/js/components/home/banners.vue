@@ -7,18 +7,18 @@
                 </a>
             </div>
             <div class="col-12 col-lg-4 row p-1">
-                <div class="small-banner">
+                <div class="small-banner col-12">
                     <a href="/cotizer" class="w-100 d-block">
                         <img src="/storage/images/app/no-image.png" alt="cotizador">
                     </a>
                 </div>
-                <div class="small-banner">
+                <div class="small-banner col-12">
                      <a href="/cotizer" class="w-100 d-block">
                         <img src="/storage/images/app/no-image.png" alt="cotizador">
                     </a>
                 </div>
                 
-                <div class="small-banner">
+                <div class="small-banner col-12">
                      <a href="/cotizer" class="w-100 d-block">
                         <img src="/storage/images/app/no-image.png" alt="cotizador">
                     </a>

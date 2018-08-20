@@ -1,18 +1,25 @@
 
 <template>
 <div class="container" >
-
- 
-    
+  <hr>
+  <h2 class="mb-4">Ofertas de Mates Fabi</h2>
       <!-- swiper -->
       <swiper :options="swiperOption" v-if="render">
-        <swiper-slide v-for="category in categories" :key="category.id">
-            <div class="card">
-                <img class="card-img-top" :src="category.image" alt="Card image cap">
+        <swiper-slide v-if="offers.length > 0" v-for="product in offers" :key="product.id">
+            <div class="card" itemscope itemtype="https://schema.org/Product">
+                <img class="card-img card-img-top" 
+                      :src="product.images[0].url"
+                      :title="product.name"
+                      itemprop="image" 
+                      alt="Card image cap">
+                  <div class="card-img-overlay">
+                    <span class=" badge bg-focus white-bold"> Oferta! </span>
+                  </div>
                 <div class="card-body">
-                    <h5 class="card-title"> {{category.name | ucFirst}} </h5>
-                    <p class="card-text"> {{category.description}} </p>
-                    <a href="#" class="btn btn-primary"> Ver mas</a>
+                    <h5 class="card-title" itemprop="name"> {{product.name | ucFirst}}  </h5>
+                    <h5 class="second">  ${{product.price | price}} </h5>
+                    <p class="card-text" itemprop="description"> {{product.description}}</p>
+                    <a :href="'/'+product.category.slug+'/'+product.slug" class="btn bg-second white-bold"> Ver mas</a>
                 </div>
             </div>
         </swiper-slide>
@@ -31,7 +38,7 @@
         render:false,
         swiperOption: {
           slidesPerView: null,
-          centeredSlides: true,
+          centeredSlides: false,
           spaceBetween: 5,
           pagination: {
             el: '.swiper-pagination',
@@ -48,7 +55,7 @@
     created(){
         if (this.$mq == 'lg')
         {
-            this.swiperOption.slidesPerView = 3;
+            this.swiperOption.slidesPerView = 4;
         } else{
             this.swiperOption.slidesPerView = 1.5;
         }
@@ -56,8 +63,9 @@
     },
     computed:{
      
-        categories(){
-            return this.$store.getters['categories/getCategories'];
+        offers(){
+          
+            return this.$store.getters['categories/getOffers'];
         }
     },
     methods: {
@@ -78,6 +86,9 @@
 </script>
 
 <style scoped>
+  .badge{
+    font-size: 1.2rem;
+  }
   .append-buttons {
     text-align: center;
     margin-top: 20px;

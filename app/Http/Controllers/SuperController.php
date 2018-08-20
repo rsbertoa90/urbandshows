@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-class AdminController extends Controller
+class SuperController extends Controller
 {
-    
-    public function tableView()
+    public function panel()
     {
         $user = Auth::user();
-        return view('admin.tableView',compact('user'));
+        return view('admin.super',compact('user'));
     }
 }

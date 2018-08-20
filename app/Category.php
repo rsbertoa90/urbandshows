@@ -20,5 +20,13 @@ class Category extends Model
         };
         return $val;
     }
+
+    public function setNameAttribute($val)
+    {
+        $this->attributes['slug'] = '/'.str_slug($val);
+        $this->attributes['name'] = ucfirst($val);
+       
+        
+    }
 }
 

@@ -4,7 +4,7 @@
                 <div class="side-borders">
                    <ul clas="d-flex pl-4">
                        <li v-for="category in categories" :key ="category.id">
-                           <a :href="$store.getters['categories/slug'](category)">
+                           <a :href="category.slug">
                                 {{category.name}}
                            </a>
                        </li>

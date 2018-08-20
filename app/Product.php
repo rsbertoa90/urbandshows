@@ -12,7 +12,7 @@ class Product extends Model
     //
         protected $guarded =[];
 
-        public function categories()
+        public function category()
         {
             return $this->belongsTo(Category::class);
         }
@@ -21,6 +21,16 @@ class Product extends Model
         {
             return $this->hasMany(ProductImage::class);
         }
+
+      public static function boot()
+    {
+         parent::boot();
+
+          self::creating(function($product){
+            $product->attributes['slug'] = $product->category->slug.'/'.str_slug($product->name); 
+          });
+    }
+
 
       
 

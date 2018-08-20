@@ -4,9 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
-
+use App\Metadata;
 class ProductController extends Controller
 {
+
+      public static function detail($categorySlug,$productSlug)
+    {
+           $slug = '/'.$categorySlug.'/'.$productSlug;
+           $product = Product::where('slug',$slug)->get()->first();
+           if($product){
+               $meta = new Metadata();
+               $meta->metatitle = $product->name;
+               $meta->metadescription = $product->description;
+               return view('product',compact('product','meta'));
+           } 
+           return redirect('/');
+    }
+
+
     /**
      * Display a listing of the resource.
      *

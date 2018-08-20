@@ -24,10 +24,13 @@ class CreateProductsTable extends Migration
                    ->on('categories');
             $table->string('code')->unique();
             $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('slug');
             $table->integer('price')->default(0);
             $table->boolean('paused')->default(false);
             $table->integer('pck_units')->default(1);
             $table->integer('pck_price')->default(0);
+            $table->boolean('offer')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });

@@ -10,7 +10,7 @@
                             </a>
                         </li>
                         <li v-for="category in categories" :key="category.id">
-                            <a :href="$store.getters['categories/slug'](category)">
+                            <a :href="category.slug">
                                 {{category.name | ucFirst}}
                             </a>
                         </li>

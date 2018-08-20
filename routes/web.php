@@ -14,11 +14,22 @@
 
 Auth::routes();
 
+Route::middleware('CheckSuper')->prefix('super')->group(function(){
+    Route::get('/', 'SuperController@panel');
+
+
+    Route::put('/metadata','MetadataController@update');
+});
+
+
 Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
 
     Route::get('/','AdminController@tableView');
+    
 
     Route::post('/category','CategoryController@create');
+    Route::put('/category','CategoryController@update');
+
 
     Route::post('/product','ProductController@create');
 
@@ -31,15 +42,19 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', function(){return redirect('/');});
 
 Route::get('/cotizador','HomeController@cotizer');
-Route::get('/regalos-empresariales',function(){return redirect('/');});
-Route::get('/franquicia',function(){return redirect('/');});
-Route::get('/sucursales',function(){return redirect('/');});
-Route::get('/contacto',function(){return redirect('/');});
-
+Route::get('/regalos-empresariales','HomeController@regalosEmpresariales');
+Route::get('/franquicia','HomeController@franquicia');
+Route::get('/sucursales','HomeController@sucursales');
+Route::get('/contacto','HomeController@contacto');
 
 Route::get('/logout',function(){
     Auth::logout();
     return redirect('/');
 });
 Auth::routes();
+
+
+Route::get('/{category}','CategoryController@detail');
+
+Route::get('/{category}/{product}','ProductController@detail');
 

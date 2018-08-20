@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Metadata;
+use App\Product;
+use App\Category;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 class HomeController extends Controller
 {
@@ -24,15 +29,61 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         if (Auth::check() && Auth::user()->isAdmin())
         {
+           
             return redirect('/admin');
         }
-        return view('home');
+
+        $meta = Metadata::getPage('home');
+        return view('home',compact('meta'));
     }
+
+
 
     public function cotizer()
     {
-        return view('cotizer');
+        $meta = Metadata::getPage('cotizador');
+        return view('cotizer',compact('meta'));
     }
+
+    public function regalosEmpresariales(){
+         $meta = Metadata::getPage('regalos empresariales');
+        return view('regalos-empresariales',compact('meta'));
+    }
+
+    public function franquicia(){
+         $meta = Metadata::getPage('franquicia');
+        return view('franquicia',compact('meta'));
+    }
+
+    public function sucursales(){
+         $meta = Metadata::getPage('sucursales');
+        return view('sucursales',compact('meta'));
+    }
+
+    public function contacto(){
+         $meta = Metadata::getPage('contacto');
+        return view('contacto',compact('meta'));
+    }
+
+    public function slugHandler($slug)
+    {
+        dd($slug);
+        $category = Category::where('slug','/'.$slug)->get()->first();
+        if ($category){
+           return CategoryController::detail($category);           
+        }
+
+        $product = Product::where('slug',$slug)->get()->first();
+        if ($product){
+           return ProductController::detail($product);           
+        }
+
+        return redirect('/');
+
+        
+    }
+
 }

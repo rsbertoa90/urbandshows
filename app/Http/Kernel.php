@@ -53,6 +53,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'OptimizeImages' => \App\Http\Middleware\OptimizeImages::class,
         'CheckAdmin' => \App\Http\Middleware\CheckAdmin::class,
+        'CheckSuper' => \App\Http\Middleware\CheckSuper::class,
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

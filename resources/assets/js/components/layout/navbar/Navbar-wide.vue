@@ -38,11 +38,11 @@
             </div>
             <div class="row col-9">
                 <ul class="navbar">
-                    <li>Hace tu pedido</li>
-                    <li>Regalos Empresariales</li>
-                    <li>Sucursales</li>
-                    <li>Contacto</li>
-                    <li>Franquicia</li>
+                    <li> <a href="/cotizador"> Hace tu pedido</a></li>
+                    <li> <a href="/regalos-empresariales"> Regalos Empresariales</a></li>
+                    <li> <a href="/sucursales"> Sucursales</a></li>
+                    <li> <a href="/contacto"> Contacto</a></li>
+                    <li> <a href="/franquicia"> Franquicia</a></li>
                 </ul>
             </div>
         </div>
@@ -108,9 +108,21 @@ $color-back: #ff97dd;
     margin: 0;
     padding: 0;
     li{
+        a{
+            &:hover{
+                color:inherit;
+                text-decoration: none;
+            }
+                display: flex;
+                 align-items:center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+        }
+
         cursor:pointer;
         padding: 1;
-
+        
         height: 100%;
         width: 20%;
         display: flex;
@@ -120,7 +132,8 @@ $color-back: #ff97dd;
              background-color: #eee;
              color: darken($color-second,10%);
             border-bottom: 3px solid $color-second;
-        }
+            }
+        
     }
 
  

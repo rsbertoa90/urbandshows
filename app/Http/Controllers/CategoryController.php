@@ -3,12 +3,27 @@
 namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
+use App\Metadata;
 use App\ProductImage;
 
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+
+    public static function detail($slug)
+    {   
+       $category = Category::where('slug','/'.$slug)->get()->first();
+        if ($category){
+           $meta = new Metadata([
+               'metatitle'=>$category->metatitle,
+               'metadescription'=>$category->metadescription
+               ]);
+          
+           return view('category',compact('category','meta'));
+        }
+        return redirect('/');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -63,17 +78,8 @@ class CategoryController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    
+   
 
     /**
      * Remove the specified resource from storage.
@@ -88,6 +94,15 @@ class CategoryController extends Controller
 
     public function getAll()
     {
-        return Category::with('products.images')->get();
+        return Category::with('products.images')->with('products.category')->get();
+    }
+
+    public function update(Request $request)
+    {
+        $field = $request->field;
+        $category = Category::find($request->id);
+        $category->$field = $request->value;
+        $category->save();
+        return $category;
     }
 }

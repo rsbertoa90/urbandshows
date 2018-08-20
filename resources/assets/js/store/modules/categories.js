@@ -20,6 +20,21 @@ const getters = {
         }
         return prods;
     },
+    getOffers(state){
+        let prods = [];
+        if (state.categories.length > 0) {
+            state.categories.forEach(category => {
+                category.products.forEach(product => {
+                   
+                    if (product.offer) {
+                        prods.push(product);
+                    }
+                });
+            });
+        }
+       
+        return prods;
+    },
     slug : (state) => (object) =>{
             var str = object.name;
              str = str.replace(/^\s+|\s+$/g, ''); // trim

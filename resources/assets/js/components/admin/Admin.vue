@@ -6,10 +6,10 @@
                 Lo sentimos. El administrador no esta disponible en dispositivos moviles.
             </h2>
             <br><br>
-            <a href="/logout" class="button btn btn-outline-info">Volver</a>
+            
         </div>
         <div v-else>
-             <a href="/logout" class="button btn btn-outline-info">Volver</a>
+           
              <div class="row w-100 d-flex justify-content-center">
                  <img src="/storage/images/app/logo.png" style="width : 200px ; height: 110px" alt="logo">
              </div>  
@@ -57,7 +57,8 @@
                                             <input v-model.lazy="product.code" @change="saveChange(product,'code')" type="text" class="nametd"> 
                                         </td>
                                         <td>  
-                                            <input v-model.lazy="product.name" @change="saveChange(product,'name')" type="text" class="nametd"> 
+                                            <input placeholder="Nombre" v-model.lazy="product.name" @change="saveChange(product,'name')" type="text" class="nametd"> 
+                                            <textarea placeholder="Descripcion" v-model="product.description" @change="saveChange(product,'description')" rows="5"></textarea>
                                         </td>
                                         
                                         <td class="text-info text-center"> 
@@ -185,7 +186,8 @@ import adminCreate from './Create.vue';
             $.ajax({
                 url : 'api/categories',
                 success(response){
-                    vm.categories = response;
+                    vm.categories = _.sortBy(response,'name');
+                    
                     // console.log (vm.categories);
                 }
             });

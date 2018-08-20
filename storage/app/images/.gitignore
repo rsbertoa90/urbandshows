@@ -1,5 +1,4 @@
-*
-!app
-!/app
-!/app/
 !.gitignore
+!app
+categories/
+products/

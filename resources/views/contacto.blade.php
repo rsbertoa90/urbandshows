@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 
+@section('breadcrumb')
+    {{ Breadcrumbs::render('contacto') }}
+@endsection
 
 @section('contentA')
-    @php
-        dd($meta)
-    @endphp    
+    <app-contacto></app-contacto>  
 @endsection

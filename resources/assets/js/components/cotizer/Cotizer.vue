@@ -1,6 +1,6 @@
 <template>
     <div class="container">   
-      
+      <h1>Hace tu pedido</h1>
              <hr>
         <div id="accordion">
             <div v-for="category in categories" 

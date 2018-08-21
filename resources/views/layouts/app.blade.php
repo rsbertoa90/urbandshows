@@ -41,8 +41,14 @@
                 </app-side-menu>
 
                     <div class="col-12 col-lg-9 w-100 row" style="margin-left:0.2%">
-                                <main class="py-4 w-100">
-                                    @yield('contentA')
+                                <main class="py-4 w-100 row">
+                                    <div class="col-12">
+                                        @yield('breadcrumb')
+                                    </div>
+                                    <div class="col-12">
+                                        @yield('contentA')
+                                    </div>
+
                                 </main>
                     
                     </div> 

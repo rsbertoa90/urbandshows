@@ -2,6 +2,9 @@
 
 
     
+@section('breadcrumb')
+    {{ Breadcrumbs::render('home') }}
+@endsection
 
 @section('contentA')
     <app-home-a></app-home-a>

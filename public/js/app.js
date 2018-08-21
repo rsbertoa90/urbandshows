@@ -34587,6 +34587,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('app-side-menu', __webpack
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('app-home-a', __webpack_require__(292));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('app-home-b', __webpack_require__(304));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('app-sucursales', __webpack_require__(343));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('app-contacto', __webpack_require__(359));
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 
@@ -70017,6 +70019,8 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
+      _c("h1", [_vm._v("Hace tu pedido")]),
+      _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
       _c(
@@ -86668,6 +86672,873 @@ var _iconsCache = {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(344)
+/* template */
+var __vue_template__ = __webpack_require__(348)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/sucursales/Sucursales.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-56670bc8", Component.options)
+  } else {
+    hotAPI.reload("data-v-56670bc8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 344 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sucursales_wide_vue__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sucursales_wide_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sucursales_wide_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sucursales_mobile_vue__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sucursales_mobile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__sucursales_mobile_vue__);
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        sucursalesWeb: __WEBPACK_IMPORTED_MODULE_0__sucursales_wide_vue___default.a,
+        sucursalesMobile: __WEBPACK_IMPORTED_MODULE_1__sucursales_mobile_vue___default.a
+    },
+    data: function data() {}
+});
+
+/***/ }),
+/* 345 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(357)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(356)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-194fa1d2"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/sucursales/sucursales-mobile.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-194fa1d2", Component.options)
+  } else {
+    hotAPI.reload("data-v-194fa1d2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 346 */,
+/* 347 */,
+/* 348 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [_vm.$mq != "lg" ? _c("sucursales-mobile") : _c("sucursales-web")],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-56670bc8", module.exports)
+  }
+}
+
+/***/ }),
+/* 349 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(350)
+/* template */
+var __vue_template__ = __webpack_require__(351)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/sucursales/sucursales-wide.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-82bf3ff0", Component.options)
+  } else {
+    hotAPI.reload("data-v-82bf3ff0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 350 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 351 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12 row mt-3 mb-4" }, [
+          _c("h2", { staticClass: "col-12 mb-3" }, [
+            _vm._v("Mates Fabi Pasteur")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6" }, [
+            _c(
+              "iframe",
+              {
+                attrs: {
+                  width: "100%",
+                  height: "250",
+                  src:
+                    "https://maps.google.com/maps?width=100%&height=200&hl=en&coord=-34.604274628571,-58.399603253061&q=pasteur%20428%2C%20CABA+(Mates%20Fabi)&ie=UTF8&t=&z=14&iwloc=B&output=embed",
+                  frameborder: "0",
+                  scrolling: "no",
+                  marginheight: "0",
+                  marginwidth: "0"
+                }
+              },
+              [
+                _c(
+                  "a",
+                  { attrs: { href: "https://www.maps.ie/create-google-map/" } },
+                  [_vm._v("Google map generator")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6" }, [
+            _c("p", [
+              _vm._v(
+                "\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, aliquam hic numquam suscipit porro deserunt quas soluta ipsa recusandae, quisquam modi eveniet neque alias placeat? Aut corporis facilis soluta velit.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 row mt-3 mb-4" }, [
+          _c("h2", { staticClass: "col-12 mb-3" }, [
+            _vm._v("Mates Fabi Castelli")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6" }, [
+            _c(
+              "iframe",
+              {
+                attrs: {
+                  width: "100%",
+                  height: "250",
+                  src:
+                    "https://maps.google.com/maps?width=100%&height=200&hl=en&coord=-34.606197869388,-58.398923226531&q=Sarmiento%202268%2C%20CABA+(Mates%20Fabi)&ie=UTF8&t=&z=14&iwloc=B&output=embed",
+                  frameborder: "0",
+                  scrolling: "no",
+                  marginheight: "0",
+                  marginwidth: "0"
+                }
+              },
+              [
+                _c(
+                  "a",
+                  { attrs: { href: "https://www.maps.ie/create-google-map/" } },
+                  [_vm._v("Create Google Map")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6" }, [
+            _c("p", [
+              _vm._v(
+                "\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, aliquam hic numquam suscipit porro deserunt quas soluta ipsa recusandae, quisquam modi eveniet neque alias placeat? Aut corporis facilis soluta velit.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 row mt-3 mb-4" }, [
+          _c("h2", { staticClass: "col-12 mb-3" }, [
+            _vm._v("Mates Fabi Sarmiento")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6" }, [
+            _c(
+              "iframe",
+              {
+                attrs: {
+                  width: "100%",
+                  height: "250",
+                  src:
+                    "https://maps.google.com/maps?width=100%&height=250&hl=en&coord=-34.607568055102,-58.404725091837&q=Sarmiento%202268%2C%20CABA+(Mates%20Fabi)&ie=UTF8&t=&z=14&iwloc=B&output=embed",
+                  frameborder: "0",
+                  scrolling: "no",
+                  marginheight: "0",
+                  marginwidth: "0"
+                }
+              },
+              [
+                _c(
+                  "a",
+                  { attrs: { href: "https://www.maps.ie/create-google-map/" } },
+                  [_vm._v("Embed Google Map")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6" }, [
+            _c("p", [
+              _vm._v(
+                "\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, aliquam hic numquam suscipit porro deserunt quas soluta ipsa recusandae, quisquam modi eveniet neque alias placeat? Aut corporis facilis soluta velit.\n                "
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-82bf3ff0", module.exports)
+  }
+}
+
+/***/ }),
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { attrs: { id: "accordion" } }, [
+      _c("div", { staticClass: "card" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse",
+            attrs: {
+              id: "sucursal1",
+              "aria-labelledby": "headingOne",
+              "data-parent": "#accordion"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "card-body row" },
+              [
+                _c("col-12", [
+                  _c(
+                    "iframe",
+                    {
+                      attrs: {
+                        width: "100%",
+                        height: "250",
+                        src:
+                          "https://maps.google.com/maps?width=100%&height=200&hl=en&coord=-34.604274628571,-58.399603253061&q=pasteur%20428%2C%20CABA+(Mates%20Fabi)&ie=UTF8&t=&z=14&iwloc=B&output=embed",
+                        frameborder: "0",
+                        scrolling: "no",
+                        marginheight: "0",
+                        marginwidth: "0"
+                      }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "https://www.maps.ie/create-google-map/"
+                          }
+                        },
+                        [_vm._v("Google map generator")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("col-12", [
+                  _vm._v(
+                    "\n                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, temporibus! Totam accusantium quos cupiditate, eum libero modi explicabo. Vitae corrupti laborum tenetur id voluptas libero iste perferendis culpa modi rerum!\n                   "
+                  )
+                ])
+              ],
+              1
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse",
+            attrs: {
+              id: "sucursal2",
+              "aria-labelledby": "headingOne",
+              "data-parent": "#accordion"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "card-body row" },
+              [
+                _c("col-12", [
+                  _c(
+                    "iframe",
+                    {
+                      attrs: {
+                        width: "100%",
+                        height: "250",
+                        src:
+                          "https://maps.google.com/maps?width=100%&height=200&hl=en&coord=-34.606197869388,-58.398923226531&q=Sarmiento%202268%2C%20CABA+(Mates%20Fabi)&ie=UTF8&t=&z=14&iwloc=B&output=embed",
+                        frameborder: "0",
+                        scrolling: "no",
+                        marginheight: "0",
+                        marginwidth: "0"
+                      }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "https://www.maps.ie/create-google-map/"
+                          }
+                        },
+                        [_vm._v("Create Google Map")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("col-12", [
+                  _vm._v(
+                    "\n                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, temporibus! Totam accusantium quos cupiditate, eum libero modi explicabo. Vitae corrupti laborum tenetur id voluptas libero iste perferendis culpa modi rerum!\n                   "
+                  )
+                ])
+              ],
+              1
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card" }, [
+        _vm._m(2),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse",
+            attrs: {
+              id: "sucursal3",
+              "aria-labelledby": "headingOne",
+              "data-parent": "#accordion"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "card-body row" },
+              [
+                _c("col-12", [
+                  _c(
+                    "iframe",
+                    {
+                      attrs: {
+                        width: "100%",
+                        height: "250",
+                        src:
+                          "https://maps.google.com/maps?width=100%&height=250&hl=en&coord=-34.607568055102,-58.404725091837&q=Sarmiento%202268%2C%20CABA+(Mates%20Fabi)&ie=UTF8&t=&z=14&iwloc=B&output=embed",
+                        frameborder: "0",
+                        scrolling: "no",
+                        marginheight: "0",
+                        marginwidth: "0"
+                      }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "https://www.maps.ie/create-google-map/"
+                          }
+                        },
+                        [_vm._v("Embed Google Map")]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("col-12", [
+                  _vm._v(
+                    "\n                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, temporibus! Totam accusantium quos cupiditate, eum libero modi explicabo. Vitae corrupti laborum tenetur id voluptas libero iste perferendis culpa modi rerum!\n                   "
+                  )
+                ])
+              ],
+              1
+            )
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "card-header", attrs: { id: "headingOne" } },
+      [
+        _c("h5", { staticClass: "mb-0" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-link",
+              attrs: {
+                "data-toggle": "collapse",
+                "data-target": "#sucursal1",
+                "aria-expanded": "true",
+                "aria-controls": "collapseOne"
+              }
+            },
+            [_vm._v("\n                Mates Fabi Pasteur\n                ")]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "card-header", attrs: { id: "headingTwo" } },
+      [
+        _c("h5", { staticClass: "mb-0" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-link",
+              attrs: {
+                "data-toggle": "collapse",
+                "data-target": "#sucursal2",
+                "aria-expanded": "true",
+                "aria-controls": "collapseOne"
+              }
+            },
+            [_vm._v("\n                Mates Fabi Castelli\n                ")]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "card-header", attrs: { id: "headingTree" } },
+      [
+        _c("h5", { staticClass: "mb-0" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-link",
+              attrs: {
+                "data-toggle": "collapse",
+                "data-target": "#sucursal3",
+                "aria-expanded": "true",
+                "aria-controls": "collapseOne"
+              }
+            },
+            [_vm._v("\n                Mates Fabi Sarmiento\n                ")]
+          )
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-194fa1d2", module.exports)
+  }
+}
+
+/***/ }),
+/* 357 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(358);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(8)("7d64cbe2", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-194fa1d2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./sucursales-mobile.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-194fa1d2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./sucursales-mobile.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 358 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.btn-link[data-v-194fa1d2] {\n  display: block;\n  width: 100%;\n  height: 100%;\n  background-color: #ff0aaf;\n  color: #fff;\n  font-weight: bold;\n}\n.btn-link[data-v-194fa1d2]:hover {\n    cursor: pointer;\n    text-decoration: none;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 359 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(360)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(362)
+/* template */
+var __vue_template__ = __webpack_require__(363)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-7b0b9da8"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/contacto/Contacto.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7b0b9da8", Component.options)
+  } else {
+    hotAPI.reload("data-v-7b0b9da8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 360 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(361);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(8)("727e1be4", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7b0b9da8\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Contacto.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7b0b9da8\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Contacto.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 361 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/***/ }),
+/* 362 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 363 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("h1", [_vm._v("Contactate con Mates Fabi")])])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7b0b9da8", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

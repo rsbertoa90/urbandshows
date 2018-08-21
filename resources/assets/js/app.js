@@ -38,8 +38,10 @@ Vue.component('app-super', require('./components/super/Super.vue'));
 Vue.component('image-logo', require('./components/layout/images/image-logo.vue'));
 Vue.component('app-side-menu', require('./components/layout/Side-menu.vue'));
 
-Vue.component('app-home-a', require('./components/home/HomeA.vue'))
-Vue.component('app-home-b', require('./components/home/HomeB.vue'))
+Vue.component('app-home-a', require('./components/home/HomeA.vue'));
+Vue.component('app-home-b', require('./components/home/HomeB.vue'));
+Vue.component('app-sucursales', require('./components/sucursales/Sucursales.vue'));
+Vue.component('app-contacto', require('./components/contacto/Contacto.vue'));
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 import swal from 'sweetalert';

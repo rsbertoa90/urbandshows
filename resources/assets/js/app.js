@@ -42,6 +42,7 @@ Vue.component('app-home-a', require('./components/home/HomeA.vue'));
 Vue.component('app-home-b', require('./components/home/HomeB.vue'));
 Vue.component('app-sucursales', require('./components/sucursales/Sucursales.vue'));
 Vue.component('app-contacto', require('./components/contacto/Contacto.vue'));
+Vue.component('app-category', require('./components/category/Category.vue'));
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 import swal from 'sweetalert';

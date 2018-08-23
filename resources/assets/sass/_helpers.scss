@@ -107,3 +107,29 @@
     line-height: 1.33;
     border-radius: 35px;
 }
+
+.btn-outline-second{
+    font-weight: bold;
+    border:2px solid $color-second;
+    background-color: #fff;
+    color:$color-second;
+
+    &:hover{
+        color:#fff;
+        background-color:$color-second;
+    
+    }
+}
+
+.btn-outline-focus{
+    font-weight: bold;
+    border:2px solid $color-focus;
+    background-color: #fff;
+    color:$color-focus;
+
+    &:hover{
+        color:#fff;
+        background-color:$color-focus;
+    
+    }
+}

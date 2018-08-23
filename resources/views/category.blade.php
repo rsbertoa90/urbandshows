@@ -7,7 +7,5 @@
 @endsection
 
 @section('contentA')
-    @php
-        dd($meta)
-    @endphp    
+    <app-category category_id="{{$category->id}}"></app-category>
 @endsection

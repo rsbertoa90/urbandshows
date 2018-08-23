@@ -11,6 +11,13 @@ const getters = {
      getCategories(state) {
         return state.categories;
     },
+    getCategory: (state) => (id)=> {
+        if(state.categories.length > 0){
+            return state.categories.find( cat => {
+                return cat.id == id;
+            });
+        }
+    },
     getProducts(state) {
         let prods = [];
         if (state.categories.length > 0){

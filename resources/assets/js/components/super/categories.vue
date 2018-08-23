@@ -27,6 +27,13 @@
                 </div>
                 <div class="p2 row">
                     <label class="col-12 col-lg-4">
+                        Descripcion para HOME
+                    </label>
+                    <textarea rows="5" v-model.lazy="selected.homedescription" @change="save(selected,'homedescription')" 
+                        type="text" class="col-12 col-lg-8 form-control"></textarea>
+                </div>
+                <div class="p2 row">
+                    <label class="col-12 col-lg-4">
                         Meta Titutlo
                     </label>
                     <textarea rows="5" v-model.lazy="selected.metatitle" @change="save(selected,'metatitle')" 
@@ -38,6 +45,17 @@
                     </label>
                     <textarea rows="5" v-model.lazy="selected.metadescription" @change="save(selected,'metadescription')" 
                         type="text" class="col-12 col-lg-8 form-control"></textarea>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <img :src="selected.image" :alt="selected.name">
+                    </div>
+                    <div class="col-6 d-flex align-items-end">
+                        <label class="btn btn-block btn-outline-info btn-file">
+                            Cargar imagen <input @change="bindFile" type="file" style="display: none;" accept="image/*">
+                        </label>
+                    </div>
                 </div>
             </div>
           
@@ -54,10 +72,24 @@ export default {
     },
     data(){
         return{
-            selected : null
+            selected : null,
+           
         }
     },
     methods :{
+        bindFile(e){
+             var fileUploadFormData=new FormData();
+            var file = e.target.files[0];
+            var ext = file.name.split('.').pop();
+            if (ext == 'png' || ext == 'jpg' || ext == 'jpeg' || ext == 'gif' || ext == webp){
+                fileUploadFormData.append('image', e.target.files[0]);
+                fileUploadFormData.append('id', this.selected.id);
+                this.$http.post('/super/category/image', fileUploadFormData)
+                        .then(response => {
+                           window.location.replace('/super');
+                        });
+            }
+        },
         save(category,field){
             var data = {
                 id : category.id,

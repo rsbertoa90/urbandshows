@@ -11,7 +11,7 @@
                                             :alt="category.name">
                     <div class="card-body">
                         <h5 class="card-title" itemprop="name"> {{category.name | ucFirst}} </h5>
-                        <p v-if="category.description" class="card-text" itemprop="description"> {{category.description}} </p>
+                        <p v-if="category.homedescription" class="card-text crop-text" itemprop="description"> {{category.homedescription}} </p>
                     </div>
                 </a>
             </div>

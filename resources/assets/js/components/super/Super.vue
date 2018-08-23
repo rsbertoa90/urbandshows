@@ -2,10 +2,14 @@
     
     <div class="row">
         <div class="col-12">
+            <hr>
             <super-categories></super-categories>
+            <hr>
         </div>
-        <div class="col-12">
+        <div class="col-12 mt-4">
+            <hr>
             <super-metadata></super-metadata>
+            <hr>
         </div>
         
     </div>

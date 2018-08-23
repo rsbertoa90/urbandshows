@@ -6,12 +6,12 @@
                 :key="category.id">
                 
                 <div class="card" itemscope itemtype="https://schema.org/Product">
-                    <a :href="'/'+category.slug"  class="d-block w-100" itemprop="url">
+                    <a :href="category.slug"  class="d-block w-100" itemprop="url">
                         <img itemprop="image" class="card-img-top" :src="category.image" 
                                                 :alt="category.name">
                         <div class="card-body">
                             <h5 class="card-title" itemprop="name"> {{category.name | ucFirst}} </h5>
-                            <p v-if="category.description" class="card-text" itemprop="description"> {{category.description}} </p>
+                            <p v-if="category.homedescription" class="card-text crop-text" itemprop="description"> {{category.homedescription}} </p>
                         </div>
                     </a>
                 </div>
@@ -51,6 +51,6 @@ export default {
     margin-right: auto;
   }
   .swiper-slide {
-    height: 350px;
+    height: 400px;
   }
 </style>

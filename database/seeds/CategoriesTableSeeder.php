@@ -18,13 +18,16 @@ class CategoriesTableSeeder extends Seeder
           'mates',
           'sets',
           'termos',
+          'combos materos',
           'bolsos',
+          'maderas y tablas',
+          'marroquineria',
+          'vasos y chops',
+          'set yerbera y azucarera'
         ];
         $categories = [];
         foreach ($category_names as $name) {
-          $category = new Category();
-          $category->name = $name;
-          $category->save();
+          factory(App\Category::class)->create(['name'=>$name]);
         }
     }
 }

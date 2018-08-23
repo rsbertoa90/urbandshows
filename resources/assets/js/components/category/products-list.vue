@@ -17,7 +17,7 @@
                             <h5>${{product.price}}</h5>
 
                         </div>
-                        <div class="h-50">
+                        <div class="h-50 d-flex align-items-end ml-2">
                             <p> {{product.description}} </p>
                         </div>
                         <div class="h-25">

@@ -13,7 +13,7 @@
                     <div class="card-body p-0">
                         <h5 class="card-title font-weight-bold">{{product.name}}</h5>
                         <h5 class="card-subtitle">${{product.price}}</h5>
-                        <p class="card-text"> {{product.description}} </p>
+                      <!--   <p class="card-text"> {{product.description}} </p> -->
                         <a :href="product.slug" class="btn btn-outline-focus">Ver mas</a>
                     </div>
                 </div>

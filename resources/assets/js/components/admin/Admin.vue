@@ -63,7 +63,8 @@
                                         
                                         <td class="text-info text-center"> 
                                             $<input style="width:80%" type="number" v-model.lazy="product.price" @change="saveChange(product,'price')"> 
-                                            </td>                
+                                            <button class="btn btn-block mt-3" :class="{'bg-focus white-bold':product.offer}" @click="toggleOffer(product)">Oferta</button>
+                                        </td>                
                                         <td>
                                             <button @click.prevent="deleteProduct(product)" class="btn btn-sm btn-outline-danger m-1">
                                                 <i class="fa fa-trash"></i>
@@ -104,6 +105,19 @@ import adminCreate from './Create.vue';
             }
         },
         methods : {
+            toggleOffer(product){
+                product.offer = ! product.offer;
+                var data = {
+                    id : product.id,
+                    field : 'offer',
+                    value : product.offer ? 1 : 0
+                }
+                $.ajax({
+                    method : 'put',
+                    data : data,
+                    url : '/admin/product'
+                });
+            },
             togglePause(product){
                 var vm = this;
                 product.paused = !product.paused;
@@ -170,7 +184,7 @@ import adminCreate from './Create.vue';
                 $.ajax({
                     method : 'put',
                     data : data,
-                    url : '/admin/product/update'
+                    url : '/admin/product'
                 });
             },
             imgModal(product){

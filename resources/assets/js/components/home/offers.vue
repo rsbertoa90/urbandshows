@@ -1,11 +1,11 @@
 
 <template>
-<div class="container" >
+<div class="container" v-if="offers.length > 0" >
   <hr>
   <h2 class="mb-4">Ofertas de Mates Fabi</h2>
       <!-- swiper -->
       <swiper :options="swiperOption" v-if="render">
-        <swiper-slide v-if="offers.length > 0" v-for="product in offers" :key="product.id">
+        <swiper-slide  v-for="product in offers" :key="product.id">
             <div class="card" itemscope itemtype="https://schema.org/Product">
                 <img class="card-img card-img-top" 
                       :src="product.images[0].url"
@@ -17,8 +17,11 @@
                   </div>
                 <div class="card-body">
                     <h5 class="card-title" itemprop="name"> {{product.name | ucFirst}}  </h5>
-                    <h5 class="second">  ${{product.price | price}} </h5>
-                    <p class="card-text" itemprop="description"> {{product.description}}</p>
+                    <h4 class="second">  
+                      ${{product.price | price}} 
+                    </h4>
+                      <strike v-if="product.offer" class="text-secondary"> ${{product.price * 1.67 | price}}</strike> 
+                    <p class="card-text crop-text" itemprop="description"> {{product.description}}</p>
                     <a :href="'/'+product.category.slug+'/'+product.slug" class="btn bg-second white-bold"> Ver mas</a>
                 </div>
             </div>
@@ -86,6 +89,8 @@
 </script>
 
 <style scoped>
+
+
   .badge{
     font-size: 1.2rem;
   }

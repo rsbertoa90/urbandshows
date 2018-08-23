@@ -17,6 +17,7 @@ Auth::routes();
 Route::middleware('CheckSuper')->prefix('super')->group(function(){
     Route::get('/', 'SuperController@panel');
 
+    Route::post('/category/image','CategoryController@uploadImage')->middleware('OptimizeImages');
 
     Route::put('/metadata','MetadataController@update');
 });
@@ -32,6 +33,7 @@ Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
 
 
     Route::post('/product','ProductController@create');
+    Route::put('/product','ProductController@update');
 
     Route::post('/product/image','ProductImageController@create')->middleware('OptimizeImages');
     Route::delete('/product/image/{id}','ProductImageController@destroy');

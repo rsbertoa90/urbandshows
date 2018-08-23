@@ -11,6 +11,17 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
 
+    public function uploadImage(Request $request)
+    {
+        $category = Category::find($request->id);
+        $file = $request->file('image');
+        $ext = $file->getClientOriginalExtension();
+        $path = $file->storeAs('/images/categories',$category->slug.'.'.$ext);
+        $category->image = '/storage/'.$path;
+        $category->save();
+        return $category;
+    }
+
     public static function detail($slug)
     {   
        $category = Category::where('slug','/'.$slug)->get()->first();

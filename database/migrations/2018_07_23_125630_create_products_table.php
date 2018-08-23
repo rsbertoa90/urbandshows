@@ -30,7 +30,7 @@ class CreateProductsTable extends Migration
             $table->boolean('paused')->default(false);
             $table->integer('pck_units')->default(1);
             $table->integer('pck_price')->default(0);
-            $table->boolean('offer')->default(true);
+            $table->boolean('offer')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

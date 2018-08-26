@@ -74535,7 +74535,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "row ml-1 ml-lg-0" }, [
         _c("div", { staticClass: "col-12 col-lg-8 p-1" }, [
           _c(
             "a",
@@ -74552,24 +74552,30 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 col-lg-4 row p-1" }, [
-          _c("div", { staticClass: "small-banner col-12 p-0 p-lg-2 ml-lg-4" }, [
-            _c(
-              "a",
-              { staticClass: "w-100 d-block", attrs: { href: "/cotizer" } },
-              [
-                _c("img", {
-                  attrs: {
-                    src: "/storage/images/app/regalos-empresariales.png",
-                    alt: "regalos-empresariales"
-                  }
-                })
-              ]
-            )
-          ]),
+          _c(
+            "div",
+            {
+              staticClass: "small-banner mt-1 mt-lg-0 col-12 p-0 p-lg-2 ml-lg-4"
+            },
+            [
+              _c(
+                "a",
+                { staticClass: "w-100 d-block", attrs: { href: "/cotizer" } },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "/storage/images/app/regalos-empresariales.png",
+                      alt: "regalos-empresariales"
+                    }
+                  })
+                ]
+              )
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "small-banner mt-lg-1 col-12 p-0 p-lg-2 ml-lg-4" },
+            { staticClass: "small-banner mt-1 col-12 p-0 p-lg-2 ml-lg-4" },
             [
               _c(
                 "a",
@@ -74591,7 +74597,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "small-banner mt-lg-1 col-12 p-0 p-lg-2 ml-lg-4" },
+            { staticClass: "small-banner mt-1 col-12 p-0 p-lg-2 ml-lg-4" },
             [
               _c(
                 "a",

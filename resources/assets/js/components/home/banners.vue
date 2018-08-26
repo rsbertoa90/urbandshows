@@ -3,7 +3,7 @@
         <div class="row ml-1 ml-lg-0">
             <div class="col-12 col-lg-8 p-1">
                 <a href="/cotizador" class="w-100 d-block">
-                    <img src="/storage/images/app/cotizador.gif" alt="cotizador">
+                   <img src="/storage/images/app/cotizador.gif" alt="cotizador">
                 </a>
             </div>
             <div class="col-12 col-lg-4 row p-1">

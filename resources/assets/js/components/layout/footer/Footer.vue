@@ -10,7 +10,7 @@
                 <h5 class="col-12 col-lg-5 text-center">Recibir novedades por mail</h5>
                 <form class="form-inline col-12 col-lg-7 d-flex justify-content-center align-items-center">
                       <div class="input-group w-100">
-                        <input type="text" class="form-control" 
+                        <input aria-label="Tu email aqui" type="text" class="form-control" 
                                 placeholder="TuMailAqui@correo.com">
                         <div class="input-group-prepend">
                             <button class="white-bold input-group-text bg-second d-flex justify-content-center" 
@@ -26,9 +26,9 @@
         <div class="row">
             <div class="col-12 col-lg-4 row">
                 <div class="col-2 offset-1  ">
-                    <button class="mt-2 btn  btn-circle bg-second white-bold">
+                    <div class="mt-2 btn  btn-circle bg-second white-bold">
                         <span class="fa fa-map-marker"></span>
-                    </button>
+                    </div>
                 </div>
                 <div class="col-9">
                     <ul>
@@ -41,9 +41,9 @@
             </div>
             <div class="col-12 col-lg-4 row">
                 <div class="col-2 offset-1  ">
-                    <button class="mt-2 btn  btn-circle bg-second white-bold">
+                    <div class="mt-2 btn  btn-circle bg-second white-bold">
                         <span class="fa fa-envelope"></span>
-                    </button>
+                    </div>
                 </div>
                 <div class="col-9 mt-3">
                    <p>Email: MatesFabi@gmail.com  </p>
@@ -51,9 +51,9 @@
             </div>
             <div class="col-12 col-lg-4 row">
                 <div class="col-2 offset-1  ">
-                    <button class="mt-2 btn  btn-circle bg-second white-bold">
+                    <div class="mt-2 btn  btn-circle bg-second white-bold">
                         <span class="fa fa-whatsapp"></span>
-                    </button>
+                    </div>
                 </div>
                 <div class="col-9 mt-3">
                     <p> 11 3008 5414 </p>

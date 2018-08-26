@@ -11,7 +11,7 @@
                         @close="showMenu=false"></overlay-menu>
         </transition>
              <nav class="navbar navbar-expand-lg navbar-dark bg-first row">
-             <button class="navbar-toggler col-1 offset-1 bg-second d-flex justify-content-center align-items-center
+             <button aria-label="menu" class="navbar-toggler col-1 offset-1 bg-second d-flex justify-content-center align-items-center
                             text-white font-weight-bold" 
                      @click="showMenu = true" >
                 <span class="fa fa-bars"></span>
@@ -19,9 +19,10 @@
             <form class="form-inline col-10">
                 <div class="input-group">
                     <input type="text" class="form-control" 
+                            aria-label="Buscar productos"
                             placeholder="Que estas buscando?">
                     <div class="input-group-prepend">
-                        <span class="input-group-text bg-second d-flex justify-content-center" id="basic-addon1">
+                        <span class="input-group-text bg-second d-flex justify-content-center" id="search-addon">
                             <span class="fa fa-search text-white font-weight-bold">
                             </span>
                         </span>

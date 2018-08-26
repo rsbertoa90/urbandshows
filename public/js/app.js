@@ -74475,7 +74475,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.row[data-v-0fb473ae], a[data-v-0fb473ae]{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n@media(min-width: 990px){\n.small-banner[data-v-0fb473ae]\n    {\n        max-width: 89%;\n        padding : 5px 15px ;\n}\n}\n", ""]);
+exports.push([module.i, "\n.row[data-v-0fb473ae], a[data-v-0fb473ae]{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.small-banner[data-v-0fb473ae]\n    {\n        width: 100%;\n        padding : 5px 15px ;\n}\n@media(max-width: 990px){\n.small-banner[data-v-0fb473ae]{\n        padding: 0;\n        margin:15px 0px;\n}\n}\n", ""]);
 
 // exports
 
@@ -74552,70 +74552,50 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 col-lg-4 row p-1" }, [
-          _c(
-            "div",
-            {
-              staticClass: "small-banner mt-1 mt-lg-0 col-12 p-0 p-lg-2 ml-lg-4"
-            },
-            [
-              _c(
-                "a",
-                { staticClass: "w-100 d-block", attrs: { href: "/cotizer" } },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/storage/images/app/regalos-empresariales.png",
-                      alt: "regalos-empresariales"
-                    }
-                  })
-                ]
-              )
-            ]
-          ),
+          _c("div", { staticClass: "small-banner" }, [
+            _c(
+              "a",
+              { staticClass: "w-100 d-block", attrs: { href: "/cotizer" } },
+              [
+                _c("img", {
+                  attrs: {
+                    src: "/storage/images/app/regalos-empresariales.png",
+                    alt: "regalos-empresariales"
+                  }
+                })
+              ]
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "small-banner mt-1 col-12 p-0 p-lg-2 ml-lg-4" },
-            [
-              _c(
-                "a",
-                {
-                  staticClass: "w-100 d-block",
-                  attrs: { href: "/sucursales" }
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/storage/images/app/sucursales.png",
-                      alt: "sucursales"
-                    }
-                  })
-                ]
-              )
-            ]
-          ),
+          _c("div", { staticClass: "small-banner " }, [
+            _c(
+              "a",
+              { staticClass: "w-100 d-block", attrs: { href: "/sucursales" } },
+              [
+                _c("img", {
+                  attrs: {
+                    src: "/storage/images/app/sucursales.png",
+                    alt: "sucursales"
+                  }
+                })
+              ]
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "small-banner mt-1 col-12 p-0 p-lg-2 ml-lg-4" },
-            [
-              _c(
-                "a",
-                {
-                  staticClass: "w-100 d-block",
-                  attrs: { href: "/franquicia" }
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/storage/images/app/franquicia.png",
-                      alt: "franquicia"
-                    }
-                  })
-                ]
-              )
-            ]
-          )
+          _c("div", { staticClass: "small-banner " }, [
+            _c(
+              "a",
+              { staticClass: "w-100 d-block", attrs: { href: "/franquicia" } },
+              [
+                _c("img", {
+                  attrs: {
+                    src: "/storage/images/app/franquicia.png",
+                    alt: "franquicia"
+                  }
+                })
+              ]
+            )
+          ])
         ])
       ])
     ])

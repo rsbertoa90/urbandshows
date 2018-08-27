@@ -1,24 +1,37 @@
 <template>
-    <div class="">
+    <div class="" v-if="user">
         <h5>Envianos tu pedido</h5>
         <p>Recibiras confirmacion de tu presupuesto por email</p>
         <form class="col-12">
                
+               <div v-if="user.role_id > 2" class="col-12 row form-group-row">
+                   <label class="col-4 col-lg-4" for="">Nombre</label>
+                   <input required type="text" v-model="formData.client"  class="form-control col-8 col-lg-4">
+                </div> 
+                 <div v-if="user.role_id < 3" class="col-12 row form-group-row">
+                   <label class="col-4 col-lg-4" for="">Nombre del vendedor</label>
+                   <input required type="text" v-model="formData.seller"  class="form-control col-8 col-lg-4">
+                </div> 
+               <div v-if="user.role_id < 3" class="col-12 row form-group-row">
+                   <label class="col-4 col-lg-4" for="">Nombre del cliente</label>
+                   <input required type="text" v-model="formData.client"  class="form-control col-8 col-lg-4">
+                </div> 
+              
                <div class="col-12 row form-group-row">
-                   <label class="col-4 col-lg-2" for="">Email</label>
-                   <input required type="email" v-model="formData.email"  class="form-control col-8 col-lg-4">
+                   <label class="col-4 col-lg-4" for="">Email</label>
+                   <input :required="user.role_id > 2" type="email" v-model="formData.email"  class="form-control col-8 col-lg-4">
                 </div> 
                <div class="col-12 row form-group-row">
-                   <label class="col-4 col-lg-2" for="">Telefono</label>
+                   <label class="col-4 col-lg-4" for="">Telefono</label>
                    <input v-model="formData.phone" type="text" class="form-control col-8 col-lg-4">
                 </div> 
                <div class="col-12 row form-group-row">
-                   <label class="col-4 col-lg-2" for="">Mensaje</label>
+                   <label class="col-4 col-lg-4" for="">Mensaje</label>
                    <textarea v-model="formData.msg" name="msg" class="form-control col-8 col-lg-4"></textarea>
                 </div> 
 
-               <div class="col-12 row form-group-row mt-2">
-                   <div class="col-12 col-lg-3 offset-lg-2 p-0">
+               <div v-if="user.role_id > 2" class="col-12 row form-group-row mt-2">
+                   <div class="col-12 col-lg-5 offset-lg-2 p-0">
                         <button formnovalidate @click.prevent.stop="ship = false"
                             class="btn btn-block"
                             :class="{'btn-outline-info' : ship,
@@ -26,7 +39,7 @@
                             Retiro en el local                
                         </button>
                    </div>
-                    <div class="col-12 col-lg-3 p-0">
+                    <div class="col-12 col-lg-5 p-0">
                         <button formnovalidate @click.prevent.stop="ship = true"
                                 class="btn btn-block"
                                 :class="{'btn-outline-success' : !ship,
@@ -35,7 +48,7 @@
                         </button>
                     </div>
                 </div> 
-                <div class="col-12 row form-group-row">
+                <div v-if="user.role_id > 2" class="col-12 row form-group-row">
                     <span class="offset-2 text-danger" v-if="!ship">*El minimo de compra retirando en el local es de ${{minBuy}}</span>
                     <span class="offset-2 text-danger" v-if="ship">*El minimo de compra para envios es de ${{minBuy}} </span>
                 </div> 
@@ -60,24 +73,33 @@ export default{
             msg : '',
             phone : '',
             email : '',
+            client:'',
+            seller:''
         },
         ship : false,
        
     }},
     computed : {
         minBuy(){
-            return this.ship ? 3000 : 1500 ;
+           if(this.user && this.user.role_id > 2)
+           {
+              return this.ship ? 3000 : 1500 ;
+           }
+           return 1;
+        },
+        user(){
+            return this.$store.getters.getUser;
         }
     },
-
+    
     methods : {
         formValid()
         {
-            if (this.formData.email.length < 4)
+            if (this.formData.email.length < 4 && this.user.role_id > 2)
             {
                 swal('Hay algo mal con el mail','','error');
                 return false;
-            }else if (this.formData.list.length <= 0) 
+            }else if (this.list.length <= 0) 
             {   
                 swal('No hay productos seleccionados','','error');
                 return false;
@@ -91,9 +113,11 @@ export default{
             if (this.formValid()){
 
                 var data = {
-                    msg : this.formData.msg,
+                    message : this.formData.msg,
                     phone : this.formData.phone,
                     email : this.formData.email,
+                    client : this.formData.client,
+                    seller :this.formData.seller,
                     list : JSON.stringify(this.list),
                     total : this.total
                 };
@@ -102,8 +126,16 @@ export default{
                     method : 'post',
                     data : data,
                     url : '/cotizer/send',
-                    success(){
-                        swal('Enviamos tu presupuesto. Te estaremos contactando a la brevedad');
+                    success(r){
+                        console.log(r);
+                        if(vm.user.role_id > 2){
+                            swal('Enviamos tu presupuesto', 'Te estaremos contactando a la brevedad','success')
+                                .then(confirm => {window.location.replace('/')});
+                        }
+                        else{
+                            swal('Orden guardada', 'Revisa el panel de administracion deordenes','success')
+                                .then(confirm =>{window.location.replace('/admin/cotizador')});
+                        }
                     } 
                 });
             }

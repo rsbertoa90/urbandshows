@@ -31,6 +31,16 @@ class Product extends Model
           });
     }
 
+    public function getPriceAttribute($val)
+    {
+        return $val/100;
+    }
+
+    public function setPriceAttribute($val)
+    {
+        $this->attributes['price']= $val*100;
+    }
+
 
       
 

@@ -43,6 +43,7 @@ Vue.component('app-home-b', require('./components/home/HomeB.vue'));
 Vue.component('app-sucursales', require('./components/sucursales/Sucursales.vue'));
 Vue.component('app-contacto', require('./components/contacto/Contacto.vue'));
 Vue.component('app-category', require('./components/category/Category.vue'));
+Vue.component('admin-orders',require('./components/admin/Orders.vue'))
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 import swal from 'sweetalert';
@@ -103,11 +104,15 @@ const app = new Vue({
     store,
     methods : {
         ...mapActions({
-            fetchCategories : 'categories/fetch'
-        })
+            fetchCategories : 'categories/fetch',
+            fetchUser : 'fetchUser',
+        }),
+        
+
     },
     created()
-    {
+    { 
         this.fetchCategories();
+        this.fetchUser();
     }
 });

@@ -15,25 +15,47 @@ class UsersTableSeeder extends Seeder
     {
  
 
-      $employee = new User();
-      $employee->name = 'user';
-      $employee->email = 'user@gmail.com';
-      $employee->password = bcrypt('secret');
-      $employee->role_id =3 ;
-      $employee->save();
 
       $manager = new User();
-      $manager->name = 'admin';
-      $manager->email = 'admin@gmail.com';
-      $manager->password = bcrypt('admin');
+      $manager->name = 'Sucursal Pasteur';
+      $manager->email = 'sucursalpasteur@matesfabi.com';
+      $manager->password = bcrypt('pasteur');
+       $manager->role_id =2 ;
+      $manager->save();
+      
+      $manager = new User();
+      $manager->name = 'Sucursal Castelli';
+      $manager->email = 'sucursalcastelli@matesfabi.com';
+      $manager->password = bcrypt('castelli');
+       $manager->role_id =2 ;
+      $manager->save();
+      
+      $manager = new User();
+      $manager->name = 'Sucursal Sarmiento';
+      $manager->email = 'sucursalsarmiento@matesfabi.com';
+      $manager->password = bcrypt('sarmiento');
+       $manager->role_id =2 ;
+      $manager->save();
+      
+      $manager = new User();
+      $manager->name = 'Pedidos online';
+      $manager->email = 'pedidosonline@matesfabi.com';
+      $manager->password = bcrypt('online');
        $manager->role_id =2 ;
       $manager->save();
 
       $super = new User();
-      $super->name = 'super';
-      $super->email = 'super@gmail.com';
-      $super->password = bcrypt('super');
-       $super->role_id =1 ;
+      $super->name = 'Gise';
+      $super->email = 'roominagii@gmail.com';
+      $super->password = bcrypt('roominagii');
+      $super->role_id =1 ;
+      $super->save();
+
+      $super = new User();
+      $super->name = 'Rodrigo';
+      $super->email = 'rsbertoa90@gmail.com';
+      $super->password = bcrypt('rsbertoa90');
+      $super->role_id =1 ;
       $super->save();
    
     }

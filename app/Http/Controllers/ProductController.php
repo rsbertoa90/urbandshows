@@ -88,10 +88,12 @@ class ProductController extends Controller
      */
     public function update(Request $request)
     {
+      
         $field = $request->field;
-        $product = Product::find($request->id);
+        $product = Product::find($request->product);
         $product->$field = $request->value;
         $product->save();
+        return $product;
     }
 
     /**

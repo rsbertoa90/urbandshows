@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import moment from 'moment';
+window.moment = moment;
 
 Vue.filter('price', value => {
     if (value % 1 != 0) {
@@ -6,6 +8,11 @@ Vue.filter('price', value => {
     }
     return value;
 });
+
+
+ Vue.filter('datetime', val => {
+    return moment(val).format('DD/MM/YYYY H:mm');
+ });
 
 Vue.filter('slug', str => {
 

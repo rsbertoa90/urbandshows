@@ -1,6 +1,7 @@
 <template>
     <div class="container">   
-      <h1>Hace tu pedido</h1>
+      <h1 v-if="user && user.role_id > 2">Hace tu pedido</h1>
+        <h1 v-else>Tomar pedido</h1>
              <hr>
         <div id="accordion">
             <div v-for="category in categories" 
@@ -50,9 +51,7 @@
                                         </div>
                                    
                                    </td>
-                                   <td v-else>
-                                       <span class="text-danger">Sin Stock</span>
-                                   </td>
+                                  
                                    
                                    <td v-if="! product.units && $mq != 'sm'" class="text-success font-weight-bold"> 0 </td>
                                    <td v-else-if="$mq != 'sm'" class="text-success font-weight-bold">$ {{ (product.units * product.price).toFixed(2) }}  </td>
@@ -109,14 +108,15 @@
                     }
                     
                 });
-                // console.log([].concat.apply([], result));       
+                   
                 vm.list = [].concat.apply([], result);
-                // console.log(vm.list);
+               
             }
         },
         computed: {
             ...mapGetters({
-                categories : 'categories/getCategories'
+                categories : 'categories/getCategories',
+               user : 'getUser'
             }),
             
             total() {
@@ -151,6 +151,9 @@
 </script>
 
 <style scoped>
+.container{
+    margin-bottom: 100px;
+}
     input[type="number"]{
         max-width: 70px;
     }

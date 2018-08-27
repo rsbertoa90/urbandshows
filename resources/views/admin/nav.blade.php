@@ -2,15 +2,24 @@
     <div class="nav-text">
         Administracion - Mates Fabi
     </div>
-    @if ($user->role_id == 1 )
+   
+    <div class="nav-text">
+        <a href="/admin">Administrar productos</a>
+    </div>
         <div class="nav-text">
-            <a href="/admin">Administrar productos</a>
-        </div>
+        <a href="/admin/cotizador">Cotizador</a>
+    </div>
+    <div class="nav-text">
+        <a href="/admin/ordenes">Mis pedidos</a>
+    </div>
+    <div class="nav-text">
+        <a href="/logout">Salir</a>
+    </div>
+
+     @if ($user->role_id == 1 )
         <div class="nav-text">
             <a href="/super">Panel de Super Usuario</a>
         </div>
-        @endif
-            <div class="nav-text">
-                <a href="/logout">Salir</a>
-            </div>
+    @endif
+    
 </div>

@@ -1,18 +1,14 @@
 <template>
     <div class="container">   
         
-         <div v-if="$mq == 'sm'" class="w-100 d-flex flex-column align-items-center jusify-content-center">
-            <h2 class="text-warning p-3 text-center">
-                Lo sentimos. El administrador no esta disponible en dispositivos moviles.
-            </h2>
-            <br><br>
-            
-        </div>
-        <div v-else>
+     
+        <div>
            
-             <div class="row w-100 d-flex justify-content-center">
+             <!-- <div class="row w-100 d-flex justify-content-center">
                  <img src="/storage/images/app/logo.png" style="width : 200px ; height: 110px" alt="logo">
-             </div>  
+             </div>  --> 
+                <hr>
+                <h1>Administrar Productos</h1>
              <hr>
                 <admin-create :categories="categories" @productSaved="refresh"></admin-create>
                 <hr>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Metadata;
 use App\Product;
 use App\Category;
+use App\User;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 
@@ -32,8 +33,7 @@ class HomeController extends Controller
 
         if (Auth::check() && Auth::user()->isAdmin())
         {
-           
-            return redirect('/admin');
+            return redirect('/admin/cotizador');
         }
 
         $meta = Metadata::getPage('home');
@@ -41,6 +41,20 @@ class HomeController extends Controller
     }
 
 
+    public function getUser()
+    {
+        if(Auth::check())
+        {
+            return Auth::user();
+        }
+        else{
+            $user = new User(['name'=>'guest',
+                              'email'=>'guest@guest.com']);
+            $user->role_id = 3;
+            return $user;
+        } 
+            
+    }
 
     public function cotizer()
     {

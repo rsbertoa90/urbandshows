@@ -26,7 +26,7 @@ Route::middleware('CheckSuper')->prefix('super')->group(function(){
 Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
 
     Route::get('/','AdminController@tableView');
-    
+    Route::get('/cotizador','AdminController@cotizador');
 
     Route::post('/category','CategoryController@create');
     Route::put('/category','CategoryController@update');
@@ -37,6 +37,10 @@ Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
 
     Route::post('/product/image','ProductImageController@create')->middleware('OptimizeImages');
     Route::delete('/product/image/{id}','ProductImageController@destroy');
+
+    Route::put('/order','OrderController@edit');
+    Route::get('/ordenes','AdminController@orders');
+    Route::get('/getOrders','OrderController@getOrders');
 });
 
 
@@ -56,7 +60,14 @@ Route::get('/logout',function(){
 Auth::routes();
 
 
+Route::get('/getUser','HomeController@getUser');
+
+Route::post('cotizer/send','OrderController@create');
+
+
+
+/* ESTAS RUTAS SIEMPRE AL FINAL */
+
 Route::get('/{category}','CategoryController@detail');
 
 Route::get('/{category}/{product}','ProductController@detail');
-

@@ -1,11 +1,18 @@
 <template>
     <div class="border border-primary p-3 mt-3">
         <div>
-            <div>
-                <span class="font-weight-bold text-primary">Fecha: {{order.created_at | datetime}} </span> <br>
-                <span class="font-weight-bold text-primary" v-if="order.seller">Vendedor: {{order.seller}} </span>
-                <span v-if="order.comments"
-                        class="mt-2"> -- {{order.comments}} -- </span>
+            <div class="row">
+                <div class="col-12">
+                    <span class="font-weight-bold text-primary">Fecha: {{order.created_at | datetime}} </span> <br>
+                </div>
+                <div class="col-12">
+                    <span class="font-weight-bold text-primary" v-if="order.seller">Vendedor: {{order.seller}} </span>
+                </div>
+                <div class="col-12">
+                
+                <span class="font-weight-bold text-primary mt-2"  
+                        v-if="order.message" >Mensaje adjunto: " {{order.message}} " </span>
+                </div>
             </div>
             <table class="table table-striped table-bordered mt-3">
             <thead>
@@ -86,6 +93,14 @@
                 </button>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12">
+            <hr>
+            <label class="label" >Comentarios</label>
+            <textarea @change="saveComments" v-model.lazy="order.comments" 
+                    class="form-control" rows="5"></textarea>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -98,6 +113,14 @@ export default {
         }        
     },
     methods : {
+        saveComments(){
+            let data = {
+                order : this.order.id,
+                field : 'comments',
+                value : this.order.comments
+            }
+            this.$http.put('/admin/order',data);
+        },
         setStatus(status){
             var vm = this;
             this.order.status = status;

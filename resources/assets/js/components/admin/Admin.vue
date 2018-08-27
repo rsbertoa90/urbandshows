@@ -177,6 +177,10 @@ import adminCreate from './Create.vue';
                     field : field,
                     value : product[field]
                 }
+                if (data.field == 'paused')
+                {
+                    data.value = data.value ? 1 : 0;
+                }
                 $.ajax({
                     method : 'put',
                     data : data,

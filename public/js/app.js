@@ -87448,6 +87448,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 field: field,
                 value: product[field]
             };
+            if (data.field == 'paused') {
+                data.value = data.value ? 1 : 0;
+            }
             $.ajax({
                 method: 'put',
                 data: data,
@@ -94863,6 +94866,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['order'],
@@ -94871,6 +94889,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
+        saveComments: function saveComments() {
+            var data = {
+                order: this.order.id,
+                field: 'comments',
+                value: this.order.comments
+            };
+            this.$http.put('/admin/order', data);
+        },
         setStatus: function setStatus(status) {
             var vm = this;
             this.order.status = status;
@@ -94914,26 +94940,38 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "border border-primary p-3 mt-3" }, [
     _c("div", [
-      _c("div", [
-        _c("span", { staticClass: "font-weight-bold text-primary" }, [
-          _vm._v(
-            "Fecha: " + _vm._s(_vm._f("datetime")(_vm.order.created_at)) + " "
-          )
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12" }, [
+          _c("span", { staticClass: "font-weight-bold text-primary" }, [
+            _vm._v(
+              "Fecha: " + _vm._s(_vm._f("datetime")(_vm.order.created_at)) + " "
+            )
+          ]),
+          _vm._v(" "),
+          _c("br")
         ]),
         _vm._v(" "),
-        _c("br"),
+        _c("div", { staticClass: "col-12" }, [
+          _vm.order.seller
+            ? _c("span", { staticClass: "font-weight-bold text-primary" }, [
+                _vm._v("Vendedor: " + _vm._s(_vm.order.seller) + " ")
+              ])
+            : _vm._e()
+        ]),
         _vm._v(" "),
-        _vm.order.seller
-          ? _c("span", { staticClass: "font-weight-bold text-primary" }, [
-              _vm._v("Vendedor: " + _vm._s(_vm.order.seller) + " ")
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.order.comments
-          ? _c("span", { staticClass: "mt-2" }, [
-              _vm._v(" -- " + _vm._s(_vm.order.comments) + " -- ")
-            ])
-          : _vm._e()
+        _c("div", { staticClass: "col-12" }, [
+          _vm.order.message
+            ? _c(
+                "span",
+                { staticClass: "font-weight-bold text-primary mt-2" },
+                [
+                  _vm._v(
+                    'Mensaje adjunto: " ' + _vm._s(_vm.order.message) + ' " '
+                  )
+                ]
+              )
+            : _vm._e()
+        ])
       ]),
       _vm._v(" "),
       _c("table", { staticClass: "table table-striped table-bordered mt-3" }, [
@@ -95095,6 +95133,37 @@ var render = function() {
             )
           ])
         : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("hr"),
+        _vm._v(" "),
+        _c("label", { staticClass: "label" }, [_vm._v("Comentarios")]),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model.lazy",
+              value: _vm.order.comments,
+              expression: "order.comments",
+              modifiers: { lazy: true }
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { rows: "5" },
+          domProps: { value: _vm.order.comments },
+          on: {
+            change: [
+              function($event) {
+                _vm.$set(_vm.order, "comments", $event.target.value)
+              },
+              _vm.saveComments
+            ]
+          }
+        })
+      ])
     ])
   ])
 }

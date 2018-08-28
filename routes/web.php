@@ -62,8 +62,9 @@ Auth::routes();
 
 Route::get('/getUser','HomeController@getUser');
 
-Route::post('cotizer/send','OrderController@create');
+Route::post('/cotizer/send','OrderController@create');
 
+Route::get('/lista-de-precios','PdfController@prices');
 
 
 /* ESTAS RUTAS SIEMPRE AL FINAL */

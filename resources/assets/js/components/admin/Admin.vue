@@ -9,26 +9,47 @@
              </div>  --> 
                 <hr>
                 <h1>Administrar Productos</h1>
-             <hr>
-                <admin-create :categories="categories" @productSaved="refresh"></admin-create>
+                <button @click="toggleHidePrices" 
+                        v-if="config && !config.hide_prices" class="btn btn-lg btn-outline-danger">
+                    Ocultar precios al publico
+                </button>
+                <button @click="toggleHidePrices" v-else class="btn btn-lg btn-outline-success">
+                    Mostrar precios al publico
+                </button>
                 <hr>
-                <div id="accordion">
+                <div class="row w-100">
+                    <div class="col-12 col-lg-8">
+                        <admin-create :categories="categories" @productSaved="refresh"></admin-create>
+                    </div>
+                    <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+                        <h4>Cambiar precios masivo</h4>
+                        <h5> {{selectedProducts.length}} Productos seleccionados </h5>
+                        <button @click="selectAllProducts" class="btn btn-sm btn-outline-danger mb-2">Seleccionar todos</button>
+                        <div class="d-flex justify-content-center"> 
+                            <button class="mr-2" @click="variation-=1">-</button>
+                            <input style="width:45px; text-align-center" type="number" v-model="variation"> %
+                            <button class="ml-2" @click="variation+=1">+</button>
+                        
+                        </div>
+                            <button class="btn btn-md btn-outline-success mt-1" v-if="variation != 0 && selectedProducts.length > 0" @click="applyVariation">Aplicar</button>
+                    </div>
+                </div>
+                <hr>
+                <div >
                     <div v-for="category in categories" :key="category.id" class="card flex-wrap">
                         <div class="card-header" :id="category.id">
-                            <h5 class="mb-0">
-                                <button class="btn  btn-link w-100 btn-block text-left" 
-                                        data-toggle="collapse" 
-                                        :data-target="'#category-'+category.id" 
-                                        aria-expanded="true" 
-                                        :aria-controls="category.name"
-                                       >
-                                {{category.name.ucfirst()}}
-                                </button>
-                            </h5>
+                            <div class="d-flex align-items-center justify-content-start">
+                                
+                                    <input type="checkbox" class=" form-control" 
+                                            v-model="category.selected" @change="categoryChekbox(category)">
+                                    <h5 class="mb-0 ">
+                                        {{category.name.ucfirst()}}
+                                    </h5>
+                            
+                            </div>
                         </div>
-                        <div :id="'category-'+category.id" class="collapse collapsed" 
-                              aria-labelledby="headingOne" 
-                              data-parent="#accordion">
+                        <div :id="'category-'+category.id" class="" 
+                              aria-labelledby="headingOne" >
                             <div class="card-body">
                             <table class="table table-striped table-bordered ">
                                 <thead class="">
@@ -53,15 +74,16 @@
                                             <input v-model.lazy="product.code" @change="saveChange(product,'code')" type="text" class="nametd"> 
                                         </td>
                                         <td>  
-                                            <input placeholder="Nombre" v-model.lazy="product.name" @change="saveChange(product,'name')" type="text" class="nametd"> 
-                                            <textarea placeholder="Descripcion" v-model="product.description" @change="saveChange(product,'description')" rows="5"></textarea>
+                                            <textarea rows="2" placeholder="Nombre" v-model.lazy="product.name" @change="saveChange(product,'name')" type="text"> </textarea> 
+                                            <textarea placeholder="Descripcion" v-model="product.description" @change="saveChange(product,'description')" rows="3"></textarea>
                                         </td>
                                         
                                         <td class="text-info text-center"> 
                                             $<input style="width:80%" type="number" v-model.lazy="product.price" @change="saveChange(product,'price')"> 
                                             <button class="btn btn-block mt-3" :class="{'bg-focus white-bold':product.offer}" @click="toggleOffer(product)">Oferta</button>
                                         </td>                
-                                        <td>
+                                        <td class="d-flex flex-column justify-content-center align-items-center">
+                                            <input type="checkbox" class="form-control" v-model="product.selected">
                                             <button @click.prevent="deleteProduct(product)" class="btn btn-sm btn-outline-danger m-1">
                                                 <i class="fa fa-trash"></i>
                                             </button>
@@ -87,13 +109,33 @@
 <script>
 import imageModal from './Img-modal.vue';
 import adminCreate from './Create.vue';
+import { mapActions } from 'vuex';
     export default {
         components : {
             imageModal : imageModal,
             adminCreate : adminCreate
         },
+        computed : {
+            config(){
+                return this.$store.getters.getConfig;
+            },
+            selectedProducts()
+            {
+                var list =[];
+                this.categories.forEach(cat => {
+                    cat.products.forEach(prod => {
+                        if (prod.selected)
+                        {
+                            list.push(prod);
+                        }
+                    });
+                });
+                return list;
+            }
+        },
         data(){
             return {
+                variation : 0,
                 categories : [],
                 list : [],
                 product : null,
@@ -101,6 +143,24 @@ import adminCreate from './Create.vue';
             }
         },
         methods : {
+             ...mapActions({
+            fetchUser : 'fetchUser',
+            fetchConfig : 'fetchConfig',
+            }),
+            toggleHidePrices(){
+                if (this.config.hide_prices)
+                {
+                    this.config.hide_prices =0;
+                }else{
+                    this.config.hide_prices =1;
+                }
+                var vm = this;
+                this.$http.put('/admin/config',{field:'hide_prices',value:this.config.hide_prices})
+                    .then(response => {
+                       vm.fetchConfig;
+                       console.log(vm.config.hide_prices);
+                    });
+            },
             toggleOffer(product){
                 product.offer = ! product.offer;
                 var data = {
@@ -167,7 +227,7 @@ import adminCreate from './Create.vue';
                 $.ajax({
                     url : 'api/categories',
                     success(response){
-                        vm.categories = response;
+                         vm.categories = _.sortBy(response,'name');
                     }
                 });
             },
@@ -193,6 +253,54 @@ import adminCreate from './Create.vue';
                 let element = this.$refs.modal.$el
                 
                 $(element).modal('show')
+            },
+            categoryChekbox(category)
+            {
+                 if (category.selected == undefined){
+                        Vue.set(category,'selected',true);
+                    }
+                category.products.forEach(product => {     
+                    if (product.selected == undefined)
+                    {
+                        Vue.set(product,'selected',true);
+                    }
+                   product.selected = category.selected;
+                   console.log('product', product.selected);
+                   console.log('category', category.selected);
+                });
+            },
+            selectAllProducts()
+            {
+                this.categories.forEach(cat => {
+                    if(cat.selected == undefined)
+                    {
+                      Vue.set(cat,'selected',true)
+                    }
+                    else {
+                        cat.selected = true;
+                    }
+
+                    cat.products.forEach(prod => {
+                        if (prod.selected == undefined)
+                        {
+                            Vue.set(prod,'selected',true)
+                        }
+                        else {
+                            prod.selected = true;
+                        }
+                    });
+                });
+            },
+            applyVariation()
+            {
+                var vm =this;
+                var variation = 1+(this.variation/100);
+                this.selectedProducts.forEach(prod => {
+                    prod.price = prod.price * variation;
+                    vm.saveChange(prod,'price');
+                });
+                vm.refresh();
+                vm.variation = 0;
             }
         },
         created(){
@@ -221,6 +329,13 @@ import adminCreate from './Create.vue';
     td img {
         width: 10vw;
     }
+textarea{
+    width:100%;
+}
+input[type="checkbox"]{
+    width: 25px;
+    margin: 0 10px;
+}
    @media(max-width: 600px){
        table,.container,.card,.card-body {font-size: 0.66rem ; padding : 0}
        

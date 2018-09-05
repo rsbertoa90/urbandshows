@@ -106,6 +106,7 @@ const app = new Vue({
         ...mapActions({
             fetchCategories : 'categories/fetch',
             fetchUser : 'fetchUser',
+            fetchConfig : 'fetchConfig',
         }),
         
 
@@ -114,5 +115,6 @@ const app = new Vue({
     { 
         this.fetchCategories();
         this.fetchUser();
+        this.fetchConfig();
     }
 });

@@ -2,11 +2,11 @@
   <div>
      
          <form ref="form" @submit.prevent="save" class="form form-inline row ml-1">
-               <div class="col-2 row">
+               <div class="col-3 row">
                  <label for="" class="col-12">Codigo</label>
                  <input required v-model.trim="formData.code" type="text" class="col-12">
              </div>
-             <div class="col-2 row">
+             <div class="col-3 row">
                  <label for="" class="col-12">Categoria</label>
                  <select required  id="" v-model.trim="formData.category_id" class="col-12 form-control">
                      <option  v-for="category in categories" 
@@ -21,12 +21,12 @@
                         placeholder="Nueva Categoria" 
                         type="text">
              </div>
-             <div class="col-2 row">
+             <div class="col-3 row">
                  <label for="" class="col-12">Producto</label>
-                 <input  required  v-model.trim="formData.name" type="text" class="col-12">
+                 <textarea  rows="2" required  v-model.trim="formData.name" type="text" class="col-12"> </textarea>
              </div>
           
-             <div  class="col-2 row">
+             <div  class="col-3 row">
                  <label for="" class="col-12">Precio</label>
                  <input min='0' required v-model.trim="formData.price"  type="number" class="col-12">
              </div>

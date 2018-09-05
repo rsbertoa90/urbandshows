@@ -34,6 +34,7 @@ Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
 
     Route::post('/product','ProductController@create');
     Route::put('/product','ProductController@update');
+    Route::delete('/product/{id}','ProductController@destroy');
 
     Route::post('/product/image','ProductImageController@create')->middleware('OptimizeImages');
     Route::delete('/product/image/{id}','ProductImageController@destroy');
@@ -41,8 +42,11 @@ Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
     Route::put('/order','OrderController@edit');
     Route::get('/ordenes','AdminController@orders');
     Route::get('/getOrders','OrderController@getOrders');
+
+    Route::put('/config','ConfigController@update');
 });
 
+Route::get('/config','ConfigController@get');
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', function(){return redirect('/');});

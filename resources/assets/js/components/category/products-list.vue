@@ -14,7 +14,7 @@
                 <div class="col-12 col-lg-8 d-flex flex-column justify-content-around align-items-between">
                         <div class="h-25 p-2 d-flex flex-column justify-content-between">
                             <h5 clasS="font-weight-bold">{{product.name}}</h5>
-                            <h5>${{product.price}}</h5>
+                            <h5 v-if="config && !config.hide_prices">${{product.price}}</h5>
 
                         </div>
                         <div class="h-50 d-flex align-items-end ml-2">
@@ -52,7 +52,12 @@ export default {
               
                 $(element).modal('show');
             }
-    }
+    },
+        computed : {
+            config(){
+                return this.$store.getters.getConfig;
+            }
+        },
 }
 </script>
 

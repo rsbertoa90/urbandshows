@@ -17,10 +17,10 @@
                   </div>
                 <div class="card-body">
                     <h5 class="card-title" itemprop="name"> {{product.name | ucFirst}}  </h5>
-                    <h4 class="second">  
+                    <h4 v-if="!$store.config.hide_prices" class="second">  
                       ${{product.price | price}} 
                     </h4>
-                      <strike v-if="product.offer" class="text-secondary"> ${{product.price * 1.67 | price}}</strike> 
+                      <strike  v-if="product.offer && !$store.config.hide_prices" class="text-secondary"> ${{product.price * 1.67 | price}}</strike> 
                     <p class="card-text crop-text" itemprop="description"> {{product.description}}</p>
                     <a :href="'/'+product.category.slug+'/'+product.slug" class="btn bg-second white-bold"> Ver mas</a>
                 </div>

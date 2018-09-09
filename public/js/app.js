@@ -94159,9 +94159,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
         pagination: function pagination() {
-            if (this.pages <= 5) {
+            if (this.pages <= 6) {
                 var array = [];
-                for (var i = 1; i < 5; i++) {
+                for (var i = 1; i < this.pages; i++) {
                     array.push(i);
                 }
                 return array;

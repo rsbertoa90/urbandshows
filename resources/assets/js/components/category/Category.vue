@@ -119,9 +119,9 @@ export default {
             }
         },
         pagination(){
-            if (this.pages <= 5){
+            if (this.pages <= 6){
                 let array = [];
-                for (var i = 1; i < 5 ;i++)
+                for (var i = 1; i < this.pages ;i++)
                 {
                     array.push(i);
                 }

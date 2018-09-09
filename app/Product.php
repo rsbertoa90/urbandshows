@@ -41,6 +41,14 @@ class Product extends Model
         $this->attributes['price']= $val*100;
     }
 
+    public function getSlugAttribute($val)
+    {
+        if (!$val)
+        {
+            $val =  $this->category->slug.'/'.str_slug($this->name);
+        }
+        return $val;
+    }
 
       
 

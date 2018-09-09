@@ -53,6 +53,7 @@ Route::get('/home', function(){return redirect('/');});
 
 Route::get('/cotizador','HomeController@cotizer');
 Route::get('/regalos-empresariales','HomeController@regalosEmpresariales');
+Route::post('/regalos-empresariales','MailController@regalosEmpresariales');
 Route::get('/franquicia','HomeController@franquicia');
 Route::get('/sucursales','HomeController@sucursales');
 Route::get('/contacto','HomeController@contacto');

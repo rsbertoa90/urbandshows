@@ -7,7 +7,7 @@
 @endsection
 
 @section('contentA')
-    @php
-        dd($meta)
-    @endphp    
+    
+        <app-regalos></app-regalos>
+     
 @endsection

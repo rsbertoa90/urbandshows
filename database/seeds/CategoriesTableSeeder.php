@@ -16,14 +16,15 @@ class CategoriesTableSeeder extends Seeder
          $category_names =
         [
           'mates',
-          'sets',
-          'termos',
           'combos materos',
-          'bolsos',
-          'maderas y tablas',
+          'portatermos y carteras',
+          'set yerbera y azucarera',
+          'termos',
+          'bombillas',
           'marroquineria',
+          'maderas y tablas',
+          'billeteras',
           'vasos y chops',
-          'set yerbera y azucarera'
         ];
         $categories = [];
         foreach ($category_names as $name) {

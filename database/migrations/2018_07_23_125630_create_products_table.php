@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->string('code')->unique();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->integer('price')->default(0);
             $table->boolean('paused')->default(false);
             $table->integer('pck_units')->default(1);

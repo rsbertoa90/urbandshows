@@ -25,8 +25,15 @@ class Category extends Model
     {
         $this->attributes['slug'] = '/'.str_slug($val);
         $this->attributes['name'] = ucfirst($val);
-       
-        
+    }
+
+    public function getSlugAttribute($val)
+    {
+        if (!$val)
+        {
+            $val = '/'.str_slug($this->name);
+        }
+        return $val;
     }
 }
 

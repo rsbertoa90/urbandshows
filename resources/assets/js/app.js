@@ -33,6 +33,7 @@ Vue.component('cotizer-form', require('./components/cotizer/Cotizer-form.vue'));
 Vue.component('app-admin', require('./components/admin/Admin.vue'));
 Vue.component('app-navbar', require('./components/layout/Navbar.vue'));
 Vue.component('app-footer', require('./components/layout/footer/Footer.vue'));
+Vue.component('app-whatsapp', require('./components/layout/Whatsapp-float.vue'));
 Vue.component('app-admin', require('./components/admin/Admin.vue'));
 Vue.component('app-super', require('./components/super/Super.vue'));
 Vue.component('image-logo', require('./components/layout/images/image-logo.vue'));
@@ -43,6 +44,8 @@ Vue.component('app-home-b', require('./components/home/HomeB.vue'));
 Vue.component('app-sucursales', require('./components/sucursales/Sucursales.vue'));
 Vue.component('app-contacto', require('./components/contacto/Contacto.vue'));
 Vue.component('app-category', require('./components/category/Category.vue'));
+Vue.component('app-regalos', require('./components/regalos/Regalos.vue'));
+Vue.component('app-franquicia', require('./components/franquicia/Franquicia.vue'));
 Vue.component('admin-orders',require('./components/admin/Orders.vue'))
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
@@ -54,6 +57,8 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+
+window.csrf = $('meta[name="csrf-token"]').attr('content');
 
 
 

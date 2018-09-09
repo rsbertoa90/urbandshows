@@ -32,7 +32,7 @@
 <body>
     <div class="d-flex justify-content-center align-items-center" style="width:100vw">
         <div id="app" class="container">
-          
+            <app-whatsapp></app-whatsapp>
             <div class="row">
                 <app-navbar class="col-12"></app-navbar>
                 <app-side-menu class="col-3" 

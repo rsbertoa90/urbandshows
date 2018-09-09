@@ -22,7 +22,7 @@ class CreateCategoriesTable extends Migration
 
             $table->text('metatitle')->nullable();
             $table->text('metadescription')->nullable();
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->nullable();
             $table->string('image')->default('/storage/images/app/no-image.png');
             $table->softDeletes();
             $table->timestamps();

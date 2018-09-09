@@ -6,7 +6,5 @@
 @endsection
 
 @section('contentA')
-    @php
-        dd($meta)
-    @endphp    
+    <app-franquicia></app-franquicia>
 @endsection

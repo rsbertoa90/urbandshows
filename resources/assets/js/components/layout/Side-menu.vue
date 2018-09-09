@@ -5,7 +5,7 @@
                    <ul clas="d-flex pl-4">
                        <li v-for="category in categories" :key ="category.id">
                            <a :href="category.slug">
-                                {{category.name}}
+                                {{category.name| ucFirst}}
                            </a>
                        </li>
                    </ul>

@@ -39,7 +39,7 @@
                                         <img v-else style="width : 150px" src="/storage/images/app/no-image.png" 
                                             alt="no-image">
                                     </td>
-                                   <td style="cursor:pointer" @click="show(product)">  {{product.name.trim()}} </td>
+                                   <td style="cursor:pointer" @click="show(product)">  {{product.name.trim() | ucfirst}} </td>
                                    <td class="text-info text-center font-weight-bold">${{product.price | price}}</td>
                                    
                                    <td v-if="!product.paused"><input type="number" min="0" class="form-control " v-model="product.units">

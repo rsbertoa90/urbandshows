@@ -46,6 +46,8 @@ class Product extends Model
         if (!$val)
         {
             $val =  $this->category->slug.'/'.str_slug($this->name);
+            $this->attributes['slug'] = $val;
+            $this->save();
         }
         return $val;
     }

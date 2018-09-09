@@ -31,7 +31,9 @@ class Category extends Model
     {
         if (!$val)
         {
-            $val = '/'.str_slug($this->name);
+           $val = '/'.str_slug($this->name);
+           $this->attributes['slug'] = $val;
+           $this->save();
         }
         return $val;
     }

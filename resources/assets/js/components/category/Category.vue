@@ -27,7 +27,7 @@
                         <span class="fa fa-list-ul"></span>
                 </button>
             </div>
-            <div class="col-10 col-lg-8 row p-0 d-flex justify-content-start pl-4">
+            <div class="col-10 col-lg-7 row p-0 d-flex justify-content-start pl-4">
                 <div class="col-5 row p-0">
                     <label class=" p-0 pt-2 col-5 text-right pr-1">Ordenar</label>
                     <select class="form-control col-7" v-model="sortby">
@@ -47,7 +47,7 @@
                         <span class="fas fa-arrow-down"></span>
                     </button>
                 </div>
-                <div class="col-5 col-lg-3 row p-0">
+                <div class="col-5 col-lg-4 row p-0">
                     <label class=" col-6 pt-2 pr-1 ">Mostrar</label>
                     <select class="form-control col-6 p-0" v-model="show">
                         <option v-for="op in showOptions" 
@@ -58,13 +58,13 @@
                     </select>
                 </div>
             </div>
-            <div class="col-12 mt-2 mt-lg-0 col-lg-2">
+            <div class="col-12 mt-2 mt-lg-0 col-lg-3">
                 <div v-if="pages > 1">
                     <button v-if="page != 1" class=" bg-transparent"
                             @click="page--">
                         <span class="fa fa-chevron-left"></span>
                     </button>
-                    <button v-for="p in pages" :key="p" 
+                    <button v-for="p in pagination" :key="p" 
                             class=" bg-transparent"
                             :class="{'text-focus' : page == p }"
                             @click="page = p">
@@ -118,9 +118,36 @@ export default {
                 return prods;
             }
         },
-        pages(){
-            return Math.round(this.category.products.length / this.show);
+        pagination(){
+            if (this.pages <= 5){
+                let array = [];
+                for (var i = 1; i < 5 ;i++)
+                {
+                    array.push(i);
+                }
+                return array;
+            }
+            else {
+                let current = this.page;
+                if(current >= this.pages){
+                    return [1,current-4,current-3,current-2,current-1,current];
+                }
+                else if (current >= this.pages-1){
+                    return [1,current-2,current-1,current,this.pages];
+                }
+                else if (current > 2){
+                    return [1,current-1,current,current+1,this.pages];
+                }else if (current == 1){
+                    return [1,2,3,4,5,this.pages];
+                }else if (current == 2){
+                    return [1,2,3,4,this.pages];
+                }
+            }
         },
+        pages(){
+             return Math.round(this.category.products.length / this.show);
+           
+        }
       
     },
     data(){

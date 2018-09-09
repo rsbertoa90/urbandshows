@@ -4,9 +4,11 @@
                  class="col-12 mt-3 row">
                 <hr>
                 <div class="card col-12 col-lg-4">
-                    <img class="card-img-top" :alt="product.name"
+                    <img v-if="product.images[0]" class="card-img-top" :alt="product.name"
                     :src="product.images[0].url" 
                     @click="show(product)">
+                    <img v-else src="/storage/images/app/no-image.png" 
+                        class="card-img-top" alt="no hay foto">
                     <div class="card-img-overlay" v-if="product.offer">
                         <span class="badge bg-focus white-bold "> Oferta! </span>
                     </div>

@@ -57,6 +57,7 @@ Route::post('/regalos-empresariales','MailController@regalosEmpresariales');
 Route::get('/franquicia','HomeController@franquicia');
 Route::get('/sucursales','HomeController@sucursales');
 Route::get('/contacto','HomeController@contacto');
+Route::get('/buscar','ProductController@searchResults');
 
 Route::get('/logout',function(){
     Auth::logout();

@@ -13,8 +13,6 @@ export default {
         sucursalesWeb,
         sucursalesMobile
     },
-    data(){
-
-    }
+   
 }
 </script>

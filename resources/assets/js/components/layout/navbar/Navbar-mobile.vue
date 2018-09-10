@@ -16,10 +16,11 @@
                      @click="showMenu = true" >
                 <span class="fa fa-bars"></span>
             </button>
-            <form class="form-inline col-10">
+            <form class="form-inline col-10" action="/buscar">
                 <div class="input-group">
                     <input type="text" class="form-control" 
                             aria-label="Buscar productos"
+                            name="search"
                             placeholder="Que estas buscando?">
                     <div class="input-group-prepend">
                         <span class="input-group-text bg-second d-flex justify-content-center" id="search-addon">

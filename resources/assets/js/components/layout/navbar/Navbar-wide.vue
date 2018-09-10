@@ -8,11 +8,12 @@
                 </div>
             </div>
             <div class="col-6">
-                <form class="form-inline">
+                <form class="form-inline" action="/buscar">
                     <div class="input-group w-100">
                         <input type="text" class="form-control" 
                                  aria-label="Buscar productos"
-                                placeholder="Que estas buscando?">
+                                placeholder="Que estas buscando?"
+                                name="search">
                         <div class="input-group-prepend">
                             <span class="white-bold input-group-text bg-second d-flex justify-content-center" 
                                   id="basic-addon1">

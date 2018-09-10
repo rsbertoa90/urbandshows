@@ -23,7 +23,7 @@
                       <strike style="font-size:1rem" v-if="product.offer && !$store.getters.getConfig.hide_prices" class="text-secondary"> ${{product.price * 1.67 | price}}</strike> 
                     </h4>
                     <p style="height:45px" class="card-text crop-text" itemprop="description"> {{product.description}}</p>
-                    <a :href="'/'+product.category.slug+'/'+product.slug" class="btn bg-second white-bold"> Ver mas</a>
+                    <a :href="product.slug" class="btn btn-outline-second"> Ver mas</a>
                 </div>
             </div>
         </swiper-slide>
@@ -105,5 +105,8 @@
   }
   .container{
       width: 100vw;
+  }
+  .card-img-overlay{
+    max-height: 60%;
   }
 </style>

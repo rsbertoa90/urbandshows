@@ -91709,17 +91709,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(535)
+}
 var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(433)
 /* template */
-var __vue_template__ = __webpack_require__(449)
+var __vue_template__ = __webpack_require__(537)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-16365dca"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -91765,6 +91769,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__categories_mobile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__categories_mobile_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__categories_wide_vue__ = __webpack_require__(444);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__categories_wide_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__categories_wide_vue__);
+//
+//
+//
+//
 //
 //
 //
@@ -92121,7 +92129,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.badge[data-v-2fc9b500]{\n  font-size: 1.2rem;\n}\n.append-buttons[data-v-2fc9b500] {\n  text-align: center;\n  margin-top: 20px;\n}\n.append-buttons a[data-v-2fc9b500] {\n  display: inline-block;\n  margin: 0 10px;\n}\n.container[data-v-2fc9b500]{\n    width: 100vw;\n}\n", ""]);
+exports.push([module.i, "\n.badge[data-v-2fc9b500]{\n  font-size: 1.2rem;\n}\n.append-buttons[data-v-2fc9b500] {\n  text-align: center;\n  margin-top: 20px;\n}\n.append-buttons a[data-v-2fc9b500] {\n  display: inline-block;\n  margin: 0 10px;\n}\n.container[data-v-2fc9b500]{\n    width: 100vw;\n}\n.card-img-overlay[data-v-2fc9b500]{\n  max-height: 60%;\n}\n", ""]);
 
 // exports
 
@@ -92346,14 +92354,8 @@ var render = function() {
                             _c(
                               "a",
                               {
-                                staticClass: "btn bg-second white-bold",
-                                attrs: {
-                                  href:
-                                    "/" +
-                                    product.category.slug +
-                                    "/" +
-                                    product.slug
-                                }
+                                staticClass: "btn btn-outline-second",
+                                attrs: { href: product.slug }
                               },
                               [_vm._v(" Ver mas")]
                             )
@@ -92797,112 +92799,7 @@ if (false) {
 }
 
 /***/ }),
-/* 449 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c("home-maps"),
-      _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _c("home-offers"),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "mt-4" },
-        [
-          _c("h2", [_vm._v("Productos de Mayorista Mates Fabi  ")]),
-          _vm._v(" "),
-          _vm.$mq != "lg"
-            ? _c("home-categories-mobile")
-            : _c("home-categories-wide")
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row p-5" }, [
-      _c("h1", [_vm._v("Mayorista Mates Fabi")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "\n            En Mayorista Mates Fabi tenemos precios y diseños únicos. Somos fabricante. Podes visitar nuestras sucursales ubicadas en Once de lunes a viernes de 9 a 18 hs o hacer tu pedido Online. Hacemos envíos a todo el país\n            Compra mínima por local $1500, para envíos $3000.\n        "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "  \n            La compra es entregada sin cargo al transporte de carga elegido por el cliente.\n        "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { "mt-4": "" } }, [
-      _c(
-        "a",
-        {
-          staticClass: "d-flex w-100 justify-content-center",
-          attrs: { href: "/cotizador" }
-        },
-        [
-          _c("img", {
-            attrs: {
-              src: "/storage/images/app/bannerCotizador.png",
-              alt: "presupuesto"
-            }
-          })
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [
-        _vm._v(
-          "\n            Atencion Personalizada llamando o por whatsapp al "
-        ),
-        _c("b", [_vm._v(" 11-4951-5417 ")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-16365dca", module.exports)
-  }
-}
-
-/***/ }),
+/* 449 */,
 /* 450 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -93076,6 +92973,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
@@ -93127,9 +93034,26 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6" }, [
+            _c("ul", [
+              _c("li", [
+                _c("b", [_vm._v(" Dirección: ")]),
+                _vm._v(" Pasteur 428 ")
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("b", [_vm._v("Atención: ")]),
+                _vm._v(" Lunes a viernes de 9 a 18 hs ")
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("b", [_vm._v(" Teléfono:")]),
+                _vm._v(" 4951-5417   ")
+              ])
+            ]),
+            _vm._v(" "),
             _c("p", [
               _vm._v(
-                "\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, aliquam hic numquam suscipit porro deserunt quas soluta ipsa recusandae, quisquam modi eveniet neque alias placeat? Aut corporis facilis soluta velit.\n                "
+                " Mates Fabi sucursal Pasteur   se encuentra a metros de Avenida \n                       Corrientes y de la estación Pasteur del subte B."
               )
             ])
           ])
@@ -93166,9 +93090,26 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6" }, [
+            _c("ul", [
+              _c("li", [
+                _c("b", [_vm._v(" Dirección: ")]),
+                _vm._v(" Castelli 203 ")
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("b", [_vm._v("Atención: ")]),
+                _vm._v(" Lunes a viernes de 9 a 18 hs  ")
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("b", [_vm._v(" Teléfono:")]),
+                _vm._v(" 4951-4521  ")
+              ])
+            ]),
+            _vm._v(" "),
             _c("p", [
               _vm._v(
-                "\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, aliquam hic numquam suscipit porro deserunt quas soluta ipsa recusandae, quisquam modi eveniet neque alias placeat? Aut corporis facilis soluta velit.\n                "
+                " Mates Fabi sucursal Castelli está a unas cuadras de la estación de tren de Once. (Linea Sarmiento)."
               )
             ])
           ])
@@ -93205,9 +93146,26 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-6" }, [
+            _c("ul", [
+              _c("li", [
+                _c("b", [_vm._v(" Dirección: ")]),
+                _vm._v(" Sarmiento 2268")
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("b", [_vm._v("Atención: ")]),
+                _vm._v("  Lunes a viernes de 9 a 18 hs  ")
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("b", [_vm._v(" Teléfono:")]),
+                _vm._v(" 4951-1128   ")
+              ])
+            ]),
+            _vm._v(" "),
             _c("p", [
               _vm._v(
-                "\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, aliquam hic numquam suscipit porro deserunt quas soluta ipsa recusandae, quisquam modi eveniet neque alias placeat? Aut corporis facilis soluta velit.\n                "
+                " Mates Fabi sucursal Sarmiento está ubicada en el corazón de barrio Once."
               )
             ])
           ])
@@ -93375,7 +93333,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("col-12", [
                   _vm._v(
-                    "\n                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, temporibus! Totam accusantium quos cupiditate, eum libero modi explicabo. Vitae corrupti laborum tenetur id voluptas libero iste perferendis culpa modi rerum!\n                   "
+                    "\n                        Dirección: Pasteur 428\n                        Horario de Atención: Lunes a viernes de 9 a 18 hs\n                        Teléfono: 4951-5417\n                        Esta sucursal se encuentra a metros de Avenida Corrientes y de la estación Pasteur del subte B.\n                   "
                   )
                 ])
               ],
@@ -93927,7 +93885,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 col-lg-4" }, [
       _c("img", {
-        attrs: { src: "/storage/images/app/no-image.png", alt: "contacto" }
+        attrs: { src: "/storage/images/app/contacto.png", alt: "contacto" }
       })
     ])
   },
@@ -96698,7 +96656,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 col-lg-4" }, [
       _c("img", {
-        attrs: { src: "/storage/images/app/no-image.png", alt: "contacto" }
+        attrs: {
+          src: "/storage/images/app/page-franquicia.png",
+          alt: "contacto"
+        }
       })
     ])
   },
@@ -108922,7 +108883,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.badge[data-v-3b190cc4]{\n  font-size: 1.2rem;\n}\n.append-buttons[data-v-3b190cc4] {\n  text-align: center;\n  margin-top: 20px;\n}\n.append-buttons a[data-v-3b190cc4] {\n  display: inline-block;\n  margin: 0 10px;\n}\n.container[data-v-3b190cc4]{\n    width: 100vw;\n}\n", ""]);
+exports.push([module.i, "\n.badge[data-v-3b190cc4]{\n  font-size: 1.2rem;\n}\n.append-buttons[data-v-3b190cc4] {\n  text-align: center;\n  margin-top: 20px;\n}\n.append-buttons a[data-v-3b190cc4] {\n  display: inline-block;\n  margin: 0 10px;\n}\n.container[data-v-3b190cc4]{\n    width: 100vw;\n}\n.card-img-overlay[data-v-3b190cc4]{\n  max-height: 60%;\n}\n", ""]);
 
 // exports
 
@@ -108970,6 +108931,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['category_id'],
@@ -108980,10 +108944,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         slidesPerView: null,
         centeredSlides: false,
         spaceBetween: 5,
-        pagination: {
+        /* pagination: {
           el: '.swiper-pagination',
           clickable: true
-        },
+        }, */
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
@@ -109036,17 +109000,11 @@ var render = function() {
   return _vm.products.length > 0
     ? _c(
         "div",
-        { staticClass: "container" },
+        { staticClass: "container w-100" },
         [
           _c("hr"),
           _vm._v(" "),
-          _c("h2", { staticClass: "mb-4" }, [
-            _vm._v(
-              'Otros productos en "' +
-                _vm._s(_vm._f("ucFirst")(_vm.category.name)) +
-                '"'
-            )
-          ]),
+          _c("h2", { staticClass: "mb-4" }, [_vm._v("Productos relacionados")]),
           _vm._v(" "),
           render
             ? _c(
@@ -109065,30 +109023,37 @@ var render = function() {
                           }
                         },
                         [
-                          product.images[0]
-                            ? _c("img", {
-                                staticClass: "card-img card-img-top",
-                                attrs: {
-                                  src: product.images[0].url,
-                                  title: product.name,
-                                  itemprop: "image",
-                                  alt: "Card image cap"
-                                }
-                              })
-                            : _c("img", {
-                                attrs: {
-                                  src: "/storage/images/app/no-image.png",
-                                  alt: "no image"
-                                }
-                              }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "card-img-overlay" }, [
+                          _c("div", [
+                            product.images[0]
+                              ? _c("img", {
+                                  staticClass: "card-img card-img-top",
+                                  attrs: {
+                                    src: product.images[0].url,
+                                    title: product.name,
+                                    itemprop: "image",
+                                    alt: "Card image cap"
+                                  }
+                                })
+                              : _c("img", {
+                                  attrs: {
+                                    src: "/storage/images/app/no-image.png",
+                                    alt: "no image"
+                                  }
+                                }),
+                            _vm._v(" "),
                             product.offer
-                              ? _c(
-                                  "span",
-                                  { staticClass: " badge bg-focus white-bold" },
-                                  [_vm._v(" Oferta! ")]
-                                )
+                              ? _c("div", { staticClass: "card-img-overlay" }, [
+                                  product.offer
+                                    ? _c(
+                                        "span",
+                                        {
+                                          staticClass:
+                                            " badge bg-focus white-bold"
+                                        },
+                                        [_vm._v(" Oferta! ")]
+                                      )
+                                    : _vm._e()
+                                ])
                               : _vm._e()
                           ]),
                           _vm._v(" "),
@@ -109145,28 +109110,17 @@ var render = function() {
                               : _vm._e(),
                             _vm._v(" "),
                             _c(
-                              "p",
-                              {
-                                staticClass: "card-text crop-text",
-                                attrs: { itemprop: "description" }
-                              },
-                              [_vm._v(" " + _vm._s(product.description))]
-                            ),
-                            _vm._v(" "),
-                            _c(
                               "a",
                               {
-                                staticClass: "btn bg-second white-bold",
-                                attrs: {
-                                  href:
-                                    "/" +
-                                    product.category.slug +
-                                    "/" +
-                                    product.slug
-                                }
+                                staticClass:
+                                  "btn btn-outline-second  white-bold mb-4 mt-1",
+                                staticStyle: { cursor: "pointer" },
+                                attrs: { href: product.slug }
                               },
                               [_vm._v(" Ver mas")]
-                            )
+                            ),
+                            _vm._v(" "),
+                            _c("p")
                           ])
                         ]
                       )
@@ -109206,6 +109160,158 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-3b190cc4", module.exports)
+  }
+}
+
+/***/ }),
+/* 535 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(536);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("51c043da", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-16365dca\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HomeB.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-16365dca\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HomeB.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 536 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.fa-whatsapp[data-v-16365dca] {\n  color: #25d366;\n  font-size: 2rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 537 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { attrs: { "mt-4": "" } }, [
+        _c(
+          "a",
+          {
+            staticClass: "d-flex w-100 justify-content-center",
+            attrs: { href: "/cotizador" }
+          },
+          [
+            _vm.$mq == "lg"
+              ? _c("img", {
+                  attrs: {
+                    src: "/storage/images/app/bannerCotizador.png",
+                    alt: "presupuesto"
+                  }
+                })
+              : _c("img", {
+                  attrs: {
+                    src: "/storage/images/app/banner-cotizador-mobile.png",
+                    alt: "presupuesto"
+                  }
+                })
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("home-maps"),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("home-offers"),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "mt-4" },
+        [
+          _c("h2", [_vm._v("Productos de Mayorista Mates Fabi  ")]),
+          _vm._v(" "),
+          _vm.$mq != "lg"
+            ? _c("home-categories-mobile")
+            : _c("home-categories-wide")
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row p-5" }, [
+      _c("h1", [_vm._v("Mayorista Mates Fabi")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "\n            En Mayorista Mates Fabi tenemos precios y diseños únicos. Somos fabricante. Podes visitar nuestras sucursales ubicadas en Once de lunes a viernes de 9 a 18 hs o hacer tu pedido Online. Hacemos envíos a todo el país\n            Compra mínima por local $1500, para envíos $3000.\n        "
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "  \n            La compra es entregada sin cargo al transporte de carga elegido por el cliente.\n        "
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "\n             Los despachos se realizaran de 1 a 5 días hábiles a partir del informe y acreditación del pago.\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("p", { staticClass: "text-center" }, [
+        _c("span", { staticClass: "fa fa-whatsapp" }),
+        _vm._v(" Atencion Personalizada llamando o por whatsapp al "),
+        _c("b", [_vm._v(" 11-4951-5417 ")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-16365dca", module.exports)
   }
 }
 

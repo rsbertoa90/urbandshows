@@ -13,7 +13,7 @@
             </p> 
         </div>
         <div class="col-12 col-lg-4">
-            <img src="/storage/images/app/no-image.png" alt="contacto">
+            <img src="/storage/images/app/page-franquicia.png" alt="contacto">
         </div>
         <div class="col-12 col-lg-8">
             <form class="form">

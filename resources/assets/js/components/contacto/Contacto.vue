@@ -5,7 +5,7 @@
             <h1>Contactate con Mates Fabi</h1>
         </div>
         <div class="col-12 col-lg-4">
-            <img src="/storage/images/app/no-image.png" alt="contacto">
+            <img src="/storage/images/app/contacto.png" alt="contacto">
         </div>
         <div class="col-12 col-lg-8">
             <form class="form">

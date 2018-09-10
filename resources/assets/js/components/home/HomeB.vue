@@ -9,19 +9,23 @@
             <p>  
                 La compra es entregada sin cargo al transporte de carga elegido por el cliente.
             </p>
+            <p>
+                 Los despachos se realizaran de 1 a 5 días hábiles a partir del informe y acreditación del pago.
+            </p>
         </div>
 
         <div mt-4>
             <a href="/cotizador" class="d-flex w-100 justify-content-center">
-                <img src="/storage/images/app/bannerCotizador.png" alt="presupuesto">
+                <img v-if="$mq == 'lg'" src="/storage/images/app/bannerCotizador.png" alt="presupuesto">
+                <img v-else src="/storage/images/app/banner-cotizador-mobile.png" alt="presupuesto">
             </a>
         </div>
 
         <home-maps></home-maps>
 
         <div>
-            <p>
-                Atencion Personalizada llamando o por whatsapp al <b> 11-4951-5417 </b>
+            <p class="text-center">
+               <span class="fa fa-whatsapp"></span> Atencion Personalizada llamando o por whatsapp al <b> 11-4951-5417 </b>
             </p>
         </div>
 
@@ -50,3 +54,11 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    .fa-whatsapp{
+        color:#25d366;
+        font-size: 2rem;
+    }
+</style>
+

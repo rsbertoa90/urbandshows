@@ -23,7 +23,10 @@
                             </iframe>
                        </col-12>
                        <col-12>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, temporibus! Totam accusantium quos cupiditate, eum libero modi explicabo. Vitae corrupti laborum tenetur id voluptas libero iste perferendis culpa modi rerum!
+                            Dirección: Pasteur 428
+                            Horario de Atención: Lunes a viernes de 9 a 18 hs
+                            Teléfono: 4951-5417
+                            Esta sucursal se encuentra a metros de Avenida Corrientes y de la estación Pasteur del subte B.
                        </col-12>
                     </div>
                 </div>

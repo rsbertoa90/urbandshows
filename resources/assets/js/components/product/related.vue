@@ -1,29 +1,32 @@
 
 <template>
-<div class="container" v-if="products.length > 0" >
+<div class="container w-100" v-if="products.length > 0" >
   <hr>
-  <h2 class="mb-4">Otros productos en "{{category.name | ucFirst}}"</h2>
+  <h2 class="mb-4">Productos relacionados</h2>
       <!-- swiper -->
       <swiper :options="swiperOption" v-if="render">
         <swiper-slide  v-for="product in products" :key="product.id">
             <div class="card" itemscope itemtype="https://schema.org/Product">
-                <img v-if ="product.images[0]" class="card-img card-img-top" 
-                      :src="product.images[0].url"
-                      :title="product.name"
-                      itemprop="image" 
-                      alt="Card image cap">
-                <img v-else src="/storage/images/app/no-image.png" alt="no image">
-                  <div class="card-img-overlay">
-                    <span v-if="product.offer" class=" badge bg-focus white-bold"> Oferta! </span>
-                  </div>
+                <div>
+                  <img v-if ="product.images[0]" class="card-img card-img-top" 
+                        :src="product.images[0].url"
+                        :title="product.name"
+                        itemprop="image" 
+                        alt="Card image cap">
+                  <img v-else src="/storage/images/app/no-image.png" alt="no image">
+                    <div v-if="product.offer" class="card-img-overlay">
+                      <span v-if="product.offer" class=" badge bg-focus white-bold"> Oferta! </span>
+                    </div>
+                </div>
                 <div class="card-body">
                     <h5 class="card-title" itemprop="name" style="height:45px"> {{product.name | ucFirst}}  </h5>
                     <h4 v-if="!$store.getters.getConfig.hide_prices" class="second">  
                       ${{product.price | price}} 
                       <strike style="font-size:1rem"  v-if="product.offer && !$store.getters.getConfig.hide_prices" class="text-secondary"> ${{product.price * 1.67 | price}}</strike> 
                     </h4>
-                    <p class="card-text crop-text" itemprop="description"> {{product.description}}</p>
-                    <a :href="'/'+product.category.slug+'/'+product.slug" class="btn bg-second white-bold"> Ver mas</a>
+                   
+                    <a :href="product.slug" style="cursor:pointer" class="btn btn-outline-second  white-bold mb-4 mt-1"> Ver mas</a>
+                    <p></p>
                 </div>
             </div>
         </swiper-slide>
@@ -45,10 +48,10 @@
           slidesPerView: null,
           centeredSlides: false,
           spaceBetween: 5,
-          pagination: {
+          /* pagination: {
             el: '.swiper-pagination',
             clickable: true
-          },
+          }, */
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
@@ -107,5 +110,8 @@
   }
   .container{
       width: 100vw;
+  }
+  .card-img-overlay{
+    max-height: 60%;
   }
 </style>

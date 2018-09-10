@@ -3,9 +3,7 @@
         Administracion - Mates Fabi
     </div>
    
-    <div class="nav-text">
-        <a href="/admin">Administrar productos</a>
-    </div>
+   
         <div class="nav-text">
         <a href="/admin/cotizador">Cotizador</a>
     </div>
@@ -17,6 +15,10 @@
     </div>
 
      @if ($user->role_id == 1 )
+      <div class="nav-text">
+        <a href="/admin">Administrar productos</a>
+      </div>
+
         <div class="nav-text">
             <a href="/super">Panel de Super Usuario</a>
         </div>

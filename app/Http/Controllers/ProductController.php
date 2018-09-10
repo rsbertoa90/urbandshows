@@ -8,6 +8,27 @@ use App\Metadata;
 class ProductController extends Controller
 {
 
+    public function searchResults(Request $request)
+    {
+    
+      // user can provide double space by accident, or on purpose:
+      $search = $request->input('search');
+
+      // so with explode you get this:
+      $array = explode(' ', $search);
+
+      $products = Product::where(function ($q) use ($array) {
+      foreach ($array as $value) {
+        $q->orWhere('name', 'like', "%{$value}%");
+      }
+    })->pluck('id')->toArray();;
+      
+      
+      return view('searchResults',compact('products','search'));
+    
+
+    }
+
       public static function detail($categorySlug,$productSlug)
     {
            $slug = '/'.$categorySlug.'/'.$productSlug;
@@ -23,16 +44,6 @@ class ProductController extends Controller
 
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -46,38 +57,9 @@ class ProductController extends Controller
                                               ]));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

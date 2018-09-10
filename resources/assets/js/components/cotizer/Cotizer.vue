@@ -36,7 +36,7 @@
                                         <img v-if="product.images.length > 0" 
                                             class="sampleImage" :src="product.images[0].url" 
                                             :alt="product.name" @click="show(product)"> 
-                                        <img v-else style="width : 150px" src="/storage/images/app/no-image.png" 
+                                        <img class="sampleImage" v-else src="/storage/images/app/no-image.png" 
                                             alt="no-image">
                                     </td>
                                    <td style="cursor:pointer" @click="show(product)">  {{product.name.trim() | ucFirst}} </td>
@@ -152,14 +152,20 @@
 
 <style scoped>
 .container{
+    
     margin-bottom: 100px;
-}
+  
+    }
+
+    td{
+        white-space:normal;
+    }
     input[type="number"]{
-        max-width: 70px;
+        width: 70px;
     }
-    .sampleImage{
-        width: 60px;
-    }
+
+    .sampleImage{width: 100px;}
+
 
    .btn-link {color : black;}
     #total {
@@ -171,8 +177,14 @@
     img{width:100%}
 
     @media(max-width: 600px){
-
-        td { white-space :nowrap;}
+        .container{
+    
+            margin-left: -7%;
+            width: 100vw;
+            padding: 15px;
+            }
+        .sampleImage{width: 80px;}
+        td { white-space :normal;}
         table {
             font-size: 0.66rem;
             font-weight: bold;
@@ -184,7 +196,7 @@
     @media(min-width: 600px){
         .sampleImage{width: 150px;}
         table{ font-size: 1rem; font-weight: normal}
-        td {white-space: normal;}
+        td {white-space: nowrap;}
         .card-body,.container{padding:1.25rem}
         
     }

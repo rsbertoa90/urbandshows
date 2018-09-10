@@ -1,7 +1,7 @@
 <template>
     <a class="floating" rel="nofollow" target="_blank" href="https://wa.me/541130085414">
         <span class="fa fa-whatsapp"></span>
-        <span>Necesitas ayuda?</span>
+        <span>¿Necesitas ayuda?</span>
     </a>
 </template>
 

@@ -27,6 +27,24 @@ const getters = {
         }
         return prods;
     },
+    getProduct: (state) => (id) => {
+        var res  = null;
+        if (state.categories.length > 0) {
+            state.categories.forEach(cat => {
+             
+                var prod = cat.products.find(p => {
+                    return p.id == id
+                });
+                if (prod){
+                
+                    res = prod;
+                    
+                } 
+            });
+            return res;
+      
+        }
+    },
     getOffers(state){
         let prods = [];
         if (state.categories.length > 0) {

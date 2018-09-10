@@ -1,12 +1,14 @@
 <template>
     <div class="row" v-if="products">
         <div v-for="product in products" :key="product.id"
-                 class="col-12 mt-3 row">
+                 class="col-12 mt-3 row" itemscope itemtype="https://schema.org/Product">
                 <hr>
                 <div class="card col-12 col-lg-4">
                     <img v-if="product.images[0]" class="card-img-top" :alt="product.name"
                     :src="product.images[0].url" 
-                    @click="show(product)">
+                    @click="show(product)"
+                    :title="product.name"
+                    itemprop="image">
                     <img v-else src="/storage/images/app/no-image.png" 
                         class="card-img-top" alt="no hay foto">
                     <div class="card-img-overlay" v-if="product.offer">
@@ -15,16 +17,17 @@
                 </div>
                 <div class="col-12 col-lg-8 d-flex flex-column justify-content-around align-items-between">
                         <div class="h-25 p-2 d-flex flex-column justify-content-between">
-                            <h5 clasS="font-weight-bold">{{product.name}}</h5>
+                            <h5 itemprop="name" clasS="font-weight-bold">{{product.name | ucFirst}}</h5>
                             <h5 v-if="config && !config.hide_prices">${{product.price}}</h5>
 
                         </div>
-                        <div class="h-50 d-flex align-items-end ml-2">
+                        <div itemprop="description" class="h-50 d-flex align-items-end ml-2">
                             <p> {{product.description}} </p>
                         </div>
                         <div class="h-25">
                             <div class="col-4 d-flex align-items-base">
-                                <a :href="product.slug" class="btn btn-outline-focus">Ver mas</a>
+                                <a itemprop="url" :href="product.slug" class="btn btn-outline-focus">Ver mas</a>
+                                <a href="/cotizador" class="btn btn-outline-success ml-2"> <span class="fa fa-shopping-cart"></span> Hacer un pedido</a>
                             </div>
                         </div>
                 

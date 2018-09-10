@@ -164,7 +164,7 @@ import { mapActions } from 'vuex';
             toggleOffer(product){
                 product.offer = ! product.offer;
                 var data = {
-                    id : product.id,
+                    product : product.id,
                     field : 'offer',
                     value : product.offer ? 1 : 0
                 }

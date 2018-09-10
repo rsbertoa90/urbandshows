@@ -7,7 +7,7 @@
 
 
 @section('contentA')
-    @php
-        dd($meta)
-    @endphp    
+
+    <app-product :product_id="{{$product->id}}"></app-product>
+
 @endsection

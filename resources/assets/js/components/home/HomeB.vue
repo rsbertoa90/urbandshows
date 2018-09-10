@@ -11,9 +11,9 @@
             </p>
         </div>
 
-        <div mt-4 p-2>
+        <div mt-4>
             <a href="/cotizador" class="d-flex w-100 justify-content-center">
-                <img src="/storage/images/app/no-image.png" alt="presupuesto" height="80px" style="width:85%">
+                <img src="/storage/images/app/bannerCotizador.png" alt="presupuesto">
             </a>
         </div>
 

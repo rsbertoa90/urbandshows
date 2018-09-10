@@ -196,7 +196,7 @@
     @media(min-width: 600px){
         .sampleImage{width: 150px;}
         table{ font-size: 1rem; font-weight: normal}
-        td {white-space: nowrap;}
+        td {white-space: normal;}
         .card-body,.container{padding:1.25rem}
         
     }

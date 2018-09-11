@@ -47,6 +47,7 @@ Vue.component('app-category', require('./components/category/Category.vue'));
 Vue.component('app-product', require('./components/product/Product.vue'));
 Vue.component('app-regalos', require('./components/regalos/Regalos.vue'));
 Vue.component('app-franquicia', require('./components/franquicia/Franquicia.vue'));
+Vue.component('app-search-results', require('./components/search/Results.vue'));
 Vue.component('admin-orders',require('./components/admin/Orders.vue'))
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 

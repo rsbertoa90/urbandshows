@@ -24,7 +24,7 @@ class ProductController extends Controller
     })->pluck('id')->toArray();;
       
       
-      return view('searchResults',compact('products','search'));
+      return view('search-results',compact('products','search'));
     
 
     }

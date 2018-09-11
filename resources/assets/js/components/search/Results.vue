@@ -1,18 +1,11 @@
 <template>
-    <div class="container" v-if="category">
+    <div class="container" v-if="products">
         <div class="row">
             <div class="col-12">
-                <h1> Resultados de busqueda: {{searchString}} </h1>
+                <h1> Resultados de busqueda </h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <img :src="category.image" :alt="category.name">
-            </div>
-            <div class="col-12 col-lg-6">
-                {{category.description}}
-            </div>
-        </div>
+        
         <!-- LINKS -->
         <div class="row links mt-3">
             <div class="col-2 col-lg-2 p-0">
@@ -82,10 +75,10 @@
 
         <div class="row">
             <div class="col-12" v-if="display == 'grid'">
-                <products-grid :products="products"></products-grid>
+                <products-grid :products="filteredProducts"></products-grid>
             </div>
             <div class="col-12" v-else>
-                <products-list :products="products"></products-list>
+                <products-list :products="filteredProducts"></products-list>
             </div>
         </div>
     </div>
@@ -103,15 +96,30 @@ export default {
                 var vm=this;
                 let array=[];
                 this.ids.forEach(id => {
-                    let prod = this.$store.getProduct(id);
+                    let prod = this.$store.getters['categories/getProduct'](id);
                     if (prod){
                         array.push(prod);
                     }
                 });
                 return array;
-            }
+            },
         
-        },
+            filteredProducts(){
+            
+                if (this.products != null && this.products.length > 0){
+
+                    let prods = this.products;
+                    prods = _.sortBy(prods,this.sortby);
+                    if (this.order == 'desc'){
+                        prods = prods.reverse();
+                    }
+                    let from = (this.page-1)*this.show;
+                    let to = from + this.show;
+                    prods = prods.slice(from,to);
+            
+                    return prods;
+                }
+            },
         pagination(){
             if (this.pages <= 6){
                 let array = [];
@@ -139,12 +147,10 @@ export default {
             }
         },
         pages(){
-             return Math.round(this.category.products.length / this.show);
-           
-        }
-      
+             return Math.round(this.products.length / this.show);
+        },
     },
-    data(){
+        data(){
         return{
             display : 'list',
             sortby : 'name',

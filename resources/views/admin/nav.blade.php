@@ -10,9 +10,7 @@
     <div class="nav-text">
         <a href="/admin/ordenes">Mis pedidos</a>
     </div>
-    <div class="nav-text">
-        <a href="/logout">Salir</a>
-    </div>
+    
 
      @if ($user->role_id == 1 )
       <div class="nav-text">
@@ -24,4 +22,7 @@
         </div>
     @endif
     
+    <div class="nav-text">
+        <a href="/logout">Salir</a>
+    </div>
 </div>

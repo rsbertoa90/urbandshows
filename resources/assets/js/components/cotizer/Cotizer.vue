@@ -1,7 +1,10 @@
 <template>
     <div class="container">   
-      <h1 v-if="user && user.role_id > 2">Hace tu pedido</h1>
-        <h1 v-else>Tomar pedido</h1>
+        <div class="d-flex justify-content-around">
+            <h1 v-if="user && user.role_id > 2">Hace tu pedido</h1>
+            <h1 v-else>Tomar pedido</h1>
+            <a href="/lista-de-precios" class="btn btn-lg btn-outline-info">Descargar lista de precios</a>
+        </div>
              <hr>
         <div id="accordion">
             <div v-for="category in categories" 

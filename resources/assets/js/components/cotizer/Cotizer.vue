@@ -1,9 +1,9 @@
 <template>
     <div class="container">   
-        <div class="d-flex justify-content-around">
-            <h1 v-if="user && user.role_id > 2">Hace tu pedido</h1>
-            <h1 v-else>Tomar pedido</h1>
-            <a href="/lista-de-precios" class="btn btn-lg btn-outline-info">Descargar lista de precios</a>
+        <div class="row">
+            <h1 class="col-12 col-lg-6 text-center"v-if="user && user.role_id > 2">Hace tu pedido</h1>
+            <h1 class="col-12 col-lg-6 text-center"v-else>Tomar pedido</h1>
+            <a href="/lista-de-precios" class="col-12 col-lg-6 btn btn-lg btn-outline-info">Descargar lista de precios</a>
         </div>
              <hr>
         <div id="accordion">

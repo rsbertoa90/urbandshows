@@ -86394,15 +86394,19 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("div", { staticClass: "d-flex justify-content-around" }, [
+      _c("div", { staticClass: "row" }, [
         _vm.user && _vm.user.role_id > 2
-          ? _c("h1", [_vm._v("Hace tu pedido")])
-          : _c("h1", [_vm._v("Tomar pedido")]),
+          ? _c("h1", { staticClass: "col-12 col-lg-6 text-center" }, [
+              _vm._v("Hace tu pedido")
+            ])
+          : _c("h1", { staticClass: "col-12 col-lg-6 text-center" }, [
+              _vm._v("Tomar pedido")
+            ]),
         _vm._v(" "),
         _c(
           "a",
           {
-            staticClass: "btn btn-lg btn-outline-info",
+            staticClass: "col-12 col-lg-6 btn btn-lg btn-outline-info",
             attrs: { href: "/lista-de-precios" }
           },
           [_vm._v("Descargar lista de precios")]

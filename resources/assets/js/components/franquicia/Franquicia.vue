@@ -16,37 +16,38 @@
             <img src="/storage/images/app/page-franquicia.png" alt="contacto">
         </div>
         <div class="col-12 col-lg-8">
-            <form class="form">
+            <form ref="form" class="form" method="post" action="/franquicia">
+                <input type="hidden" name="_token" :value="csrf">
                 <div class="row">
                     <label class="col-12 col-lg-4">
                         Nombre
                     </label>
-                    <input  v-model="formdata.name" required
+                    <input required name="name" v-model="formdata.name" 
                             type="text" class="form-control col-12 col-lg-8">
                 </div>
                 <div class="row">
                     <label class="col-12 col-lg-4">
                         Mail
                     </label>
-                    <input  v-model="formdata.email" required
+                    <input required name="mail" v-model="formdata.email" 
                             type="email" class="form-control col-12 col-lg-8">
                 </div>
                 <div class="row">
                     <label class="col-12 col-lg-4">
                         Asunto
                     </label>
-                    <input  v-model="formdata.topic" required
+                    <input  required name="subject" v-model="formdata.topic" 
                             type="text" class="form-control col-12 col-lg-8">
                 </div>
                 <div class="row">
                     <label class="col-12 col-lg-4">
                         Mensaje
                     </label>
-                    <textarea required v-model="formdata.message" 
+                    <textarea required name="msg"  v-model="formdata.message" 
                               class="form-control col-12 col-lg-8" rows="5"></textarea>
                 </div>
                 <div class="row mt-4">
-                    <button class="btn btn-lg bg-second offset-4 white-bold">Enviar</button>
+                    <button @click.prevent="submit" class="btn btn-lg bg-second offset-4 white-bold">Enviar</button>
                 </div>
             </form>
         </div>
@@ -59,12 +60,23 @@
 export default {
     data(){
         return{
+            csrf:window.csrf,
             formdata : {
                 name : '',
                 email : '',
                 topic : '',
                 message : ''
             }
+        }
+    },
+    methods:{
+        submit(){
+            var vm = this;
+                swal('Mensaje enviado','Nos comuicaremos con usted a la brevedad','success')
+                    .then (response => {
+                        $(vm.$refs.form).submit();
+                    });
+            
         }
     }
 }

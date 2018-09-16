@@ -55,8 +55,10 @@ Route::get('/cotizador','HomeController@cotizer');
 Route::get('/regalos-empresariales','HomeController@regalosEmpresariales');
 Route::post('/regalos-empresariales','MailController@regalosEmpresariales')->middleware('OptimizeImages');;
 Route::get('/franquicia','HomeController@franquicia');
+Route::post('/franquicia','MailController@franquicia');
 Route::get('/sucursales','HomeController@sucursales');
 Route::get('/contacto','HomeController@contacto');
+Route::post('/contacto','MailController@contacto');
 Route::get('/buscar','ProductController@searchResults');
 
 Route::get('/logout',function(){

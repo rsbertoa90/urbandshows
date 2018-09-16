@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Cotizacion;
 use App\Mail\RegalosEmpresariales;
+use App\Mail\Franquicia;
+use App\Mail\Contacto;
 use Carbon\Carbon;
 class MailController extends Controller
 {
@@ -48,6 +50,32 @@ class MailController extends Controller
         return redirect('/');
         
 
+    }
+
+    public function franquicia(Request $request)
+    {
+        $mail = new Franquicia(
+            $request->name,
+            $request->mail,
+            $request->subject,
+            $request->msg
+        );
+
+        MailController::mailAdmin($mail);
+        return redirect('/');
+    }
+
+    public function contacto(Request $request)
+    {
+        $mail = new Contacto(
+            $request->name,
+            $request->mail,
+            $request->subject,
+            $request->msg
+        );
+
+        MailController::mailAdmin($mail);
+        return redirect('/');
     }
 
      private static function mailAdmin($email){

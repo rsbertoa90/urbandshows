@@ -1,35 +1,36 @@
 <template>
     <div>
+        
         <form ref="form" enctype="multipart/form-data" method="post" action="/regalos-empresariales">
             <input type="hidden" name="_token" :value="csrf">
             <div class="form-group row">
                 <label class="col-12 col-lg-4">Nombre</label>
-                <input required  class="col-12 col-lg-8" type="text" v-model="formData.name">
+                <input required  class="col-12 col-lg-8" type="text" name="name" v-model="formData.name">
             </div>
             <div class="form-group row">
                 <label class="col-12 col-lg-4" for="">Email</label>
-                <input required  class="col-12 col-lg-8" type="text" v-model="formData.email">
+                <input name="email" required  class="col-12 col-lg-8" type="text" v-model="formData.email">
             </div>
             <div class="form-group row">
                 <label class="col-12 col-lg-4" for="">Telefono</label>
-                <input class="col-12 col-lg-8" type="text" v-model="formData.phone">
+                <input name="phone" class="col-12 col-lg-8" type="text" v-model="formData.phone">
             </div>
             <div class="form-group row">
                 <label class="col-12 col-lg-4" for="">¿Que productos te interesa personalizar?</label>
-                <input  required class="col-12 col-lg-8" type="text" v-model="formData.products">
+                <input name="products"  required class="col-12 col-lg-8" type="text" v-model="formData.products">
             </div>
             <div class="form-group row">
                 <label class="col-12 col-lg-4" for="">Cantidad</label>
-                <input  required class="col-12 col-lg-8" type="number" min="0" v-model="formData.qty">
+                <input name="qty" required class="col-12 col-lg-8" type="number" min="0" v-model="formData.qty">
             </div>
             <div class="form-group row">
                 <label class="col-12 col-lg-4" for="">¿Para cuando lo necesitas?</label>
-                <input required class="col-12 col-lg-8" type="date" v-model="formData.date">
+                <input name="date" required class="col-12 col-lg-8" type="date" v-model="formData.date">
             </div>
             <div class="form-group row">
                 <label class="col-12 col-lg-4">Mandanos tu diseño</label>
                 <label class="btn btn-lg btn-outline-info  col-4">
-                    Subir archivo <input type="file" style="display: none;" @change="file=true">
+                    Subir archivo <input name="image" type="file" style="display: none;" @change="file=true">
                 </label>
                 <span v-if="file" class="text-warning mt-2 col-4">Archivo subido</span>
             </div>

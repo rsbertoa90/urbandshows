@@ -8,12 +8,13 @@
             <div class=" col-12 col-lg-8 white-bold d-flex 
                         justify-content-around align-items-center p-2 row">
                 <h5 class="col-12 col-lg-5 text-center">Recibir novedades por mail</h5>
-                <form class="form-inline col-12 col-lg-7 d-flex justify-content-center align-items-center">
+                <form @submit.prevent="suscribe" method="post" 
+                    class="form-inline col-12 col-lg-7 d-flex justify-content-center align-items-center">
                       <div class="input-group w-100">
                         <input aria-label="Tu email aqui" type="text" class="form-control" 
-                                placeholder="TuMailAqui@correo.com">
+                                v-model="suscriptionMail" placeholder="TuMailAqui@correo.com">
                         <div class="input-group-prepend">
-                            <button class="white-bold input-group-text bg-second d-flex justify-content-center" 
+                            <button type="submit" class="white-bold input-group-text bg-second d-flex justify-content-center" 
                                   id="basic-addon1">
                                 Suscribirme
                             </button>
@@ -65,9 +66,22 @@
 
 <script>
 export default {
-    
+    data(){
+        return{
+            suscriptionMail:null
+        }
+    },
+    methods:{
+        suscribe()
+        {
+            this.$http.post('/suscription',{'email':this.suscriptionMail})
+                .then(r => {
+                    swal('Gracias por suscribirte','Recibiras todas las novedades de Mates Fabi en tu casilla de correo','success');
+                });
+        }
+    }
 }
-</script>
+</script> 
 
 <style lang="scss" scoped>
    ul li{

@@ -53,7 +53,7 @@ Route::get('/home', function(){return redirect('/');});
 
 Route::get('/cotizador','HomeController@cotizer');
 Route::get('/regalos-empresariales','HomeController@regalosEmpresariales');
-Route::post('/regalos-empresariales','MailController@regalosEmpresariales');
+Route::post('/regalos-empresariales','MailController@regalosEmpresariales')->middleware('OptimizeImages');;
 Route::get('/franquicia','HomeController@franquicia');
 Route::get('/sucursales','HomeController@sucursales');
 Route::get('/contacto','HomeController@contacto');
@@ -72,6 +72,7 @@ Route::post('/cotizer/send','OrderController@create');
 
 Route::get('/lista-de-precios','PdfController@prices');
 
+Route::post('/suscription','SuscriptionController@create');
 
 /* ESTAS RUTAS SIEMPRE AL FINAL */
 

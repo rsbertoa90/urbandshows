@@ -90069,8 +90069,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            suscriptionMail: null
+        };
+    },
+
+    methods: {
+        suscribe: function suscribe() {
+            this.$http.post('/suscription', { 'email': this.suscriptionMail }).then(function (r) {
+                swal('Gracias por suscribirte', 'Recibiras todas las novedades de Mates Fabi en tu casilla de correo', 'success');
+            });
+        }
+    }
+});
 
 /***/ }),
 /* 401 */
@@ -90080,123 +90095,159 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "mt-4" }, [
+    _c("div", { staticClass: "row bg-first footer-row " }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            " col-12 col-lg-8 white-bold d-flex \n                    justify-content-around align-items-center p-2 row"
+        },
+        [
+          _c("h5", { staticClass: "col-12 col-lg-5 text-center" }, [
+            _vm._v("Recibir novedades por mail")
+          ]),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              staticClass:
+                "form-inline col-12 col-lg-7 d-flex justify-content-center align-items-center",
+              attrs: { method: "post" },
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.suscribe($event)
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "input-group w-100" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.suscriptionMail,
+                      expression: "suscriptionMail"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    "aria-label": "Tu email aqui",
+                    type: "text",
+                    placeholder: "TuMailAqui@correo.com"
+                  },
+                  domProps: { value: _vm.suscriptionMail },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.suscriptionMail = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm._m(1)
+              ])
+            ]
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _vm._m(2)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-4" }, [
-      _c("div", { staticClass: "row bg-first footer-row " }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              " col-12 col-lg-3 offset-lg-1 white-bold d-flex \n                    justify-content-center align-items-center bg-focus p-2 "
-          },
-          [_c("h5", [_vm._v("Cotizador Online")])]
-        ),
+    return _c(
+      "div",
+      {
+        staticClass:
+          " col-12 col-lg-3 offset-lg-1 white-bold d-flex \n                    justify-content-center align-items-center bg-focus p-2 "
+      },
+      [_c("h5", [_vm._v("Cotizador Online")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "white-bold input-group-text bg-second d-flex justify-content-center",
+          attrs: { type: "submit", id: "basic-addon1" }
+        },
+        [
+          _vm._v(
+            "\n                            Suscribirme\n                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-12 col-lg-4 row" }, [
+        _c("div", { staticClass: "col-2 offset-1  " }, [
+          _c(
+            "div",
+            { staticClass: "mt-2 btn  btn-circle bg-second white-bold" },
+            [_c("span", { staticClass: "fa fa-map-marker" })]
+          )
+        ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              " col-12 col-lg-8 white-bold d-flex \n                    justify-content-around align-items-center p-2 row"
-          },
-          [
-            _c("h5", { staticClass: "col-12 col-lg-5 text-center" }, [
-              _vm._v("Recibir novedades por mail")
-            ]),
+        _c("div", { staticClass: "col-9" }, [
+          _c("ul", [
+            _c("li", [_vm._v("Pasetur 428 - CABA")]),
             _vm._v(" "),
-            _c(
-              "form",
-              {
-                staticClass:
-                  "form-inline col-12 col-lg-7 d-flex justify-content-center align-items-center"
-              },
-              [
-                _c("div", { staticClass: "input-group w-100" }, [
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      "aria-label": "Tu email aqui",
-                      type: "text",
-                      placeholder: "TuMailAqui@correo.com"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group-prepend" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "white-bold input-group-text bg-second d-flex justify-content-center",
-                        attrs: { id: "basic-addon1" }
-                      },
-                      [
-                        _vm._v(
-                          "\n                            Suscribirme\n                        "
-                        )
-                      ]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ]
-        )
+            _c("li", [_vm._v("Sarmiento 2268, CABA   ")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("Castelli 203, CABA ")])
+          ])
+        ])
       ]),
       _vm._v(" "),
-      _c("hr"),
+      _c("div", { staticClass: "col-12 col-lg-4 row" }, [
+        _c("div", { staticClass: "col-2 offset-1  " }, [
+          _c(
+            "div",
+            { staticClass: "mt-2 btn  btn-circle bg-second white-bold" },
+            [_c("span", { staticClass: "fa fa-envelope" })]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-9 mt-3" }, [
+          _c("p", [_vm._v("Email: MatesFabi@gmail.com  ")])
+        ])
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 col-lg-4 row" }, [
-          _c("div", { staticClass: "col-2 offset-1  " }, [
-            _c(
-              "div",
-              { staticClass: "mt-2 btn  btn-circle bg-second white-bold" },
-              [_c("span", { staticClass: "fa fa-map-marker" })]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-9" }, [
-            _c("ul", [
-              _c("li", [_vm._v("Pasetur 428 - CABA")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Sarmiento 2268, CABA   ")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Castelli 203, CABA ")])
-            ])
-          ])
+      _c("div", { staticClass: "col-12 col-lg-4 row" }, [
+        _c("div", { staticClass: "col-2 offset-1  " }, [
+          _c(
+            "div",
+            { staticClass: "mt-2 btn  btn-circle bg-second white-bold" },
+            [_c("span", { staticClass: "fa fa-whatsapp" })]
+          )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-lg-4 row" }, [
-          _c("div", { staticClass: "col-2 offset-1  " }, [
-            _c(
-              "div",
-              { staticClass: "mt-2 btn  btn-circle bg-second white-bold" },
-              [_c("span", { staticClass: "fa fa-envelope" })]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-9 mt-3" }, [
-            _c("p", [_vm._v("Email: MatesFabi@gmail.com  ")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-lg-4 row" }, [
-          _c("div", { staticClass: "col-2 offset-1  " }, [
-            _c(
-              "div",
-              { staticClass: "mt-2 btn  btn-circle bg-second white-bold" },
-              [_c("span", { staticClass: "fa fa-whatsapp" })]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-9 mt-3" }, [
-            _c("p", [_vm._v(" 11 3008 5414 ")])
-          ])
+        _c("div", { staticClass: "col-9 mt-3" }, [
+          _c("p", [_vm._v(" 11 3008 5414 ")])
         ])
       ])
     ])
@@ -96081,7 +96132,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -96094,6 +96145,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__form_vue__ = __webpack_require__(495);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__form_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__form_vue__);
+//
 //
 //
 //
@@ -96251,7 +96303,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -96262,6 +96314,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -96379,7 +96432,7 @@ var render = function() {
               }
             ],
             staticClass: "col-12 col-lg-8",
-            attrs: { required: "", type: "text" },
+            attrs: { required: "", type: "text", name: "name" },
             domProps: { value: _vm.formData.name },
             on: {
               input: function($event) {
@@ -96407,7 +96460,7 @@ var render = function() {
               }
             ],
             staticClass: "col-12 col-lg-8",
-            attrs: { required: "", type: "text" },
+            attrs: { name: "email", required: "", type: "text" },
             domProps: { value: _vm.formData.email },
             on: {
               input: function($event) {
@@ -96435,7 +96488,7 @@ var render = function() {
               }
             ],
             staticClass: "col-12 col-lg-8",
-            attrs: { type: "text" },
+            attrs: { name: "phone", type: "text" },
             domProps: { value: _vm.formData.phone },
             on: {
               input: function($event) {
@@ -96463,7 +96516,7 @@ var render = function() {
               }
             ],
             staticClass: "col-12 col-lg-8",
-            attrs: { required: "", type: "text" },
+            attrs: { name: "products", required: "", type: "text" },
             domProps: { value: _vm.formData.products },
             on: {
               input: function($event) {
@@ -96491,7 +96544,7 @@ var render = function() {
               }
             ],
             staticClass: "col-12 col-lg-8",
-            attrs: { required: "", type: "number", min: "0" },
+            attrs: { name: "qty", required: "", type: "number", min: "0" },
             domProps: { value: _vm.formData.qty },
             on: {
               input: function($event) {
@@ -96519,7 +96572,7 @@ var render = function() {
               }
             ],
             staticClass: "col-12 col-lg-8",
-            attrs: { required: "", type: "date" },
+            attrs: { name: "date", required: "", type: "date" },
             domProps: { value: _vm.formData.date },
             on: {
               input: function($event) {
@@ -96541,7 +96594,7 @@ var render = function() {
             _vm._v("\n                Subir archivo "),
             _c("input", {
               staticStyle: { display: "none" },
-              attrs: { type: "file" },
+              attrs: { name: "image", type: "file" },
               on: {
                 change: function($event) {
                   _vm.file = true
@@ -96615,6 +96668,8 @@ var render = function() {
       ]),
       _vm._v(" "),
       _vm._m(3),
+      _vm._v(" "),
+      _c("hr"),
       _vm._v(" "),
       _c("h2", [_vm._v("Quiero un presupuesto.")]),
       _vm._v(" "),

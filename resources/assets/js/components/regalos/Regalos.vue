@@ -32,6 +32,7 @@
                 <h2> <span class="fa fa-check" style="font-size:1.5rem"></span> Bombillas con dome</h2>
             </li>
         </ul>
+        <hr>
         <h2>Quiero un presupuesto.</h2>
         <p dir="ltr"><span>Necesitamos que completes el siguiente formulario para poder hacerlo. Te dejamos nuestro numero de contacto por si tenes alguna duda más.</span></p>
 

@@ -48,6 +48,7 @@ class OrderController extends Controller
             ]);
         }
 
+        MailController::mailOrderToClient($order);
         return Order::with('orderItems')->find($order->id);
         
     }

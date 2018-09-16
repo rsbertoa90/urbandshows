@@ -18,7 +18,7 @@ class OptimizeImages
      */
     public function handle($request, Closure $next)
     {
-        if ($file = $request->file('image')->isValid())
+        if ($request->file('image') && $request->file('image')->isValid())
         {
             $file = $request->file('image');
             $path = $file->path();

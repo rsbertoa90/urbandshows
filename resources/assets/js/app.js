@@ -106,6 +106,12 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 Vue.use(VueAwesomeSwiper, /* { default global options } */ );
 
+
+import { VLazyImagePlugin } from "v-lazy-image";
+
+Vue.use(VLazyImagePlugin);
+
+
 const app = new Vue({
     el: '#app',
     store,

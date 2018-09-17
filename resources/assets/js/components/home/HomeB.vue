@@ -16,8 +16,8 @@
 
         <div mt-4>
             <a href="/cotizador" class="d-flex w-100 justify-content-center">
-                <img v-if="$mq == 'lg'" src="/storage/images/app/bannerCotizador.png" alt="presupuesto">
-                <img v-else src="/storage/images/app/banner-cotizador-mobile.png" alt="presupuesto">
+                <v-lazy-image v-if="$mq == 'lg'" src="/storage/images/app/bannerCotizador.png" alt="presupuesto" />
+                <v-lazy-image v-else src="/storage/images/app/banner-cotizador-mobile.png" alt="presupuesto" />
             </a>
         </div>
 

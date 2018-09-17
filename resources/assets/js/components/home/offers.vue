@@ -7,12 +7,12 @@
       <swiper :options="swiperOption" v-if="render">
         <swiper-slide  v-for="product in offers" :key="product.id">
             <div class="card" itemscope itemtype="https://schema.org/Product">
-                <img v-if="product.images[0]" class="card-img card-img-top" 
+                <v-lazy-image v-if="product.images[0]" class="card-img card-img-top" 
                       :src="product.images[0].url"
                       :title="product.name"
                       itemprop="image" 
-                      alt="Card image cap">
-                  <img v-else src="/storage/images/app/no-image.png" alt="no image">
+                      alt="Card image cap" />
+                  <v-lazy-image v-else src="/storage/images/app/no-image.png" alt="no image" />>
                   <div class="card-img-overlay">
                     <span v-if="product.offer" class=" badge bg-focus white-bold"> Oferta! </span>
                   </div>

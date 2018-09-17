@@ -3,14 +3,14 @@
         <div class="row justify-content-center" itemscope itemtype="http://schema.org/Product">
             <div class="col-12 col-lg-6 row">
                 <div class="col-12">
-                    <img v-if="!product.images[0]"  src="/storage/images/app/no-image.png" alt="sin foto">
-                    <img @click="show" itemprop="image" v-else 
+                    <v-lazy-image v-if="!product.images[0]"  src="/storage/images/app/no-image.png" alt="sin foto"/>
+                    <v-lazy-image @click="show" itemprop="image" v-else 
                         :src="product.images[selectedImage].url" 
-                        :alt="product.name">
+                        :alt="product.name" />
                 </div>
                 <div class="col-12 row" v-if="product.images[1]">
                     <div  v-if="i-1 != selectedImage"  class="col-4" v-for="i in product.images.length" :key="i">
-                        <img :src="product.images[i-1].url" :alt="product.name" @click="selectedImage=i-1">
+                        <v-lazy-image :src="product.images[i-1].url" :alt="product.name" @click="selectedImage=i-1" />>
                     </div>
                 </div>
             </div>

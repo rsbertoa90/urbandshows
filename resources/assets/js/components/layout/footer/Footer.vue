@@ -1,10 +1,10 @@
 <template>
     <div class="mt-4">
         <div class="row bg-first footer-row ">
-            <div class=" col-12 col-lg-3 offset-lg-1 white-bold d-flex 
+            <a  href="/cotizador" class=" col-12 col-lg-3 offset-lg-1 white-bold d-flex 
                         justify-content-center align-items-center bg-focus p-2 ">
                 <h5>Cotizador Online</h5>
-            </div>
+            </a>
             <div class=" col-12 col-lg-8 white-bold d-flex 
                         justify-content-around align-items-center p-2 row">
                 <h5 class="col-12 col-lg-5 text-center">Recibir novedades por mail</h5>
@@ -95,6 +95,9 @@ export default {
        .footer-row{
            margin: 0px -7.5%;
        }
+   }
+   a:hover{
+       color:white;
    }
 </style>
 

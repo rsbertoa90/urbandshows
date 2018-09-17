@@ -33,7 +33,7 @@
                       @endforeach
                     </tbody>
         </table>
-        <span class="font-weight-bold text-warning">TOTAL: {{$order->total}}</span>
+        <span class="font-weight-bold text-warning">TOTAL: ${{$order->total}}</span>
 
 
     </div>

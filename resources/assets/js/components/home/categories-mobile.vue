@@ -6,7 +6,7 @@
               :key="category.id">
               
             <div class="card" itemscope itemtype="https://schema.org/Product">
-                <a :href="'/'+category.slug"  class="d-block w-100" itemprop="url">
+                <a :href="category.slug"  class="d-block w-100" itemprop="url">
                     <v-lazy-image itemprop="image" class="card-img-top" :src="category.image" 
                                             :alt="category.name" />
                     <div class="card-body">

@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-12 row" v-if="product.images[1]">
                     <div  v-if="i-1 != selectedImage"  class="col-4" v-for="i in product.images.length" :key="i">
-                        <v-lazy-image :src="product.images[i-1].url" :alt="product.name" @click="selectedImage=i-1" />>
+                        <v-lazy-image :src="product.images[i-1].url" :alt="product.name" @click="selectedImage=i-1" />
                     </div>
                 </div>
             </div>

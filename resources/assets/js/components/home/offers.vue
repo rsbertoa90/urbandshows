@@ -20,7 +20,7 @@
                     <h5 class="card-title" itemprop="name"> {{product.name | ucFirst}}  </h5>
                     <h4 v-if="!$store.getters.getConfig.hide_prices" class="second">  
                       ${{product.price | price}} 
-                      <strike style="font-size:1rem" v-if="product.offer && !$store.getters.getConfig.hide_prices" class="text-secondary"> ${{product.price * 1.67 | price}}</strike> 
+                      <strike style="font-size:1rem" v-if="product.offer && $store && !$store.getters.getConfig.hide_prices" class="text-secondary"> ${{product.price * 1.67 | price}}</strike> 
                     </h4>
                     <p style="height:45px" class="card-text crop-text" itemprop="description"> {{product.description}}</p>
                     <a :href="product.slug" class="btn btn-outline-second"> Ver mas</a>

@@ -9,8 +9,12 @@
             <div class="col-12 col-lg-6">
                 <img :src="category.image" :alt="category.name">
             </div>
-            <div class="col-12 col-lg-6">
-                {{category.description}}
+            <div class="col-12 col-lg-6 ">
+                
+                  <span class="texto">
+                    {{category.description.trim()}}
+                  </span>  
+            
             </div>
         </div>
         <!-- LINKS -->
@@ -120,6 +124,15 @@ import productsList from './products-list.vue';
 export default {
     components : {productsGrid,productsList},
     props : ['category_id'],
+    created(){
+        console.log( $('texto'));
+        $('.texto').each(txt => {
+            console.log(txt);
+        let texto = txt.val();
+        texto = texto.replace(/\n/g, "<br />");
+        $(txt).html(texto);
+});
+    },
     computed : {
         category(){
             return this.$store.getters['categories/getCategory'](this.category_id);

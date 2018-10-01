@@ -9,6 +9,11 @@ Vue.filter('price', value => {
     return value;
 });
 
+Vue.filter('text', value => {
+    if (value){
+        return value.trim();
+    }
+});
 
  Vue.filter('datetime', val => {
     return moment(val).format('DD/MM/YYYY H:mm');

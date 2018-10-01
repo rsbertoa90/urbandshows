@@ -26,7 +26,7 @@
                     </div>
                     <div class="d-flex flex-column mt-3" v-if="product.description">
                         <h4>Sobre el producto:</h4>
-                        <p> {{product.description | ucFirst}} </p>
+                        <p class="texto"> {{product.description | ucFirst}} </p>
                         <span style="font-size: 0.7rem ; font-style:italic">* Los diseños estan sujetos a disponibilidad</span>
                     </div>
                     <div class="mt-3">

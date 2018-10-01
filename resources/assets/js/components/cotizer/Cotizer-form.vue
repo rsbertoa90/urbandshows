@@ -2,7 +2,7 @@
     <div class="" v-if="user">
         <h5>Envianos tu pedido</h5>
         <p>Recibiras confirmacion de tu presupuesto por email</p>
-        <form class="col-12">
+        <form id="form" class="col-12">
                
                <div v-if="user.role_id > 2" class="col-12 row form-group-row">
                    <label class="col-4 col-lg-4" for="">Nombre</label>

@@ -22,28 +22,28 @@
                     <label class="col-12 col-lg-4">
                         Descripcion
                     </label>
-                    <textarea rows="5" v-model.lazy="selected.description" @change="save(selected,'description')" 
+                    <textarea rows="5" v-model.lazy.trim="selected.description" @change="save(selected,'description')" 
                         type="text" class="col-12 col-lg-8 form-control"></textarea>
                 </div>
                 <div class="p2 row">
                     <label class="col-12 col-lg-4">
                         Descripcion para HOME
                     </label>
-                    <textarea rows="5" v-model.lazy="selected.homedescription" @change="save(selected,'homedescription')" 
+                    <textarea rows="5" v-model.lazy.trim="selected.homedescription" @change="save(selected,'homedescription')" 
                         type="text" class="col-12 col-lg-8 form-control"></textarea>
                 </div>
                 <div class="p2 row">
                     <label class="col-12 col-lg-4">
                         Meta Titutlo
                     </label>
-                    <textarea rows="5" v-model.lazy="selected.metatitle" @change="save(selected,'metatitle')" 
+                    <textarea rows="5" v-model.lazy.trim="selected.metatitle" @change="save(selected,'metatitle')" 
                         type="text" class="col-12 col-lg-8 form-control"></textarea>
                 </div>
                 <div class="p2 row">
                     <label class="col-12 col-lg-4">
                         Meta Descripcion
                     </label>
-                    <textarea rows="5" v-model.lazy="selected.metadescription" @change="save(selected,'metadescription')" 
+                    <textarea rows="5" v-model.lazy.trim="selected.metadescription" @change="save(selected,'metadescription')" 
                         type="text" class="col-12 col-lg-8 form-control"></textarea>
                 </div>
 

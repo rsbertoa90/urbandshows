@@ -88,6 +88,29 @@
                 <products-list :products="products"></products-list>
             </div>
         </div>
+        <div class="row mt-4">
+            <div class="col-12 col-lg-4 offset-lg-8 ">
+                   
+                <div v-if="pages > 1" class="justify-content-center d-flex">
+                    <button v-if="page != 1" class=" bg-transparent"
+                            @click="page--">
+                        <span class="fa fa-chevron-left"></span>
+                    </button>
+                    <button v-for="p in pagination" :key="p" 
+                            class=" bg-transparent"
+                            :class="{'text-focus' : page == p }"
+                            @click="page = p">
+                        <span> {{p}} </span>
+                    </button>
+                    
+                    <button v-if="page != pages" class=" bg-transparent"
+                            @click="page++">
+                        <span class="fa fa-chevron-right"></span>
+                    </button>
+                </div>
+            
+            </div>
+        </div>
     </div>
 </template>
 

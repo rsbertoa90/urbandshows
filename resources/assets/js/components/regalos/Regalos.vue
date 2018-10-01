@@ -7,13 +7,13 @@
         
         <div class="row mb-4">
             <div class="col-12 col-lg-4">
-                <img src="/storage/images/app/no-image.png" alt="muestra de regalo">
+                <v-lazy-image src="/storage/images/app/regalos3.jpeg" alt="muestra de regalo" />
             </div>
             <div class="col-12 col-lg-4">
-                <img src="/storage/images/app/no-image.png" alt="muestra de regalo">
+                <v-lazy-image src="/storage/images/app/regalos1.jpeg" alt="muestra de regalo"/>
             </div>
             <div class="col-12 col-lg-4">
-                <img src="/storage/images/app/no-image.png" alt="muestra de regalo">
+                <v-lazy-image src="/storage/images/app/regalos2.jpeg" alt="muestra de regalo" />
             </div>
         </div>
         

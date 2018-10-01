@@ -11,9 +11,7 @@
             </div>
             <div class="col-12 col-lg-6 ">
                 
-                  <span class="texto">
-                    {{category.description.trim()}}
-                  </span>  
+                  <span class="texto"> {{category.description}} </span>  
             
             </div>
         </div>

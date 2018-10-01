@@ -4,7 +4,7 @@
     </div>
    
    
-        <div class="nav-text">
+    <div class="nav-text">
         <a href="/admin/cotizador">Cotizador</a>
     </div>
     <div class="nav-text">

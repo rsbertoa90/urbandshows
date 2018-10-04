@@ -8,10 +8,33 @@ use App\OrderItem;
 use App\Product;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use View;
+use PDF;
+use Mail;
+use App\Config;
 
 class OrderController extends Controller
 {
     //
+
+     public function toPDF($order)
+    {
+        $order = Order::find($order);
+
+        $today = $order->created_at->format('d-m-Y H:i');
+       
+        /* dd($order->getTheFuckingCity($order->city_id)); */
+        $logo = Config::base64('/storage/images/app/logo.png');
+
+        $html = View::make('pdf.Cotizacion',compact('order','today','logo'))->render();
+       
+        $pdf = PDF::loadHTML($html);
+        
+        return $pdf->stream("{$today}-Cotizacion.pdf");
+
+    }
+
+
 
     public function create(Request $request)
     {

@@ -44,6 +44,8 @@ Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
     Route::get('/getOrders','OrderController@getOrders');
 
     Route::put('/config','ConfigController@update');
+
+    Route::get('/pdf/{order}','OrderController@toPDF');
 });
 
 Route::get('/config','ConfigController@get');

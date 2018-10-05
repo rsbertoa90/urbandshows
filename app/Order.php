@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\OrderItem;
 use App\User;
+use App\City;
 
 class Order extends Model
 {
@@ -27,5 +28,10 @@ class Order extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
     }
 }

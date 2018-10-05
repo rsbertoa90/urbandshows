@@ -56,7 +56,7 @@
                     <li>Mensaje: {{$order->message}} </li>
                 </ul>
             </p>
-           {{--  @if ($order->shipping)
+            @if ($order->shipping)
                 <p>
                    Datos de envio:
                    <ul>
@@ -69,7 +69,7 @@
                         <li> transporte: {{$order->transport}} </li> 
                    </ul> 
                 </p>
-            @endif --}}
+            @endif
         </div>
         
     </main>

@@ -6,7 +6,8 @@ import categories from './modules/categories.js'
 export const store = new Vuex.Store({
     state : {
         user : null,
-        config : null
+        config : null,
+        states:[]
     },
     getters :{
         getUser(store){
@@ -14,6 +15,22 @@ export const store = new Vuex.Store({
         },
         getConfig(store){
             return store.config;
+        },
+        getStates(store){
+            return store.states;
+        },
+        getCity: store => id => {
+            if (store.states){
+            
+                store.states.forEach(state => {
+                    let cit = state.cities.find(city => {
+                        return city.id == id;
+                    });
+                    if (cit){
+                        return cit;
+                    }
+                })  ;
+            }
         }
     },
     mutations : {
@@ -23,6 +40,9 @@ export const store = new Vuex.Store({
         },
         setConfig(state,payload){
             state.config = payload;
+        },
+        setStates(state,payload){
+            state.states = payload
         }
     },
     actions : {
@@ -43,6 +63,14 @@ export const store = new Vuex.Store({
            Vue.http.get('/config')
                .then(response => {
                    commit('setConfig', response.data);
+               });
+       },
+       fetchStates: ({
+           commit
+       }, payload) => {
+           Vue.http.get('/api/states')
+               .then(response => {
+                   commit('setStates', response.data);
                });
        },
     },

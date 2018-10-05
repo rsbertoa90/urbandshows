@@ -1,21 +1,86 @@
 <template>
     <div class="" v-if="user">
+        
+         <div v-if="loading" class="loader">
+            <fade-loader :loading="loading" size="200px"></fade-loader>
+        </div>
+
+
         <h5>Envianos tu pedido</h5>
         <p>Recibiras confirmacion de tu presupuesto por email</p>
         <form id="form" class="col-12">
-               
+        <!-- Retiro en local -->
+              <div class="col-12 row form-group-row mb-3">
+                  <div class="col-12 col-lg-4">
+                    <input  type="radio"
+                           v-model="formData.shipping" :value="false"> 
+                     <span @click="formData.shipping=false"  class="text-secondary radioText" :class="{'text-success':!formData.shipping}">
+                        <span class="fa fa-building"></span> Retiro en el local
+                     </span>
+                  </div>
+              </div>
+              <div class="col-12 row form-group-row mb-3">
+                  <div class="col-12 col-lg-4">
+                    <input  type="radio"
+                           v-model="formData.shipping" :value="true"> 
+                    <span  @click="formData.shipping=true" class="text-secondary radioText" :class="{'text-success':formData.shipping}">
+                        <span class="fa fa-truck"></span> Envio por transporte
+                    </span>
+                  </div>
+               </div> 
+       <!--  -->        
+
+       <span v-if="!formData.shipping" class="warn">*Los retiros presenciales son en el local de Pasteur 428 (Once) </span>
+       <span class="warn">*Los precios no incluyen IVA</span>
+        <div v-if="user.role_id > 2" class="col-12 row form-group-row mb-3">
+                    <span class=" warn" v-if="!formData.shipping">*El minimo de compra retirando en el local es de ${{minBuy}}</span>
+                    <span class=" warn" v-if="formData.shipping">*El minimo de compra para envios es de ${{minBuy}} </span>
+        </div> 
+
+             
+             
                <div v-if="user.role_id > 2" class="col-12 row form-group-row">
-                   <label class="col-4 col-lg-4" for="">Nombre</label>
+                   <label class="col-4 col-lg-4" for="">Nombre y Apellido <span v-if="user.role_id < 3"> (cliente) </span> </label>
                    <input required type="text" v-model="formData.client"  class="form-control col-8 col-lg-4">
                 </div> 
                  <div v-if="user.role_id < 3" class="col-12 row form-group-row">
                    <label class="col-4 col-lg-4" for="">Nombre del vendedor</label>
                    <input required type="text" v-model="formData.seller"  class="form-control col-8 col-lg-4">
                 </div> 
-               <div v-if="user.role_id < 3" class="col-12 row form-group-row">
-                   <label class="col-4 col-lg-4" for="">Nombre del cliente</label>
-                   <input required type="text" v-model="formData.client"  class="form-control col-8 col-lg-4">
-                </div> 
+               
+                <!-- DATOS DE ENVIO -->
+                <div v-if="formData.shipping">
+                    
+                    <div class="col-12 row form-group-row">
+                        <label class="col-4 col-lg-4" for=""> Provincia </label>
+                        <select v-if="states.length > 0" v-model="state" class="form-control col-8 col-lg-4">
+                            <option v-for="opt in states" :key="opt.id" :value="opt"> 
+                                {{opt.name}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-12 row form-group-row">
+                        <label class="col-4 col-lg-4" for=""> Ciudad </label>
+                        <select v-if="state" v-model="formData.city_id" class="form-control col-8 col-lg-4">
+                            <option v-for="opt in state.cities" :key="opt.id" :value="opt.id"> 
+                                {{opt.name}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-12 row form-group-row">
+                        <label class="col-4 col-lg-4" for=""> Direccion </label>
+                        <input  type="text" v-model="formData.address"  class="form-control col-8 col-lg-4">
+                    </div>
+                    <div class="col-12 row form-group-row">
+                        <label class="col-4 col-lg-4" for=""> Transporte </label>
+                        <input  type="text" v-model="formData.transport"  class="form-control col-8 col-lg-4">
+                    </div>
+                    <div class="col-12 row form-group-row">
+                        <label class="col-4 col-lg-4" for=""> Codigo Postal </label>
+                        <input  type="text" v-model="formData.cp"  class="form-control col-8 col-lg-4">
+                    </div>
+                </div>
+                <!-- /DATOS DE ENVIO -->
               
                <div class="col-12 row form-group-row">
                    <label class="col-4 col-lg-4" for="">Email</label>
@@ -27,32 +92,11 @@
                 </div> 
                <div class="col-12 row form-group-row">
                    <label class="col-4 col-lg-4" for="">Mensaje</label>
-                   <textarea v-model="formData.msg" name="msg" class="form-control col-8 col-lg-4"></textarea>
+                   <textarea v-model="formData.message" name="message" class="form-control col-8 col-lg-4"></textarea>
                 </div> 
 
-               <div v-if="user.role_id > 2" class="col-12 row form-group-row mt-2">
-                   <div class="col-12 col-lg-5 offset-lg-2 p-0">
-                        <button formnovalidate @click.prevent.stop="ship = false"
-                            class="btn btn-block"
-                            :class="{'btn-outline-info' : ship,
-                                        'btn-info text-white font-weight-bold': !ship}">  
-                            Retiro en el local                
-                        </button>
-                   </div>
-                    <div class="col-12 col-lg-5 p-0">
-                        <button formnovalidate @click.prevent.stop="ship = true"
-                                class="btn btn-block"
-                                :class="{'btn-outline-success' : !ship,
-                                            'btn-success text-white font-weight-bold': ship}">  
-                                Quiero que me lo envien              
-                        </button>
-                    </div>
-                </div> 
-                <div v-if="user.role_id > 2" class="col-12 row form-group-row">
-                    <span class="offset-2 text-danger" v-if="!ship">*El minimo de compra retirando en el local es de ${{minBuy}}</span>
-                    <span class="offset-2 text-danger" v-if="ship">*El minimo de compra para envios es de ${{minBuy}} </span>
-                </div> 
-
+           
+               
                 <button class="button btn-lg btn-outline-success offset-2 mt-2" 
                         @click.prevent.stop="send">
                         Enviar
@@ -69,26 +113,36 @@ export default{
     },
 
     data(){return{
+        state:null,
+        loading:false,
         formData : {
-            msg : '',
+            shipping:false,
+            cp:'',
+            address:'',
+            transport:'',
+            city_id:null,
+            message : '',
             phone : '',
             email : '',
             client:'',
             seller:''
         },
-        ship : false,
+    
        
     }},
     computed : {
         minBuy(){
            if(this.user && this.user.role_id > 2)
            {
-              return this.ship ? 3000 : 1500 ;
+              return this.formData.shipping ? 4000 : 1500 ;
            }
            return 1;
         },
         user(){
             return this.$store.getters.getUser;
+        },
+        states(){
+            return this.$store.getters.getStates;
         }
     },
     
@@ -112,16 +166,15 @@ export default{
         send(){
             if (this.formValid()){
 
-                var data = {
-                    message : this.formData.msg,
-                    phone : this.formData.phone,
-                    email : this.formData.email,
-                    client : this.formData.client,
-                    seller :this.formData.seller,
-                    list : JSON.stringify(this.list),
-                    total : this.total
-                };
+                var data = this.formData;
+                data.list = JSON.stringify(this.list);
+                data.total = this.total;
+                if (data.shipping){
+                    data.shipping = 1;
+                } else {data.shipping = 0;}
+                
                 var vm = this;
+                vm.loading=true;
                 $.ajax({
                     method : 'post',
                     data : data,
@@ -133,7 +186,7 @@ export default{
                                 .then(confirm => {window.location.replace('/')});
                         }
                         else{
-                            swal('Orden guardada', 'Revisa el panel de administracion deordenes','success')
+                            swal('Orden guardada', 'Revisa el panel de administracion de ordenes','success')
                                 .then(confirm =>{window.location.replace('/admin/cotizador')});
                         }
                     } 
@@ -145,5 +198,24 @@ export default{
 
 </script>
 
-<style>
+<style scoped lang="scss">
+.loader {
+    position : fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 110;
+    background-color: #ddddddaa;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-top: 5%;
+}
+
+    .warn{
+        font-size: 0.7rem;
+        color: red;
+        font-style: italic;
+    }
 </style>

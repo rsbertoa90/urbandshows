@@ -27,6 +27,7 @@ Vue.use(BootstrapVue);
 
 import VueMq from 'vue-mq'
 
+Vue.component('fade-loader', require('vue-spinner/src/FadeLoader.vue'));
 Vue.component('app-cotizer', require('./components/cotizer/Cotizer.vue'));
 Vue.component('cotizer-form', require('./components/cotizer/Cotizer-form.vue'));
 // Vue.component('csrf', require('./components/csrf.vue'));
@@ -120,6 +121,7 @@ const app = new Vue({
             fetchCategories : 'categories/fetch',
             fetchUser : 'fetchUser',
             fetchConfig : 'fetchConfig',
+            fetchStates : 'fetchStates',
         }),
         
 
@@ -129,6 +131,7 @@ const app = new Vue({
         this.fetchCategories();
         this.fetchUser();
         this.fetchConfig();
+        this.fetchStates();
     }
 });
 

@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-9">
                     <ul>
-                        <li>Pasetur 428 - CABA</li>
+                        <li>Pasteur 428 - CABA</li>
                         <li>Sarmiento 2268, CABA   </li>
                         <li>Castelli 203, CABA </li>
 

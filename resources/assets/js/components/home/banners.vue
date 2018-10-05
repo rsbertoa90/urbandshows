@@ -3,7 +3,7 @@
         <div class="row ml-1 ml-lg-0">
             <div class="col-12 col-lg-8 p-1">
                 <a href="/cotizador" class="w-100 d-block">
-                   <v-lazy-image src="/storage/images/app/cotizador.gif" alt="cotizador" />
+                   <v-gif :images="gifImages" alt="cotizador" :speed="500" />
                 </a>
             </div>
             <div class="col-12 col-lg-4 row p-1">
@@ -29,8 +29,17 @@
 </template>
 
 <script>
+import vGif from './gif.vue';
 export default {
-    
+    components: {vGif},
+    data(){
+        return{
+            gifImages : [
+                '/storage/images/app/cotizador1.png',
+                '/storage/images/app/cotizador2.png'
+            ]
+        }
+    }
 }
 </script>
 

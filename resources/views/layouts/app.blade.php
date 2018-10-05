@@ -28,6 +28,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/animate.css') }}" rel="stylesheet"> --}}
+
+    {{-- PRECONECTS --}}
+    <link rel="preconnect" href="https://use.fontawesome.com">
+    <link rel="preconnect" href="https://maps.google.com">
+    <link rel="preconnect" href="https://www.google.com">
 </head>
 <body>
     <div class="d-flex justify-content-center align-items-center" style="width:100vw">

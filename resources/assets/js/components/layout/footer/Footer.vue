@@ -3,7 +3,7 @@
         <div class="row bg-first footer-row ">
             <a  href="/cotizador" class=" col-12 col-lg-3 offset-lg-1 white-bold d-flex 
                         justify-content-center align-items-center bg-focus p-2 ">
-                <h5>Cotizador Online</h5>
+                <h5 class="white-bold">Cotizador Online</h5>
             </a>
             <div class=" col-12 col-lg-8 white-bold d-flex 
                         justify-content-around align-items-center p-2 row">
@@ -14,7 +14,7 @@
                         <input aria-label="Tu email aqui" type="text" class="form-control" 
                                 v-model="suscriptionMail" placeholder="TuMailAqui@correo.com">
                         <div class="input-group-prepend">
-                            <button type="submit" class="white-bold input-group-text bg-second d-flex justify-content-center" 
+                            <button type="submit" class=" input-group-text d-flex justify-content-center bg-first white-bold" 
                                   id="basic-addon1">
                                 Suscribirme
                             </button>
@@ -74,10 +74,14 @@ export default {
     methods:{
         suscribe()
         {
-            this.$http.post('/suscription',{'email':this.suscriptionMail})
-                .then(r => {
-                    swal('Gracias por suscribirte','Recibiras todas las novedades de Mates Fabi en tu casilla de correo','success');
-                });
+            if (suscriptionMail && suscriptionMail.length > 3){
+
+            
+                this.$http.post('/suscription',{'email':this.suscriptionMail})
+                    .then(r => {
+                        swal('Gracias por suscribirte','Recibiras todas las novedades de Mates Fabi en tu casilla de correo','success');
+                    });
+            }
         }
     }
 }

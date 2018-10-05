@@ -1,5 +1,5 @@
-<template>
-    <v-lazy-image  :src="image" :alt="alt"> </v-lazy-image>
+<template >
+    <v-lazy-image v-if="image"  :src="image" :alt="alt"> </v-lazy-image>
 </template>
 
 <script>
@@ -14,11 +14,13 @@ export default {
         let len = this.images.length;
         let pos = 0;
         var vm = this;
-        setInterval(function(){
-            vm.image = vm.images[pos];
-            pos++;
-            if (pos == len){pos = 0;}
-        },vm.speed);
+        if(len>0){
+            setInterval(function(){
+                vm.image = vm.images[pos];
+                pos++;
+                if (pos == len){pos = 0;}
+            },vm.speed);
+        }
     }
 
 }

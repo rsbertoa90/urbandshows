@@ -7,4 +7,11 @@ Disallow: /login
 Disallow: /register
 Disallow: /suscription
 Disallow: /lista-de-precios
+Disallow: /api/
+Disallow: /config
+Disallow: /buscar
+Disallow: /logout
+Disallow: /cotizer/
+
+
 

@@ -48,6 +48,8 @@ Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
     Route::get('/pdf/{order}','OrderController@toPDF');
 });
 
+Route::get('/pdf/{order}','OrderController@toPDF');
+
 Route::get('/config','ConfigController@get');
 
 Route::get('/', 'HomeController@index')->name('home');

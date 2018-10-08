@@ -48,7 +48,7 @@
         </div>
         <div>
                 <ul>
-                    <li v-if="order.name">Nombre del cliente: {{order.name}} </li>
+                    <li v-if="order.name">Nombre del cliente: {{order.client}} </li>
                     <li v-if="order.phone">Telefono: {{order.phone}} </li>
                     <li v-if="order.email">Email: {{order.email}} </li>
                     <li v-if="order.message">Mensaje adjunto: {{order.message}} </li>

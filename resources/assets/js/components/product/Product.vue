@@ -3,7 +3,7 @@
         <div class="row justify-content-center" itemscope itemtype="http://schema.org/Product">
             <div class="col-12 col-lg-6 row">
                 <div class="col-12" @click="show">
-                    <v-lazy-image v-if="!product.images[0]"  src="/storage/images/app/no-image.png" alt="sin foto"/>
+                    <v-lazy-image v-if="!product.images[0]"  src="/storage/images/app/no-photo.png" alt="sin foto"/>
                     <v-lazy-image  itemprop="image" v-else 
                         :src="product.images[selectedImage].url" 
                         :alt="product.name" />
@@ -73,12 +73,19 @@ export default {
     },
     methods:{
         show(){
-            let url = this.product.images[this.selectedImage].url;
-            let image = document.createElement('img');
-            image.setAttribute('src',url);
-            swal({
-                content:image,
-            });
+            if (this.product.images[0]){
+                let url = this.product.images[this.selectedImage].url;
+                let image = document.createElement('img');
+                image.setAttribute('src',url);
+                swal({
+                    content:image,
+                });
+            }else{
+                    var content = document.createElement("img");
+                    $(content).attr('src','/storage/images/app/no-photo.png');
+                    content.style.width = '100%';
+                    swal({content : content});
+            }
         }
     }
 }

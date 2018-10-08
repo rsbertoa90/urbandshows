@@ -3,13 +3,13 @@
         <div v-for="product in products" :key="product.id"
                  class="col-12 mt-3 row" itemscope itemtype="https://schema.org/Product">
                 <hr>
-                <div class="card col-12 col-lg-4">
+                <div @click="show(product)"
+                     class="card col-12 col-lg-4">
                     <v-lazy-image v-if="product.images[0]" class="card-img-top" :alt="product.name"
                     :src="product.images[0].url" 
-                    @click="show(product)"
                     :title="product.name"
                     itemprop="image" />
-                    <v-lazy-image v-else src="/storage/images/app/no-image.png" 
+                    <v-lazy-image v-else src="/storage/images/app/no-photo.png" 
                         class="card-img-top" alt="no hay foto" />
                     <div class="card-img-overlay" v-if="product.offer">
                         <span class="badge bg-focus white-bold "> Oferta! </span>
@@ -49,13 +49,22 @@ export default {
         }
     },
     methods:{
-         show(product){
-                this.carouselProduct = product;
-                this.showCarousel = true;
-
-                let element = this.$refs.modal.$el;
-              
-                $(element).modal('show');
+             show(product){
+                if (product.images[0]){
+                    this.carouselProduct = product;
+                    this.showCarousel = true;
+    
+                    let element = this.$refs.modal.$el;
+                  
+                    $(element).modal('show');
+                }
+                else
+                {
+                    var content = document.createElement("img");
+                    $(content).attr('src','/storage/images/app/no-photo.png');
+                    content.style.width = '100%';
+                    swal({content : content});
+                }
             }
     },
         computed : {

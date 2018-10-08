@@ -13,7 +13,7 @@
                         :title="product.name"
                         itemprop="image" 
                         alt="Card image cap" />
-                  <v-lazy-image v-else src="/storage/images/app/no-image.png" alt="no image" />
+                  <v-lazy-image v-else src="/storage/images/app/no-photo.png" alt="no image" />
                     <div v-if="product.offer" class="card-img-overlay">
                       <span v-if="product.offer" class=" badge bg-focus white-bold"> Oferta! </span>
                     </div>

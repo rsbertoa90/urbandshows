@@ -4,13 +4,15 @@
                  class="col-12 col-lg-4 mt-3" itemscope itemtype="https://schema.org/Product">
             
                 <div class="card text-center p-1">
-                    <v-lazy-image v-if="product.images[0]" class="card-img-top" :alt="product.name"
-                    :src="product.images[0].url" 
-                    @click="show(product)"
-                    :title="product.name"
-                    itemprop="image" />
-                    <v-lazy-image v-else src="/storage/images/app/no-image.png" 
-                        class="card-img-top" alt="no hay foto" />
+                    <div class="card-img-top" @click="show(product)" >
+                        <v-lazy-image v-if="product.images[0]" :alt="product.name"
+                        :src="product.images[0].url" 
+                        
+                        :title="product.name"
+                        itemprop="image" />
+                        <v-lazy-image v-else src="/storage/images/app/no-photo.png" 
+                             alt="no hay foto" />
+                    </div>
                     <div class="card-img-overlay" v-if="product.offer">
                         <span class="badge bg-focus white-bold "> Oferta! </span>
                     </div>
@@ -38,13 +40,22 @@ export default {
         }
     },
     methods:{
-         show(product){
-                this.carouselProduct = product;
-                this.showCarousel = true;
-
-                let element = this.$refs.modal.$el;
-              
-                $(element).modal('show');
+             show(product){
+                if (product.images[0]){
+                    this.carouselProduct = product;
+                    this.showCarousel = true;
+    
+                    let element = this.$refs.modal.$el;
+                  
+                    $(element).modal('show');
+                }
+                else
+                {
+                    var content = document.createElement("img");
+                    $(content).attr('src','/storage/images/app/no-photo.png');
+                    content.style.width = '100%';
+                    swal({content : content});
+                }
             }
     }
     ,

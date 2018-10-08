@@ -62,12 +62,12 @@
                            </thead>
                            <tbody>
                                <tr v-for="product in category.products" :key="product.id">
-                                   <td>
-                                        <img v-if="product.images.length > 0" 
+                                   <td @click="show(product)" >
+                                        <v-lazy-image v-if="product.images.length > 0" 
                                             class="sampleImage" :src="product.images[0].url" 
-                                            :alt="product.name" @click="show(product)"> 
-                                        <img class="sampleImage" v-else src="/storage/images/app/no-image.png" 
-                                            alt="no-image">
+                                            :alt="product.name"  /> 
+                                        <v-lazy-image class="sampleImage" v-else src="/storage/images/app/no-photo.png" 
+                                            alt="Sin foto" />
                                     </td>
                                     <td v-if="user && user.role_id < 3"> {{product.code}} </td>
                                    <td style="cursor:pointer" @click="show(product)">  {{product.name | ucFirst}} </td>
@@ -226,12 +226,21 @@
                 }
             },
             show(product){
-                this.carouselProduct = product;
-                this.showCarousel = true;
-
-                let element = this.$refs.modal.$el;
-              
-                $(element).modal('show');
+                if (product.images[0]){
+                    this.carouselProduct = product;
+                    this.showCarousel = true;
+    
+                    let element = this.$refs.modal.$el;
+                  
+                    $(element).modal('show');
+                }
+                else
+                {
+                    var content = document.createElement("img");
+                    $(content).attr('src','/storage/images/app/no-photo.png');
+                    content.style.width = '100%';
+                    swal({content : content});
+                }
             }
         },     
     }

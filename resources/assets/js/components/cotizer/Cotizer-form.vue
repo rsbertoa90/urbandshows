@@ -149,7 +149,12 @@ export default{
     methods : {
         formValid()
         {
-            if (this.formData.email.length < 4 && this.user.role_id > 2)
+            if(!this.formData.client || this.formData.client.trim() == '')
+            {
+                 swal('El campo "Nombre y Apellido" es obligatorio ','','error');
+                 return false; 
+            }
+            else if (this.formData.email.length < 4 && this.user.role_id > 2)
             {
                 swal('Hay algo mal con el mail','','error');
                 return false;

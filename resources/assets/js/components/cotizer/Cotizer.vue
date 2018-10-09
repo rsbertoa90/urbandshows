@@ -58,7 +58,7 @@
                                <th>Producto</th>
                                <th>Precio</th>
                                <th>Quiero</th>
-                               <th v-if="$mq != 'sm'" class="">Subtotal</th>
+                               
                            </thead>
                            <tbody>
                                <tr v-for="product in category.products" :key="product.id">
@@ -75,7 +75,7 @@
                                    
                                    <td v-if="!product.paused"><input type="number" min="0" class="form-control " v-model="product.units">
                                         
-                                        <div v-if="$mq == 'sm' && product.units > 0" class="text-success d-flex flex-column p-0 m-0 justify-content-center align-items-center">
+                                        <div v-if="product.units > 0" class="text-success d-flex flex-column p-0 m-0 justify-content-center align-items-center">
                                             
                                             <span class="text-success font-weight-bold">  ${{(product.price * product.units) | price}} </span>
                                             
@@ -84,8 +84,7 @@
                                    </td>
                                   
                                    
-                                   <td v-if="! product.units && $mq != 'sm'" class="text-success font-weight-bold"> 0 </td>
-                                   <td v-else-if="$mq != 'sm'" class="text-success font-weight-bold">$ {{ (product.units * product.price).toFixed(2) }}  </td>
+                                  
                                   
                                </tr>
                            </tbody>

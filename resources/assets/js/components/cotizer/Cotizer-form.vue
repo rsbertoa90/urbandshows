@@ -39,7 +39,7 @@
 
              
              
-               <div v-if="user.role_id > 2" class="col-12 row form-group-row">
+               <div class="col-12 row form-group-row">
                    <label class="col-4 col-lg-4" for="">Nombre y Apellido <span v-if="user.role_id < 3"> (cliente) </span> </label>
                    <input required type="text" v-model="formData.client"  class="form-control col-8 col-lg-4">
                 </div> 

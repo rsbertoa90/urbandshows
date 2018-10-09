@@ -41,14 +41,14 @@
                     <td></td>
                     <td></td>
                     <td style="color : blue">TOTAL</td>
-                    <td style="color : blue"> ${{total}} </td>
+                    <td style="color : blue"> ${{total |price}} </td>
                     </tr>
             </tfoot>
         </table>
         </div>
         <div>
                 <ul>
-                    <li v-if="order.name">Nombre del cliente: {{order.client}} </li>
+                    <li v-if="order.client">Nombre del cliente: {{order.client}} </li>
                     <li v-if="order.phone">Telefono: {{order.phone}} </li>
                     <li v-if="order.email">Email: {{order.email}} </li>
                     <li v-if="order.message">Mensaje adjunto: {{order.message}} </li>

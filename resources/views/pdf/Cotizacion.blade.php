@@ -50,7 +50,7 @@
             <p>
                 Datos Adjuntos:
                 <ul>
-                    <li>Nombre: {{$order->name}} </li>
+                    <li>Nombre: {{$order->client}} </li>
                     <li>Telefono: {{$order->phone}} </li>
                     <li>Email: {{$order->email}} </li>
                     <li>Mensaje: {{$order->message}} </li>

@@ -28,7 +28,7 @@
           
              <div  class="col-3 row">
                  <label for="" class="col-12">Precio</label>
-                 <input min='0' required v-model.trim="formData.price"  type="number" class="col-12">
+                 <input min='0' step=".01" required v-model.trim="formData.price"  type="number" class="col-12">
              </div>
              <button type="submit" class="btn btn-outline-success align-self-end justify-self-end"> GUARDAR </button>
          </form>

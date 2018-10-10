@@ -1,6 +1,7 @@
 <template>
     <div class="row" v-if="products">
         <div v-for="product in products" :key="product.id"
+            v-if="!product.paused"
                  class="col-12 mt-3 row" itemscope itemtype="https://schema.org/Product">
                 <hr>
                 <div @click="show(product)"

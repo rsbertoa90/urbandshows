@@ -17,7 +17,7 @@ class ProductController extends Controller
       // so with explode you get this:
       $array = explode(' ', $search);
 
-      $products = Product::where(function ($q) use ($array) {
+      $products = Product::where('paused',0)->where(function ($q) use ($array) {
       foreach ($array as $value) {
         $q->orWhere('name', 'like', "%{$value}%");
       }

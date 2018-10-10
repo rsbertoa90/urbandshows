@@ -5,7 +5,7 @@
   <h2 class="mb-4">Productos relacionados</h2>
       <!-- swiper -->
       <swiper :options="swiperOption" v-if="render">
-        <swiper-slide  v-for="product in products" :key="product.id">
+        <swiper-slide  v-for="product in products" :key="product.id" v-if="!product.paused">
             <div class="card" itemscope itemtype="https://schema.org/Product">
                 <div>
                   <v-lazy-image v-if ="product.images[0]" class="card-img card-img-top" 

@@ -61,7 +61,7 @@
                                
                            </thead>
                            <tbody>
-                               <tr v-for="product in category.products" :key="product.id">
+                               <tr v-for="product in category.products" :key="product.id" v-if="!product.paused">
                                    <td @click="show(product)" >
                                         <v-lazy-image v-if="product.images.length > 0" 
                                             class="sampleImage" :src="product.images[0].url" 

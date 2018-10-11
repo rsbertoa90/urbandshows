@@ -5,9 +5,9 @@
  
   <main>
       
-       <div style="width:100% ; text-align : center;">
+     {{--   <div style="width:100% ; text-align : center;">
         <img src="{{$logo}}}" alt="">
-        </div>
+        </div> --}}
 
       @foreach ($categories as $category)
        {{-- <div class="breakNow"></div> --}}

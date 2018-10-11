@@ -4,9 +4,9 @@
     @section('content')
 
     <main>
-         <div style="width:100% ; text-align : center; margin-bottom: 20px">
+  {{--        <div style="width:100% ; text-align : center; margin-bottom: 20px">
             <img style="width: 120px" src="{{App\Config::base64('/storage/images/app/logo.png')}}" alt="Mates Fabi" />
-        </div>
+        </div> --}}
 
          @php
             $total = 0;

@@ -1,7 +1,7 @@
 <template>
     <div class="w-100">
         <div class="row d-flex justify-content-center">
-            <div class="w-50 mt-3 p-3 ">
+            <div class="w-50 p-3 ">
                 <image-logo></image-logo>
             </div>
         </div>

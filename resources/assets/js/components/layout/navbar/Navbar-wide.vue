@@ -2,8 +2,8 @@
     <div class="w-100">
         
         <div class="row d-flex justify-content-around align-items-center mt-4">
-            <div class="col-3 p-4">
-                <div class="p-4">
+            <div class="col-2 p-4">
+                <div class="">
                     <image-logo></image-logo>
                 </div>
             </div>

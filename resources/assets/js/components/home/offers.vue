@@ -5,7 +5,8 @@
   <h2 class="mb-4">Ofertas de Mates Fabi</h2>
       <!-- swiper -->
       <swiper :options="swiperOption" v-if="render">
-        <swiper-slide  v-for="product in offers" :key="product.id" v-if="!product.paused">
+        <swiper-slide  v-for="product in offers" :key="product.id" 
+                      v-if="!product.paused" class="d-flex align-items-stretch">
             <div class="card" itemscope itemtype="https://schema.org/Product">
                 <v-lazy-image v-if="product.images[0]" class="card-img card-img-top" 
                       :src="product.images[0].url"

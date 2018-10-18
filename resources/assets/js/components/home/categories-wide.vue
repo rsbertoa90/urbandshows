@@ -3,7 +3,7 @@
         <swiper :options="swiperOption" class="col-12">
             <swiper-slide
                 v-for="category in categories" 
-                :key="category.id">
+                :key="category.id" class="d-flex align-items-stretch">
                 
                 <div class="card" itemscope itemtype="https://schema.org/Product">
                     <a :href="category.slug"  class="d-block w-100" itemprop="url">

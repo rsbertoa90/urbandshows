@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-4 d-flex flex-column justify-content-center align-items-center">
                         <h4>Cambiar precios masivo</h4>
-                        <h5> {{selectedProducts.length}} Productos seleccionados </h5>
+                        <h5 v-if="selectedProducts"> {{selectedProducts.length}} Productos seleccionados </h5>
                         <button @click="selectAllProducts" class="btn btn-sm btn-outline-danger mb-2">Seleccionar todos</button>
                         <div class="d-flex justify-content-center"> 
                             <button class="mr-2" @click="variation-=1">-</button>
@@ -115,25 +115,7 @@ import { mapActions } from 'vuex';
             imageModal : imageModal,
             adminCreate : adminCreate
         },
-        computed : {
-            config(){
-                return this.$store.getters.getConfig;
-            },
-            selectedProducts()
-            {
-                var list =[];
-                this.categories.forEach(cat => {
-                    cat.products.forEach(prod => {
-                        if (prod.selected)
-                        {
-                            list.push(prod);
-                        }
-                    });
-                });
-                return list;
-            }
-        },
-        data(){
+          data(){
             return {
                 variation : 0,
                 categories : [],
@@ -142,6 +124,32 @@ import { mapActions } from 'vuex';
                 showModal : false,
             }
         },
+        computed : {
+            config(){
+                return this.$store.getters.getConfig;
+            },
+            selectedProducts()
+            {
+                if(this.categories){
+                    
+                    
+                    if (this.categories[1]){
+
+                        var list =[];
+                        this.categories.forEach(cat => {
+                            cat.products.forEach(prod => {
+                                if (prod.selected)
+                                {
+                                    list.push(prod);
+                                }
+                            });
+                        });
+                        return list;
+                    }
+                }
+            }
+        },
+      
         methods : {
              ...mapActions({
             fetchUser : 'fetchUser',
@@ -158,7 +166,7 @@ import { mapActions } from 'vuex';
                 this.$http.put('/admin/config',{field:'hide_prices',value:this.config.hide_prices})
                     .then(response => {
                        vm.fetchConfig;
-                       console.log(vm.config.hide_prices);
+                    
                     });
             },
             toggleOffer(product){
@@ -224,11 +232,11 @@ import { mapActions } from 'vuex';
             logme(e){console.log(e)},
             refresh(){
                 var vm = this;
-                $.ajax({
-                    url : 'api/categories',
-                    success(response){
-                         vm.categories = _.sortBy(response,'name');
-                    }
+               
+                vm.$http.get('/api/categories')
+                .then(response =>{
+                   
+                    vm.categories = _.sortBy(response.data,'name');
                 });
             },
             saveChange(product,field){
@@ -265,8 +273,7 @@ import { mapActions } from 'vuex';
                         Vue.set(product,'selected',true);
                     }
                    product.selected = category.selected;
-                   console.log('product', product.selected);
-                   console.log('category', category.selected);
+           
                 });
             },
             selectAllProducts()
@@ -304,17 +311,7 @@ import { mapActions } from 'vuex';
             }
         },
         created(){
-            var vm = this;
-            $.ajax({
-                url : 'api/categories',
-                success(response){
-                    vm.categories = _.sortBy(response,'name');
-                    
-                    // console.log (vm.categories);
-                }
-            });
-
-            
+            this.refresh();
         },
         filters : {
             price(value){

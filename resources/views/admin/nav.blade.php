@@ -14,7 +14,7 @@
 
      @if ($user->role_id == 1 )
       <div class="nav-text">
-        <a href="/admin">Administrar productos</a>
+        <a href="/super/products">Administrar productos</a>
       </div>
 
         <div class="nav-text">

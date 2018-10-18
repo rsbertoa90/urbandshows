@@ -20,12 +20,13 @@ Route::middleware('CheckSuper')->prefix('super')->group(function(){
     Route::post('/category/image','CategoryController@uploadImage')->middleware('OptimizeImages');
 
     Route::put('/metadata','MetadataController@update');
+    Route::get('/products','AdminController@tableView');
 });
 
 
 Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
 
-    Route::get('/','AdminController@tableView');
+    Route::get('/','AdminController@cotizador');
     Route::get('/cotizador','AdminController@cotizador');
 
     Route::post('/category','CategoryController@create');

@@ -147,14 +147,24 @@ export default{
     },
     
     methods : {
+        validateEmail(email) {
+            console.log(email);
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            console.log(re.test(String(email).toLowerCase()));
+            return re.test(String(email).toLowerCase());
+        },
         formValid()
         {
-            if(!this.formData.client || this.formData.client.trim() == '')
+            if (this.formData.phone.length < 6){
+                 swal('Hay algo mal con el telefono','','error');
+                 return false; 
+            }
+            else if(!this.formData.client || this.formData.client.trim() == '')
             {
                  swal('El campo "Nombre y Apellido" es obligatorio ','','error');
                  return false; 
             }
-            else if (this.formData.email.length < 4 && this.user.role_id > 2)
+            else if (!this.validateEmail(this.formData.email) && this.user.role_id > 2)
             {
                 swal('Hay algo mal con el mail','','error');
                 return false;

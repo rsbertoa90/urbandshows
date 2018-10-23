@@ -148,7 +148,9 @@ export default {
                 let from = (this.page-1)*this.show;
                 let to = from + this.show;
                 prods = prods.slice(from,to);
-           
+                prods = prods.filter (prod => {
+                    return !prod.paused;
+                });
                 return prods;
             }
         },

@@ -141,6 +141,11 @@ export default {
             if (this.category != null && this.category.products.length > 0){
 
                 let prods = this.category.products;
+                
+                prods = prods.filter (prod => {
+                    return !prod.paused;
+                });
+
                 prods = _.sortBy(prods,this.sortby);
                 if (this.order == 'desc'){
                     prods = prods.reverse();
@@ -148,9 +153,7 @@ export default {
                 let from = (this.page-1)*this.show;
                 let to = from + this.show;
                 prods = prods.slice(from,to);
-                prods = prods.filter (prod => {
-                    return !prod.paused;
-                });
+               
                 return prods;
             }
         },

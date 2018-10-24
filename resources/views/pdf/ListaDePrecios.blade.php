@@ -31,12 +31,14 @@
                       
                       @foreach ($category->products as $key => $product)
                   
-                      <tr>
-                          <td> {{$product->code}} </td>
-                          <td> {{$product->name}} </td>
-                          <td> ${{number_format($product->price,2)}} </td>
-                      </tr>
-                      @endforeach
+                        @if (!$product->paused)
+                            <tr>
+                                <td> {{$product->code}} </td>
+                                <td> {{$product->name}} </td>
+                                <td> ${{number_format($product->price,2)}} </td>
+                            </tr>
+                        @endif
+                     @endforeach
                     </tbody>
                 </table>
                 <div class="breakNow"></div>

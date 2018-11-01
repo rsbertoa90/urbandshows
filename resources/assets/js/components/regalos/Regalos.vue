@@ -5,17 +5,7 @@
         <p dir="ltr" style="text-align: left;"><span>Trabajamos para que quedes satisfecho y puedas lograr tus objetivos de marketing. Nos interesa que tus clientes queden felices y gratamente sorprendidos. Tenemos un equipo especializado que sabe cómo hacerlo.</span></p>
         <p dir="ltr" style="text-align: left;"><span>Mira algunos de nuestros trabajos.</span></p>
         
-        <div class="row mb-4">
-            <div class="col-12 col-lg-4">
-                <v-lazy-image src="/storage/images/app/regalos3.jpeg" alt="muestra de regalo" />
-            </div>
-            <div class="col-12 col-lg-4">
-                <v-lazy-image src="/storage/images/app/regalos1.jpeg" alt="muestra de regalo"/>
-            </div>
-            <div class="col-12 col-lg-4">
-                <v-lazy-image src="/storage/images/app/regalos2.jpeg" alt="muestra de regalo" />
-            </div>
-        </div>
+       <regalos-fotos></regalos-fotos>
         
         <h2>¿Qué productos podes personalizar con tu logo en Mates Fabi?</h2>
         <ul>
@@ -34,7 +24,7 @@
         </ul>
         <hr>
         <h2>Quiero un presupuesto.</h2>
-        <p dir="ltr"><span>Necesitamos que completes el siguiente formulario para poder hacerlo. Te dejamos nuestro numero de contacto por si tenes alguna duda más.</span></p>
+        <p dir="ltr"><span>Necesitamos que completes el siguiente formulario para poder hacerlo. Te dejamos nuestro numero de contacto por si tenes alguna duda más: <span class="text-info font-weight-bold"> 11 3008 5414  </span> </span></p>
 
             <regalos-form></regalos-form>
         
@@ -63,10 +53,12 @@
 </template>
 
 <script>
+import regalosFotos from './fotos';
 import regalosForm from './form.vue';
 export default {
     components : {
         regalosForm,
+        regalosFotos
     }
 }
 </script>

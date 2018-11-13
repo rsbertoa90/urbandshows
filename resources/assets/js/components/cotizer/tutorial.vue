@@ -18,7 +18,7 @@
         </div>
          <transition enter-active-class="animate animated bounceIn">
                     <div class="speech-bubble" v-if="clicknow">
-                        <span>Haz Click en una categoria para desplegar los productos</span>
+                        <span>Click en una categoria para ver detalles de productos</span>
                     </div>
         </transition>
         <button class="btn btn-block btn-danger" style="max-width:400px"  @click="viewed=true"> Cerrar </button>

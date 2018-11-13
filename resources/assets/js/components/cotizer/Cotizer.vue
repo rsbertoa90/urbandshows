@@ -121,6 +121,7 @@
             <pedido :list="list"></pedido>
         </div>
         <carousel ref="modal" :product ="carouselProduct"></carousel>
+        <tutorial></tutorial>
     </div>
 </template>
 
@@ -129,8 +130,9 @@
  import { mapGetters } from 'vuex';
     import carousel from './Carousel.vue';
     import pedido from './pedido.vue';
+    import tutorial from './tutorial.vue'
     export default {
-        components : {carousel,pedido},
+        components : {carousel,pedido,tutorial},
         data(){
             return {
                 selector:{

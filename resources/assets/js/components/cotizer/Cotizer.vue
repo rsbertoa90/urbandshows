@@ -256,6 +256,7 @@
 }
 .category-miniature{
     width: 100px;
+    margin-right: 15px;
 }
 .container{
     

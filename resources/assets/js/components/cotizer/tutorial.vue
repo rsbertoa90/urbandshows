@@ -112,7 +112,7 @@ export default {
        position: fixed;
        top:50px;
        right: 50px;
-        background: #57b2bb;
+        background: #EB1889;
         border-radius: .4em;
         width: 50%;
         padding: 20px;
@@ -129,7 +129,7 @@ export default {
 	width: 0;
 	height: 0;
 	border: 37px solid transparent;
-	border-right-color: #57b2bb;
+	border-right-color: #EB1889;
 	border-left: 0;
 	border-bottom: 0;
 	margin-top: -18.5px;

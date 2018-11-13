@@ -47,7 +47,7 @@
                                    <div class="category-miniature">
                                         <v-lazy-image :src="category.image"></v-lazy-image>
                                     </div>
-                                    <span>
+                                    <span class="white-space-normal">
                                         {{category.name.ucfirst()}}
                                     </span>
                                    
@@ -251,10 +251,14 @@
 </script>
 
 <style scoped>
+.white-space-normal{
+    white-space: normal;
+}
 .text-big{
     font-size: 1.5rem;
 }
 .category-miniature{
+    min-width: 100px;
     width: 100px;
     margin-right: 15px;
 }

@@ -288,6 +288,9 @@
     img{width:100%}
 
     @media(max-width: 600px){
+        .card-header{
+            padding:0;
+        }
         .container{
     
             margin-left: -7%;

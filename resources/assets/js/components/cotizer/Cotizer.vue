@@ -37,14 +37,19 @@
                   :key="'category-'+category.id" 
                   class="card flex-wrap">
                 <div class="card-header" :id="'card'+category.id">
+                  
                     <h5 class="mb-0">
-                        <button class="btn  btn-link w-100 text-left" 
+                        <button class="btn  btn-link w-100 text-left text-big d-flex align-items-center w-100" 
                                 data-toggle="collapse" 
                                 :data-target="'#acordion'+category.id" 
                                 aria-expanded="true" 
                                 :aria-controls="category.name">
-                                 
-                                   {{category.name.ucfirst()}}
+                                   <div class="category-miniature">
+                                        <v-lazy-image :src="category.image"></v-lazy-image>
+                                    </div>
+                                    <span>
+                                        {{category.name.ucfirst()}}
+                                    </span>
                                    
                         </button>
                     </h5>
@@ -246,6 +251,12 @@
 </script>
 
 <style scoped>
+.text-big{
+    font-size: 1.5rem;
+}
+.category-miniature{
+    width: 100px;
+}
 .container{
     
     margin-bottom: 100px;

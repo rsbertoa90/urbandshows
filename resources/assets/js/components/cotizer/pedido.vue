@@ -37,6 +37,6 @@ export default {
 
 <style scoped>
     .table{
-        font-size:0.8rem;
+        font-size:1rem;
     }
 </style>

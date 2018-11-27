@@ -30,7 +30,8 @@
                </div> 
        <!--  -->        
 
-       <span v-if="!formData.shipping" class="warn">*Los retiros presenciales son en el local de Pasteur 428 (Once) </span>
+       <span v-if="!formData.shipping" class="warn">*Los retiros  presenciales son el local de Pasteur 428(Once) a los 3-5 dias habiles de haber echo el pedido </span>
+       <span v-if="formData.shipping" class="warn">*El despacho de la mercaderia se realiza de 3 a 5 dias habiles luego del pago. </span>
        <span class="warn">*Los precios no incluyen IVA</span>
         <div v-if="user.role_id > 2" class="col-12 row form-group-row mb-3">
                     <span class=" warn" v-if="!formData.shipping">*El minimo de compra retirando en el local es de ${{minBuy}}</span>

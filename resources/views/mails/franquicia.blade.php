@@ -7,8 +7,8 @@
         <ul>
             <li>Nombre: {{$name}}  </li>
             <li>Email: {{$mail}}  </li>
-            <li>Asunto: {{$subject}}  </li>
-            <li>Mensaje: {{$msg}}  </li>
+            <li>Telefono: {{$phone}}  </li>
+            <li>Horarios disponibles: {{$msg}}  </li>
         </ul>
     </div>
 @endsection

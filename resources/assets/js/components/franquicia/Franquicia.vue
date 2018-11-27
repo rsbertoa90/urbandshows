@@ -34,14 +34,14 @@
                 </div>
                 <div class="row">
                     <label class="col-12 col-lg-4">
-                        Asunto
+                        Telefono
                     </label>
-                    <input  required name="subject" v-model="formdata.topic" 
+                    <input  required name="phone" v-model="formdata.phone" 
                             type="text" class="form-control col-12 col-lg-8">
                 </div>
                 <div class="row">
                     <label class="col-12 col-lg-4">
-                        Mensaje
+                        ¿En que horarios te podemos llamar?
                     </label>
                     <textarea required name="msg"  v-model="formdata.message" 
                               class="form-control col-12 col-lg-8" rows="5"></textarea>
@@ -64,19 +64,31 @@ export default {
             formdata : {
                 name : '',
                 email : '',
-                topic : '',
+                phone : '',
                 message : ''
             }
         }
     },
     methods:{
         submit(){
-            var vm = this;
+            if (this.formValid()){
+
+                var vm = this;
                 swal('Mensaje enviado','Nos comuicaremos con usted a la brevedad','success')
                     .then (response => {
                         $(vm.$refs.form).submit();
                     });
             
+            }
+        },
+        formValid(){
+            if (!this.formdata.name || !this.formdata.email || !this.formdata.message || !this.formdata.phone){
+                swal('Ups!','Parece que te falta completar el formulario','error');
+                return false;
+            }
+
+            return true;
+
         }
     }
 }

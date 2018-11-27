@@ -13,18 +13,18 @@ class Franquicia extends Mailable
 
     public $name;
     public $mail;
-    public $subject;
+    public $phone;
     public $msg;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name,$mail,$subject,$msg)
+    public function __construct($name,$mail,$phone,$msg)
     {
         $this->name = $name;
         $this->mail = $mail;
-        $this->subject = $subject;
+        $this->phone = $phone;
         $this->msg = $msg;
     }
 
@@ -38,7 +38,7 @@ class Franquicia extends Mailable
         return $this->view('mails.franquicia')
             ->with(['name'=>$this->name,
                 'mail'=>$this->mail,
-                'subject'=>$this->subject,
+                'phone'=>$this->phone,
                 'msg'=>$this->msg]
             );
     }

@@ -57,7 +57,7 @@ class MailController extends Controller
         $mail = new Franquicia(
             $request->name,
             $request->mail,
-            $request->subject,
+            $request->phone,
             $request->msg
         );
 

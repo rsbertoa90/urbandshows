@@ -87,5 +87,11 @@ export default {
        margin-top:2%;
        padding: 5px;
    }
+
+    .card-img-overlay{
+    max-height: 60%;
+  }
+
+  
 </style>
 

@@ -14,7 +14,7 @@
                         <v-lazy-image v-else src="/storage/images/app/no-photo.png" 
                              alt="no hay foto" />
                     </div>
-                    <div class="card-img-overlay" v-if="product.offer">
+                    <div @click="show(product)" class="card-img-overlay" v-if="product.offer">
                         <span class="badge bg-focus white-bold "> Oferta! </span>
                     </div>
                     <div class="card-body p-0">
@@ -92,6 +92,6 @@ export default {
     max-height: 60%;
   }
 
-  
+
 </style>
 

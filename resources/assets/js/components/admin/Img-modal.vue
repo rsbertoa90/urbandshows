@@ -4,7 +4,7 @@
     <div  v-if="product" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title"> {{product.name}} </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button @click="modalClose()" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -23,11 +23,21 @@
                                      :img-src="img.url">
                         <button class="btn btn-sm btn-danger"
                                 @click.prevent="deleteImage(img)">X</button>
+                        <div class="order-select"  v-if="product.images.length > 1">
+                            <label @click="orderChange(img,i)"  v-for="i in product.images.length" :key="i"
+                                    class="btn btn-sm"
+                                    :class="{'btn-success' : img.order == i,
+                                            'btn-outline-info' : img.order != i}"
+                                    >
+                                {{i}}
+                            </label>
+                        </div>
                   </b-carousel-slide>
                   <b-carousel-slide v-else
                                     img-src="/storage/images/app/no-image.png">
-                        <button class="btn btn-sm btn-danger"
-                                @click.prevent="deleteImage(img)">X</button>
+                        <!-- <button class="btn btn-sm btn-danger"
+                                @click.prevent="deleteImage(img)">X</button> -->
+                        
                   </b-carousel-slide>
 
 
@@ -36,15 +46,15 @@
 
             <div class="d-flex flex-column mt-3">
                 <label class="text-info font-weight-bold">Nueva Imagen </label>
-                <input type="file" name="file"  accept="image/x-png,image/gif,image/jpeg">
+                <input @change="imageUploaded=true" type="file" name="file"  accept="image/x-png,image/gif,image/jpeg">
             </div>   
            
           </form>
        
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" @click="save">Guardar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button v-if="imageUploaded" type="button" class="btn btn-primary" @click="save">Guardar</button>
+        <button @click="modalClose" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
@@ -57,11 +67,27 @@
         data: function(){
             return {
                file : null,
+               imageUploaded:false,
             }
         },
         
         
         methods : {
+            modalClose(){
+                 this.$emit('refresh');
+            },
+            orderChange(img,i){
+                img.order = i ;
+                var vm = this;
+                let data = {
+                    id : img.id,
+                    field : 'order',
+                    value : i
+                }
+
+                vm.$http.put('/admin/productImage',data);
+
+            },
             deleteImage(image){
                 this.$http.delete('/admin/product/image/'+image.id)
                     .then(()=>{
@@ -109,3 +135,15 @@
     }
 }
 </script>
+
+<style lang="scss" scoped>
+
+    .order-select{
+        position:absolute;
+        bottom:0;
+        left:0;
+        z-index:300;
+        background-color: #fff;
+    }
+
+</style>

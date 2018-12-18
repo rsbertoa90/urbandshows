@@ -71,17 +71,18 @@ class ProductImageController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+   public function update(Request $request)
     {
-        //
+      
+        $field = $request->field;
+        $image = ProductImage::find($request->id);
+        $image->$field = $request->value;
+        $image->save();
+
+        return $request->value;
+        
     }
+
 
     /**
      * Remove the specified resource from storage.

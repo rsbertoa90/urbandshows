@@ -83,15 +83,18 @@
             }
         },
         methods : {
-              preloadImages(){
+               preloadImages(){
                 /* console.log('preload'); */
-                let images = [];
-                this.product.images.forEach(image => {
-                    let img = new Image();
-                    img.src = image.url;
-                    images.push(img);
-                   /*  console.log(img); */
-                });
+                if (this.product &&  this.product.images && this.product.images.length>0){
+
+                    let images = [];
+                    this.product.images.forEach(image => {
+                        let img = new Image();
+                        img.src = image.url;
+                        images.push(img);
+                       /*  console.log(img); */
+                    });
+                }
             },
               deleteImage(image){
                 this.$http.delete('/admin/product/image/'+image.id)
@@ -116,6 +119,7 @@
             closedModal(){
                 this.i = 0;
                 this.$emit('closedModal');
+               
                
             },
 

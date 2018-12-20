@@ -120,7 +120,7 @@
         <div v-if="list.length > 0">
             <pedido :list="list"></pedido>
         </div>
-        <carousel ref="modal" :product ="carouselProduct"></carousel>
+        <carousel ref="modal" :product ="carouselProduct" @closeModal="carouselProduct = null"></carousel>
         <tutorial></tutorial>
     </div>
 </template>

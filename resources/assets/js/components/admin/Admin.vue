@@ -99,7 +99,7 @@
                         </div>
                     </div>
                 </div>
-                <image-modal :product="product" @closeModal="carouselProduct = null"  ref="modal" @refresh="refresh()"></image-modal>
+                <image-modal :product="product" @closedModal="product = null"  ref="modal" @refresh="refresh()"></image-modal>
         </div>
 
         

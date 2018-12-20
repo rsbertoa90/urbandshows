@@ -92,7 +92,7 @@
             close(){
                 this.i = 0;
                 this.$emit('closeModal');
-               
+                
             },
 
             

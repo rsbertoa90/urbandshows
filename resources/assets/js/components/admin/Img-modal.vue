@@ -4,49 +4,49 @@
     <div  v-if="product" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title"> {{product.name}} </h5>
-        <button @click="modalClose()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button @click="closedModal()" type="button" class="close" 
+                data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-          
-          <form enctype="multipart/form-data" name="uploader" >
-           <b-carousel  
-                        :controls="product.images.length > 1"
-                        id="carousel"
-                        background="#ababab"
-                        :interval="4000"
-                        img-width="600"
+      <div class="modal-body"  >
+          <div class="image-container">
+            <transition  leave-active-class=" animated slideOutRight faster position-absolute">
+            
+                <img v-if="product.images && product.images.length > 0" 
+                        :key="product.images[i].id"
+                        class="w-100 " 
+                        :src="product.images[i].url" 
+                        :alt="product.name">
+            </transition>  
+                <img v-if="!product.images || ! product.images.length > 0" src="/storage/images/app/no-image.png" :alt="product.name">
+
+            <div class="controls"  v-if="product.images && product.images.length > 1" >
+                <span class="fa fa-chevron-left text-info" @click="changeImage('prev')" ></span>
+                <span class="fa fa-chevron-right text-info" @click="changeImage('next')" ></span>
+            </div>
+
+             <button class="btn btn-sm btn-danger close-button"
+                                @click.prevent="deleteImage(product.images[i])">X</button>
+
+            <div class="order-select"  v-if="product.images.length > 1">
+                <label @click="orderChange(product.images[i],index)"  v-for="index in product.images.length" :key="index"
+                        class="btn btn-sm"
+                        :class="{'btn-success' : product.images[i].order == index,
+                                'btn-outline-info' : product.images[i].order != index}"
                         >
-                  
-                  <b-carousel-slide v-if="product.images.length > 0" v-for="img in product.images" :key="img.id"
-                                     :img-src="img.url">
-                        <button class="btn btn-sm btn-danger"
-                                @click.prevent="deleteImage(img)">X</button>
-                        <div class="order-select"  v-if="product.images.length > 1">
-                            <label @click="orderChange(img,i)"  v-for="i in product.images.length" :key="i"
-                                    class="btn btn-sm"
-                                    :class="{'btn-success' : img.order == i,
-                                            'btn-outline-info' : img.order != i}"
-                                    >
-                                {{i}}
-                            </label>
-                        </div>
-                  </b-carousel-slide>
-                  <b-carousel-slide v-else
-                                    img-src="/storage/images/app/no-image.png">
-                        <!-- <button class="btn btn-sm btn-danger"
-                                @click.prevent="deleteImage(img)">X</button> -->
-                        
-                  </b-carousel-slide>
+                    {{index}}
+                </label>
+            </div>
 
-
-           </b-carousel>
-
-
-            <div class="d-flex flex-column mt-3">
-                <label class="text-info font-weight-bold">Nueva Imagen </label>
-                <input @change="imageUploaded=true" type="file" name="file"  accept="image/x-png,image/gif,image/jpeg">
+          </div>
+          <form enctype="multipart/form-data" name="uploader" >
+          <input type="hidden" name="_token" :value="csrf">
+            <div class="d-flex flex-column">
+                <label class="text-info text-center">  
+                    Subir una imagen   
+                </label>
+                 <input @change="imageUploaded = true" type="file" name="file"  accept="image/x-png,image/gif,image/jpeg" class="display-none" >
             </div>   
            
           </form>
@@ -54,7 +54,7 @@
       </div>
       <div class="modal-footer">
         <button v-if="imageUploaded" type="button" class="btn btn-primary" @click="save">Guardar</button>
-        <button @click="modalClose" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
@@ -63,20 +63,44 @@
 
 <script>
     export default {
+        
         props: ['product'],
         data: function(){
             return {
+               imageUploaded :false,
                file : null,
-               imageUploaded:false,
+               i:0,
+               csrf:csrf,
+               show:true
             }
         },
+       
+        watch:{
+            product(){
+                this.show=true;
+                this.preloadImages();
         
-        
+            }
+        },
         methods : {
-            modalClose(){
-                 this.$emit('refresh');
+              preloadImages(){
+                /* console.log('preload'); */
+                let images = [];
+                this.product.images.forEach(image => {
+                    let img = new Image();
+                    img.src = image.url;
+                    images.push(img);
+                   /*  console.log(img); */
+                });
             },
-            orderChange(img,i){
+              deleteImage(image){
+                this.$http.delete('/admin/product/image/'+image.id)
+                    .then(()=>{
+                        this.$emit('refresh')
+                         $('#image-modal').modal('hide');
+                        });
+            },
+             orderChange(img,i){
                 img.order = i ;
                 var vm = this;
                 let data = {
@@ -88,13 +112,13 @@
                 vm.$http.put('/admin/productImage',data);
 
             },
-            deleteImage(image){
-                this.$http.delete('/admin/product/image/'+image.id)
-                    .then(()=>{
-                        this.$emit('refresh')
-                         $('#image-modal').modal('hide');
-                        });
+       
+            closedModal(){
+                this.i = 0;
+                this.$emit('closedModal');
+               
             },
+
             save :  function(event){
                 var vm =this;
                 var file = $('input[type="file"]')[0].files[0];
@@ -130,20 +154,61 @@
 
         
         },
+
+        changeImage(where){
+            if (where == 'next'){
+                this.i++;
+                if (! this.product.images[this.i]){
+                    this.i = 0;
+                }
+            } else{
+                this.i--;
+                if (this.i < 0){
+                        this.i = this.product.images.length - 1
+                    }
+                }
+        }
             
         
-    }
+    },
+    
 }
 </script>
 
 <style lang="scss" scoped>
 
-    .order-select{
+    .image-container{
+        position:relative;
+        overflow: hidden;
+    }
+
+    .close-button{
         position:absolute;
-        bottom:0;
+        bottom:10px;
+        left:50%;
+        
+
+    }
+
+    .controls{
+        position: absolute;
+        bottom: 50%;
         left:0;
-        z-index:300;
-        background-color: #fff;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .fa{
+            font-size:2rem;
+            cursor: pointer;
+        }
+
+    }
+
+    .set-first{
+        position:absolute;
+        top:10px;
+        left:50%;
     }
 
 </style>
+

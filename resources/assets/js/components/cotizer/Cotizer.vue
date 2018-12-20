@@ -128,7 +128,7 @@
 <script>
  import { mapActions } from 'vuex';
  import { mapGetters } from 'vuex';
-    import carousel from './Carousel.vue';
+    import carousel from './Img-modal.vue';
     import pedido from './pedido.vue';
     import tutorial from './tutorial.vue'
     export default {

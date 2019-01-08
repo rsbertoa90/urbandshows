@@ -13,15 +13,11 @@ class AdminController extends Controller
         return view('admin.tableView',compact('user'));
     }
 
-    public function cotizador()
+    public function admin()
     {
-        $user = Auth::user();
-        return view('admin.cotizer',compact('user'));
+        return view('admin.admin');
     }
+   
 
-    public function orders()
-    {
-        $user = Auth::user();
-        return view('admin.orders',compact('user'));
-    }
+  
 }

@@ -2,16 +2,23 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 Vue.use(Vuex);
-import categories from './modules/categories.js'
+import events from './modules/events.js'
+import songs from './modules/songs.js'
+import tags from './modules/tags.js'
+import sets from './modules/sets.js'
 export const store = new Vuex.Store({
     state : {
         user : null,
         config : null,
-        states:[]
+        states:[],
+        adminComponent:'events-panel'
     },
     getters :{
         getUser(store){
             return store.user;
+        },
+        getAdminComponent(store){
+            return store.adminComponent;
         },
         getConfig(store){
             return store.config;
@@ -38,6 +45,10 @@ export const store = new Vuex.Store({
             state.user = payload;
            
         },
+        setAdminComponent(state,payload){
+            state.adminComponent = payload;
+           
+        },
         setConfig(state,payload){
             state.config = payload;
         },
@@ -46,6 +57,7 @@ export const store = new Vuex.Store({
         }
     },
     actions : {
+      
        fetchUser: ({
            commit
        }, payload) => {
@@ -75,7 +87,10 @@ export const store = new Vuex.Store({
        },
     },
     modules : {
-        categories
+        events,
+        songs,
+        sets,
+        tags
     }
 
 });

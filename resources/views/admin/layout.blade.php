@@ -15,7 +15,7 @@ if(!isset($user)){
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Mates Fabi - Admin</title>
+    <title>Urband - Admin</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -33,7 +33,7 @@ if(!isset($user)){
 <body>
     <div class="d-flex justify-content-center align-items-center" style="width:100vw">
         <div id="app" class="container">
-            @include('admin.nav')
+            
             <div class="row">
                 <div class="col-12">
                     @yield('content')

@@ -17,7 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/categories','CategoryController@getAll');
+Route::get('/songs','SongController@getAll');
+Route::get('/events','EventController@getAll');
+Route::get('/tags','TagController@getAll');
+Route::get('/sets','SetController@getAll');
 
 Route::get('/metadatas','MetadataController@getAll');
 

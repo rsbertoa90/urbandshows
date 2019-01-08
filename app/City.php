@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\State;
-use App\Order;
+use App\Event;
 
 class City extends Model
 {
@@ -17,8 +17,8 @@ class City extends Model
          return $this->belongsTo(State::class);
      }
 
-     public function orders()
+     public function events()
      {
-         return $this->hasMany(Order::class);
+         return $this->hasMany(Event::class);
      }
 }

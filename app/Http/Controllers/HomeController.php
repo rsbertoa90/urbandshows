@@ -33,7 +33,7 @@ class HomeController extends Controller
 
         if (Auth::check() && Auth::user()->isAdmin())
         {
-            return redirect('/admin/cotizador');
+            return view('admin.admin');
         }
 
         $meta = Metadata::getPage('home');

@@ -28,8 +28,7 @@ Vue.use(BootstrapVue);
 import VueMq from 'vue-mq'
 
 Vue.component('fade-loader', require('vue-spinner/src/FadeLoader.vue'));
-Vue.component('app-cotizer', require('./components/cotizer/Cotizer.vue'));
-Vue.component('cotizer-form', require('./components/cotizer/Cotizer-form.vue'));
+
 // Vue.component('csrf', require('./components/csrf.vue'));
 Vue.component('app-admin', require('./components/admin/Admin.vue'));
 Vue.component('app-navbar', require('./components/layout/Navbar.vue'));
@@ -40,16 +39,8 @@ Vue.component('app-super', require('./components/super/Super.vue'));
 Vue.component('image-logo', require('./components/layout/images/image-logo.vue'));
 Vue.component('app-side-menu', require('./components/layout/Side-menu.vue'));
 
-Vue.component('app-home-a', require('./components/home/HomeA.vue'));
-Vue.component('app-home-b', require('./components/home/HomeB.vue'));
-Vue.component('app-sucursales', require('./components/sucursales/Sucursales.vue'));
-Vue.component('app-contacto', require('./components/contacto/Contacto.vue'));
-Vue.component('app-category', require('./components/category/Category.vue'));
-Vue.component('app-product', require('./components/product/Product.vue'));
-Vue.component('app-regalos', require('./components/regalos/Regalos.vue'));
-Vue.component('app-franquicia', require('./components/franquicia/Franquicia.vue'));
-Vue.component('app-search-results', require('./components/search/Results.vue'));
-Vue.component('admin-orders',require('./components/admin/Orders.vue'))
+Vue.component('app-home-a', require('./components/home/Home.vue'));
+
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 import swal from 'sweetalert';
@@ -118,7 +109,10 @@ const app = new Vue({
     store,
     methods : {
         ...mapActions({
-            fetchCategories : 'categories/fetch',
+            fetchSets : 'sets/fetch',
+            fetchSongs : 'songs/fetch',
+            fetchTags : 'tags/fetch',
+            fetchEvents : 'events/fetch',
             fetchUser : 'fetchUser',
             fetchConfig : 'fetchConfig',
             fetchStates : 'fetchStates',
@@ -128,10 +122,13 @@ const app = new Vue({
     },
     created()
     { 
-        this.fetchCategories();
+        this.fetchSongs();
+        this.fetchEvents();
+        this.fetchSets();
         this.fetchUser();
         this.fetchConfig();
         this.fetchStates();
+        this.fetchTags();
     }
 });
 

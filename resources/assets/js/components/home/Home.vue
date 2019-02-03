@@ -1,19 +1,19 @@
 <template>
     <div>
-        
-        <home-banners></home-banners>
-        <home-icons></home-icons>
+        <home-banner/>
+        <home-sets></home-sets>
         
     </div>
 </template>
 
 <script>
-import homeBanners from './banners.vue';
-import homeIcons from './icons.vue';
+import homeSets from './sets.vue';
+import homeBanner from './banner.vue';
+
 export default {
     components:{
-        homeBanners,
-        homeIcons
+        homeSets,
+        homeBanner
     }
 }
 </script>

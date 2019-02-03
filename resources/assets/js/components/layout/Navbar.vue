@@ -13,6 +13,9 @@ export default {
         navbarMobile,
         navbarWide
 
+    },
+    created(){
+        this.$store.dispatch('fetchUser');
     }
 }
 </script>

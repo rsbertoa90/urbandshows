@@ -4,14 +4,25 @@
            
                 <div class="col-9 col-lg-4 p-0">
                     <ul v-on-click-outside="close"> 
-                        <li v-for="route in routes" :key="route.url">
-                            <a :href="route.url">
-                                {{route.name | ucFirst}}
+                        
+                        <li>
+                            <a href="/home">
+                                Sets
                             </a>
                         </li>
-                        <li v-for="category in categories" :key="category.id">
-                            <a :href="category.slug">
-                                {{category.name | ucFirst}}
+                        <li>
+                            <a href="/contacto">
+                                Contactanos
+                            </a>
+                        </li>
+                        <li v-if="user.role_id < 3">
+                            <a href="/admin">
+                                Administracion
+                            </a>
+                        </li>
+                        <li v-if="user.role_id < 3">
+                            <a href="/logout">
+                                Salir
                             </a>
                         </li>
                     
@@ -35,24 +46,14 @@ export default {
     data(){
         return{
             showMenu : false,
-            routes : [
-            {url : '/',name : 'home'},
-            {url : '/regalos-empresariales',name : 'Regalos empresariales'},
-            {url : '/cotizador',name : 'Hace tu pedido'},
-            {url : '/sucursales',name : 'Sucursales'},
-            {url : '/contacto',name : 'Contacto'},
-            {url : '/franquicia',name : 'Franquicia'},
-        ]
-                
-            
      }
     },
     computed :{
-        ...mapGetters({
-            categories : 'categories/getCategories',
-
-        }),
+        user(){
+            return this.$store.getters.getUser;
+        }
     },
+
     methods:{
         close(){
             this.$emit('close');

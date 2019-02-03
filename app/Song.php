@@ -3,25 +3,21 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Set;
-use Tag;
-use Material;
+use App\Set;
+
+use App\Material;
 
 class Song extends Model
 {
     //
         protected $guarded = [];
 
-        public function sets()
+        public function set()
         {
-            return $this->belongsToMany(Set::class);
+            return $this->belongsTo(Set::class);
         }
 
-        public function tags()
-        {
-            return $this->belongsToMany(Tag::class);
-        }
-
+      
         public function materials()
         {
             return $this->hasMany(Material::class);

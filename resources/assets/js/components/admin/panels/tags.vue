@@ -2,7 +2,7 @@
     <div>
         <div class="d-flex">
 
-            <div v-for="tag in tags" :key="tag.id">
+            <div class="tag" v-for="tag in tags" :key="tag.id">
                 {{tag.name}}
             </div>
 
@@ -55,3 +55,17 @@ export default {
     }
 }
 </script>
+
+<style scoped lang="scss">
+    .tag{
+        padding:10px;
+        margin:10px;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        background-color: #009944;
+        color:#fff;
+        border-radius: 15%;
+    }
+
+</style>

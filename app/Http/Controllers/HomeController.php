@@ -28,13 +28,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    
+    
 
-        if (Auth::check() && Auth::user()->isAdmin())
-        {
-            return view('admin.admin');
-        }
+
+     public function index()
+    {
 
         $meta = Metadata::getPage('home');
         return view('home',compact('meta'));

@@ -30,8 +30,14 @@ Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
     Route::get('/cotizador','AdminController@cotizador');
 
     Route::post('/tags','TagController@create');
+    
+    Route::post('/set','SetController@create');
+    Route::post('/set/image','SetController@updateImage');
+    Route::put('/set','SetController@update');
 
-  
+    Route::post('/song','SongController@create');
+    Route::put('/song','SongController@update');
+    Route::post('/song/delete/{id}','SongController@destroy');
     
     Route::post('/product/image','ProductImageController@create')->middleware('OptimizeImages');
    
@@ -76,6 +82,5 @@ Route::post('/suscription','SuscriptionController@create');
 
 /* ESTAS RUTAS SIEMPRE AL FINAL */
 
-Route::get('/{category}','CategoryController@detail');
 
-Route::get('/{category}/{product}','ProductController@detail');
+Route::get('/{set}','SetController@detail');

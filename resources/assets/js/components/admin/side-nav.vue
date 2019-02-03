@@ -13,10 +13,8 @@ export default {
     data(){
         return{
             links:[
-                {label:'Tags',component:'tags-panel'},
-                {label:'Canciones',component:'songs-panel'},
-                {label:'Sets',component:'sets-panel'},
                 {label:'Eventos',component:'events-panel'},
+                {label:'Sets',component:'sets-panel'},
                 {label:'Metadatos',component:'meta-panel'},
                 
             ]
@@ -41,6 +39,7 @@ export default {
 
     .panel{
         background: #fff;
+       
     }
 
     .link{

@@ -14,35 +14,43 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
  
+   $super = new User();
+      $super->name = 'Rodrigo';
+      $super->email = 'rsbertoa90@gmail.com';
+      $super->password = bcrypt('rsbertoa90');
+      $super->role_id =1 ;
+      $super->save();
 
+      $manager = new User();
+      $manager->name = 'Daro';
+      $manager->email = 'darioletelle@gmail.com';
+      $manager->password = bcrypt('dariotelle');
+       $manager->role_id =2 ;
+      $manager->save();
+      
+      $manager = new User();
+      $manager->name = 'Daro';
+      $manager->email = 'Maurobrisindi@gmail.com';
+      $manager->password = bcrypt('Maurobrisindi');
+       $manager->role_id =2 ;
+      $manager->save();
+      
+      $manager = new User();
+      $manager->name = 'Daro';
+      $manager->email = 'fernandototeda@hotmail.com';
+      $manager->password = bcrypt('fernandototeda');
+       $manager->role_id =2 ;
+      $manager->save();
 
       $manager = new User();
-      $manager->name = 'Sucursal Pasteur';
-      $manager->email = 'sucursalpasteur@matesfabi.com';
-      $manager->password = bcrypt('pasteur');
+      $manager->name = 'Daro';
+      $manager->email = 'WateWeLoveU@urbandshows.com';
+      $manager->password = bcrypt('wate');
        $manager->role_id =2 ;
       $manager->save();
       
-      $manager = new User();
-      $manager->name = 'Sucursal Castelli';
-      $manager->email = 'sucursalcastelli@matesfabi.com';
-      $manager->password = bcrypt('castelli');
-       $manager->role_id =2 ;
-      $manager->save();
       
-      $manager = new User();
-      $manager->name = 'Sucursal Sarmiento';
-      $manager->email = 'sucursalsarmiento@matesfabi.com';
-      $manager->password = bcrypt('sarmiento');
-       $manager->role_id =2 ;
-      $manager->save();
       
-      $manager = new User();
-      $manager->name = 'Pedidos online';
-      $manager->email = 'pedidosonline@matesfabi.com';
-      $manager->password = bcrypt('online');
-       $manager->role_id =2 ;
-      $manager->save();
 
       $super = new User();
       $super->name = 'Gise';
@@ -51,12 +59,7 @@ class UsersTableSeeder extends Seeder
       $super->role_id =1 ;
       $super->save();
 
-      $super = new User();
-      $super->name = 'Rodrigo';
-      $super->email = 'rsbertoa90@gmail.com';
-      $super->password = bcrypt('rsbertoa90');
-      $super->role_id =1 ;
-      $super->save();
+   
    
     }
 }

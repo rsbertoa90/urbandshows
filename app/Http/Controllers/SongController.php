@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Song;
+use App\Set;
 
 class SongController extends Controller
 {
@@ -20,13 +21,22 @@ class SongController extends Controller
 
     public function getAll()
     {
-        return Song::with('materials')->with('tags')->with('sets')->get();
+        return Song::with('materials')->with('set')->orderBy('order','asc')->get();
     }
 
 
     public function create(Request $request)
     {
         $fields = $request->except('_token');
-        Song::create($fields);
+        $set = Set::find($request->set_id);
+        $order = count($set->songs)+1;
+        $fields['order'] = $order;
+        $song = Song::create($fields);
+       
+    }
+
+    public function destroy($id)
+    {
+        Song::destroy($id);
     }
 }

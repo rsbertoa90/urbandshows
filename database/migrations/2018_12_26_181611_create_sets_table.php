@@ -16,9 +16,12 @@ class CreateSetsTable extends Migration
         Schema::create('sets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable();
-            $table->text('description');
+            $table->text('description')->nullable();
+            $table->text('details')->nullable();
+            $table->text('tags')->nullable();
             $table->string('image')->nullable();
             $table->integer('base_price')->nullable();
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

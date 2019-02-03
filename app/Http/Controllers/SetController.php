@@ -20,7 +20,10 @@ class SetController extends Controller
 
     public function getAll()
     {
-        return Set::with('songs.material')->with('events.city')->get();
+         return Set::with('songs.materials')->with(['songs' => function ($q){
+             $q->orderBy('order');
+         }])->with('events.city')->get();
+        
     }
 
 
@@ -28,6 +31,34 @@ class SetController extends Controller
     {
         $fields = $request->except('_token');
         Set::create($fields);
+    }
+
+    public function updateImage(Request $request)
+    {
+        
+        $image = $request->file('image');
+        $path = $image->storePublicly('/images/sets');
+        $path = '/storage/'.$path;
+        
+        $set = Set::find($request->set);
+        $set->image = $path;
+        $set->save();
+        
+
+    }
+
+    public function detail($slug)
+    {
+        $set = Set::where('slug',$slug)->get()->first();
+        
+
+        if(!$set){
+            return redirect('/home');
+        }
+
+        else{
+            return view('set',compact('set'));
+        }
     }
 
     

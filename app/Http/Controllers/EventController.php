@@ -23,6 +23,8 @@ class EventController extends Controller
         return Event::with('city')->with('client')->with('set')->get();
     }
 
+    
+
 
     public function create(Request $request)
     {

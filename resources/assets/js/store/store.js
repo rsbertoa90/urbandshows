@@ -3,8 +3,7 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 import events from './modules/events.js'
-import songs from './modules/songs.js'
-import tags from './modules/tags.js'
+
 import sets from './modules/sets.js'
 export const store = new Vuex.Store({
     state : {
@@ -88,9 +87,9 @@ export const store = new Vuex.Store({
     },
     modules : {
         events,
-        songs,
+        
         sets,
-        tags
+        
     }
 
 });

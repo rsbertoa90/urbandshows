@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div style="height:20px"></div>
+    <div style="height:20px ; margin-bottom:20px"></div>
     <div class="header">
         <h2 class="mt60"> 
             UrbanD
@@ -21,6 +21,7 @@ export default {
 <style lang="scss" scoped>
 .header{
     position:fixed;
+    z-index: 200;
     width: 100vw;
     top:-10px;
     left:-10px;

@@ -14,47 +14,17 @@ Breadcrumbs::for('contacto', function ($trail) {
 });
 
 
-// Home > franquicia
-Breadcrumbs::for('franquicia', function ($trail) {
+
+
+
+
+    // Home  > [set]
+
+ Breadcrumbs::for('set', function ($trail, $set) {
     $trail->parent('home');
-    $trail->push('franquicia', '/franquicia');
-});
-
-
-// Home > cotizador
-Breadcrumbs::for('cotizador', function ($trail) {
-    $trail->parent('home');
-    $trail->push('cotizador', '/cotizador');
-});
-
-
-// Home > sucursales
-Breadcrumbs::for('sucursales', function ($trail) {
-    $trail->parent('home');
-    $trail->push('sucursales', '/sucursales');
-});
-
-
-// Home > regalos-empresariales
-Breadcrumbs::for('regalos-empresariales', function ($trail) {
-    $trail->parent('home');
-    $trail->push('Regalos empresariales', '/regalos-empresariales');
-});
-
-
-
-    // Home  > [Category]
-
- Breadcrumbs::for('category', function ($trail, $category) {
-    $trail->parent('home');
-    $trail->push($category->name, $category->slug);
+    $trail->push($set->title, $set->slug);
 });
 
  
 
-// Home > [Category] > [Product]
-Breadcrumbs::for('product', function ($trail, $product) {
-    $trail->parent('category', $product->category);
-    $trail->push($product->name, $product->slug);
-});
 

@@ -1,13 +1,35 @@
 <template>
     <div class="w-100">
-        
-        <div class="row d-flex justify-content-around align-items-center mt-4">
-            <div class="col-2 p-4">
-                <div class="">
-                    <image-logo></image-logo>
-                </div>
+       
+
+
+        <div class="fixed-navbar p-2"
+            :class="{'displayed' : scrollOnTop,
+                    'nondisplayed': !scrollOnTop}">
+            
+             <div class="col-4 ">
+                <ul class="d-flex justify-content-around align-items-end mb-0">
+                    <li> <a href="/home"> Sets </a> </li>
+                    <li> <a href="/contacto"> Contactate  </a> </li>
+                    <li v-if="user && user.role_id < 3"> <a href="/admin"> Admin  </a> </li>
+                    <li v-if="user && user.role_id < 3"> <a href="/logout"> Salir  </a> </li>
+                </ul>
             </div>
-            <div class="col-6">
+            
+            
+            <div class=" pt-3"
+               :class="{'big-logo':scrollOnTop,
+                        'logo':!scrollOnTop}">
+                <a href="/" 
+                        >
+                    <img class="w-100" src="/storage/images/app/logo.png" 
+                        alt="logo"
+                        >
+                        
+                </a>
+            </div>
+
+             <div class="col-4 offset-1">
                 <form class="form-inline" action="/buscar">
                     <div class="input-group w-100">
                         <input type="text" class="form-control" 
@@ -17,73 +39,140 @@
                         <div class="input-group-prepend">
                             <span class="white-bold input-group-text bg-second d-flex justify-content-center" 
                                   id="basic-addon1">
-                                Buscar
+                            <i class="fa fa-search"></i>
+                                
                             </span>
                         </div>
                     </div>  
                 </form>
             </div>
-            <div class="col-3 flex-button">
-                <span class="white-bold bg-second p-2 flex-button rounded" style="width:60px">
-                    <span class="fa fa-phone-volume"></span>
-                </span>  
-                <span class=" p-3 d-big"> 11 3008 5414</span>
-            </div>
+
+           
+          
         </div>
 
-        <div class="row bg-first nav-row">
-            <div class="col-3 white-bold p-0">
-                <div class="focus-nav-item">
-                    <span class="fa fa-bars white-bold mr-1"></span>
-                    Productos Mayorista Mates Fabi
-                </div>
-            </div>
-            <div class="row col-9">
-                <ul class="navbar">
-                    <li> <a href="/cotizador"> Hace tu pedido</a></li>
-                    <li> <a href="/regalos-empresariales"> Regalos Empresariales</a></li>
-                    <li> <a href="/sucursales"> Sucursales</a></li>
-                    <li> <a href="/contacto"> Contacto</a></li>
-                    <li> <a href="/franquicia"> Franquicia</a></li>
-                </ul>
-            </div>
-        </div>
+           <div class="space"> </div>
     </div>
 </template>
 
 <script>
 import imageLogo from '../images/image-logo.vue';
-import overlayMenu from './overlay-menu.vue'
+
 import {mapGetters} from 'vuex';
 export default {
     components : {
         imageLogo,
-        overlayMenu
+     
     },
     data(){
         return{
-            showMenu : false
+           scrollOnTop : true,
+            overMenu : false,
+            overNav : false,
      }
     },
-    computed :{
-        ...mapGetters({
-            categories : 'categories/getCategories'
-        }),
-    }
+    computed:{
+        user(){
+            return this.$store.getters.getUser;
+        }
+    },
+    methods :{
+      handleScroll(){
+          this.scrollOnTop =  window.scrollY < 100;
+      }
+      
+    },
+    created () {
+        window.addEventListener('scroll', this.handleScroll);
+},
+   
 }
 </script>
 
-<style scoped lang="scss">
- $color-first : #b2037a;
+<style lang="scss" scoped >
+ $color-first : #1102FF;
 
 // El verde es 09cca2 
-$color-second : #09cca2;
+$color-second : #24FFB8;
 
 // Rosa fuerte es ff0aaf
-$color-focus: #ff0aaf; 
+$color-focus: #1EAAFF; 
 
 // Rosa claro es ff97dd
-$color-back: #ff97dd;
+$color-back: #0FE0E8;
+
+$color-other: #104DE8;
+
+.displayed{
+    min-height: 100px;
+    transition: min-height 0.5s ease-in-out;
+}
+.nondisplayed{
+    min-height: 40px;
+    transition: min-height 0.5s ease-in-out;
+}
+
+.logo{
+    max-width: 10vw;
+    transition: max-width 0.5s ease-in-out;
+}
+
+.big-logo{
+   max-width: 15vw;
+    transition: max-width 0.5s ease-in-out;
+}
+ul{
+    li{
+        display: block;
+        
+        font-weight: bold;
+        &:hover{
+            border-bottom: 3px solid #000;
+        }
+    }
+}
+
+.space{
+
+    height: 150px;
+}
+
+
+.fixed-navbar{
+   
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-right: 0;
+    margin-left: -8%;
+    width: 100vw;
+    z-index: 300;
+   
+}
+
+
+.fa-chevron-down{
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.subcat
+{
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 5px;
+   //border:1px solid #fff;
+    cursor: pointer;
+     color: #fff;
+     font-weight: bold;
+    &:hover{
+       background-color: #eee;
+        color: $color-first;
+        border-bottom: 3px solid $color-second;
+    }
+}
 
 .focus-nav-item
 {
@@ -93,7 +182,7 @@ $color-back: #ff97dd;
     padding: 15px 6px;
 }
 
-.fa-phone-volume{
+.fa-phone{
     font-size: 2rem;
 }
 .nav-row{
@@ -101,8 +190,8 @@ $color-back: #ff97dd;
        }
   
 .navbar{
-    font-weight: bold;
-    color:#fff;
+    /* font-weight: bold; */
+    color:#000;
     display:flex;
     width: 100%;
     justify-content: space-around;
@@ -131,13 +220,18 @@ $color-back: #ff97dd;
         align-items:center;
         justify-content: center;
         &:hover{
-             background-color: #eee;
-             color: darken($color-second,10%);
-            border-bottom: 3px solid $color-second;
+             background-color: $color-first;
+             color: #fff;
+             border-bottom: 3px solid $color-second;
             }
         
     }
 
+    .hovered{
+           background-color: $color-first;
+            color: #fff;
+            border-bottom: 3px solid $color-second;
+    }
  
      
    

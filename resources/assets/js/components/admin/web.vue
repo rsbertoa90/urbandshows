@@ -1,12 +1,15 @@
 <template>
     <div class="row w-100">
-        <div class="col-3">
+        <div class="col-2">
                 <div class="sidenav  side-borders">
                     <side-nav></side-nav>
                 </div>
         </div>
-        <div class="col-9">
+        <div class="col-10">
             <admin-panel></admin-panel>
+        </div>
+        <div style="height:50px; width:100vw">
+
         </div>
     </div>
 </template>
@@ -37,6 +40,9 @@ export default {
         padding:15px;
         border-left: 1px solid black;
         border-right: 1px solid black;
+        position:fixed;
+        top:60px;
+        left:20px;
         
     }
 </style>

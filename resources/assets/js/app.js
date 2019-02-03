@@ -36,10 +36,11 @@ Vue.component('app-footer', require('./components/layout/footer/Footer.vue'));
 Vue.component('app-whatsapp', require('./components/layout/Whatsapp-float.vue'));
 Vue.component('app-admin', require('./components/admin/Admin.vue'));
 Vue.component('app-super', require('./components/super/Super.vue'));
+Vue.component('app-set', require('./components/set/set.vue'));
 Vue.component('image-logo', require('./components/layout/images/image-logo.vue'));
 Vue.component('app-side-menu', require('./components/layout/Side-menu.vue'));
 
-Vue.component('app-home-a', require('./components/home/Home.vue'));
+Vue.component('app-home', require('./components/home/Home.vue'));
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
@@ -110,8 +111,8 @@ const app = new Vue({
     methods : {
         ...mapActions({
             fetchSets : 'sets/fetch',
-            fetchSongs : 'songs/fetch',
-            fetchTags : 'tags/fetch',
+           
+          
             fetchEvents : 'events/fetch',
             fetchUser : 'fetchUser',
             fetchConfig : 'fetchConfig',
@@ -122,13 +123,13 @@ const app = new Vue({
     },
     created()
     { 
-        this.fetchSongs();
+        
         this.fetchEvents();
         this.fetchSets();
         this.fetchUser();
         this.fetchConfig();
         this.fetchStates();
-        this.fetchTags();
+       
     }
 });
 

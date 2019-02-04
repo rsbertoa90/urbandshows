@@ -36,14 +36,14 @@ export default {
         margin-left:50px;
 
     }
-    .side-borders{
+    .side-borders
+    {
         padding:15px;
         border-left: 1px solid black;
         border-right: 1px solid black;
         position:fixed;
-        top:60px;
+        top:90px;
         left:20px;
-        
     }
 </style>
 

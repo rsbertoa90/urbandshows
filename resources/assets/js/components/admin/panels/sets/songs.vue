@@ -20,7 +20,7 @@
                             <td class="align-middle">{{song.order}} </td>
                             <td class="align-middle">
                                 <span v-if="!song.sample">  {{song.name |ucFirst}} </span>   
-                                <a :href="song.sample" target="_blank" rel="noreferrer" v-if="song.sample"> {{song.name |ucFirst}} </a>
+                                <a :href="song.sample" class="text-info" target="_blank" rel="noreferrer" v-if="song.sample"> {{song.name |ucFirst}} </a>
                             </td>
                             <td class="align-middle"> <button class="btn-btn-sm btn-outline-danger"
                                         @click="destroySong(song.id)">

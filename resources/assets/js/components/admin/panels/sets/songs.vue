@@ -18,8 +18,10 @@
                                 <button @click="moveDown(song)"  v-if="song.order < set.songs.length" class="btn btn-sm btn-link" > <span class="fa fa-arrow-down"></span></button>
                             </td>
                             <td class="align-middle">{{song.order}} </td>
-                            <td class="align-middle">{{song.name |ucFirst}}</td>
-                            <td class="align-middle"> <a class="text-info" :href="song.sample" rel="noreferrer" target="_blank"> {{song.sample}} </a> </td>
+                            <td class="align-middle">
+                                <span v-if="!song.sample">  {{song.name |ucFirst}} </span>   
+                                <a :href="song.sample" target="_blank" rel="noreferrer" v-if="song.sample"> {{song.name |ucFirst}} </a>
+                            </td>
                             <td class="align-middle"> <button class="btn-btn-sm btn-outline-danger"
                                         @click="destroySong(song.id)">
                                         X

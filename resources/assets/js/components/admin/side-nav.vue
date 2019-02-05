@@ -15,6 +15,7 @@ export default {
             links:[
                 {label:'Eventos',component:'events-panel'},
                 {label:'Sets',component:'sets-panel'},
+                {label:'Mensajes',component:'contact-panel'},
                 {label:'Metadatos',component:'meta-panel'},
                 
             ]

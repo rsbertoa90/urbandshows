@@ -2,10 +2,11 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Contactate con Mates Fabi</h1>
+            <h1>Contactate con Urband Shows</h1>
+            <h3>¿Queres pedir un show especial? Te lo cotizamos en menos de 24hs!</h3>
         </div>
         <div class="col-12 col-lg-4">
-            <img src="/storage/images/app/contacto.png" alt="contacto">
+            <img src="/storage/images/app/contacto.jpeg" alt="contacto">
         </div>
         <div class="col-12 col-lg-8">
             <form ref="form" class="form" method="post" action="/contacto">
@@ -13,7 +14,7 @@
           
                 <div class="row">
                     <label class="col-12 col-lg-4">
-                        Nombre
+                       Tu Nombre
                     </label>
                     <input  name="name" v-model="formdata.name" required
                             type="text" class="form-control col-12 col-lg-8">
@@ -27,14 +28,15 @@
                 </div>
                 <div class="row">
                     <label class="col-12 col-lg-4">
-                        Asunto
+                        Un telefono
                     </label>
-                    <input  name="subject" v-model="formdata.topic" required
-                            type="text" class="form-control col-12 col-lg-8">
+                    <input  name="mail" v-model="formdata.phone" required
+                            type="email" class="form-control col-12 col-lg-8">
                 </div>
+                
                 <div class="row">
                     <label class="col-12 col-lg-4">
-                        Mensaje
+                        Contanos que necesitas
                     </label>
                     <textarea name="msg" required v-model="formdata.message" 
                               class="form-control col-12 col-lg-8" rows="5"></textarea>
@@ -57,8 +59,8 @@ export default {
             formdata : {
                 name : '',
                 email : '',
-                topic : '',
-                message : ''
+                message : '',
+                phone : ''
             }
         }
     },

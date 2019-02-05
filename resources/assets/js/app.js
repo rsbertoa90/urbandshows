@@ -41,6 +41,7 @@ Vue.component('image-logo', require('./components/layout/images/image-logo.vue')
 Vue.component('app-side-menu', require('./components/layout/Side-menu.vue'));
 
 Vue.component('app-home', require('./components/home/Home.vue'));
+Vue.component('app-contacto', require('./components/contacto/Contacto.vue'));
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 

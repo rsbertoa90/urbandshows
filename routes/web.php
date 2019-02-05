@@ -62,7 +62,7 @@ Route::get('/franquicia','HomeController@franquicia');
 Route::post('/franquicia','MailController@franquicia');
 Route::get('/sucursales','HomeController@sucursales');
 Route::get('/contacto','HomeController@contacto');
-Route::post('/contacto','MailController@contacto');
+Route::post('/contacto','ContactController@create');
 Route::get('/buscar','ProductController@searchResults');
 
 Route::get('/logout',function(){

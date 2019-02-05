@@ -12,7 +12,7 @@
                     
                 </div>
                 <div class="col-12 col-lg-4">
-                    <h3>Lista de canciones:</h3>
+                    <h3>Incluye las siguientes canciones:</h3>
                     <ul>
                            <li v-for="song in set.songs"
                                 :key="song.id">

@@ -29,8 +29,12 @@ class SetController extends Controller
 
     public function create(Request $request)
     {
-        $fields = $request->except('_token');
-        Set::create($fields);
+        
+      $set = new Set();
+      $set->title = $request->title;
+      $set->description = $request->description;
+      $set->save();
+      return $set;
     }
 
     public function updateImage(Request $request)

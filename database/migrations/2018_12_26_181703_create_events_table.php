@@ -30,7 +30,7 @@ class CreateEventsTable extends Migration
             $table->integer('price')->unsigned()->nullable();
             $table->integer('payd')->unsigned()->nullable();
             $table->text('message');
-            $table->
+          
             $table->timestamps();
         });
     }

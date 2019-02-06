@@ -6,7 +6,7 @@
             </messageCard>
         </div>
         <div class="col-3">
-            <contactSide :contacts="contacts" @selected="selected"></contactSide>
+            <contactSide :contacts="contacts" @selected="selected" @reloadMessages="reload"></contactSide>
         </div>
     </div>
 </template>
@@ -23,13 +23,16 @@ export default {
         }
     },
     created(){
-        this.$http.get('/api/contacts')
-            .then(res => {
-                this.contacts = res.data;
-                _.sortBy(this.contacts,'created_at');
-            });
+        this.reload();
     },
     methods:{
+        reload(){
+              this.$http.get('/api/contacts')
+            .then(res => {
+                this.contacts = res.data;
+             
+            });
+        },
         selected(event){
             this.selectedContact=event;
         }

@@ -134,7 +134,7 @@ ul{
 
 .space{
 
-    height: 150px;
+    height: 40px;
 }
 
 

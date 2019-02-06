@@ -38,6 +38,10 @@ Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
     Route::post('/song','SongController@create');
     Route::put('/song','SongController@update');
     Route::post('/song/delete/{id}','SongController@destroy');
+
+    Route::post('/contact','ContactController@create');
+    Route::put('/contact','ContactController@update');
+    Route::post('/contact/delete/{id}','ContactController@destroy');
     
     Route::post('/product/image','ProductImageController@create')->middleware('OptimizeImages');
    

@@ -30,15 +30,15 @@
                     <label class="col-12 col-lg-4">
                         Un telefono
                     </label>
-                    <input  name="mail" v-model="formdata.phone" required
-                            type="email" class="form-control col-12 col-lg-8">
+                    <input  name="phone" v-model="formdata.phone" required
+                            type="text" class="form-control col-12 col-lg-8">
                 </div>
                 
                 <div class="row">
                     <label class="col-12 col-lg-4">
                         Contanos que necesitas
                     </label>
-                    <textarea name="msg" required v-model="formdata.message" 
+                    <textarea name="message" required v-model="formdata.message" 
                               class="form-control col-12 col-lg-8" rows="5"></textarea>
                 </div>
                 <div class="row mt-4">

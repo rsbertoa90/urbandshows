@@ -12,7 +12,10 @@
     @if (isset($meta))
         <title> {{$meta->metatitle}} </title>
         <meta name="description" content="{{$meta->metadescription}}">
+    @else
+        <title>Urband</title>
     @endif
+
 
 
 

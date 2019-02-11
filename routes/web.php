@@ -87,4 +87,5 @@ Route::post('/suscription','SuscriptionController@create');
 /* ESTAS RUTAS SIEMPRE AL FINAL */
 
 
+Route::post('/setform','ContactController@createFromSetForm');
 Route::get('/{set}','SetController@detail');

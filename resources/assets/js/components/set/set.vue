@@ -1,5 +1,5 @@
 <template>
-        <div class="container">
+        <div class="container" v-if="set">
             <div class="row">
                 <div class="col-12 col-lg-4">
                     <img :src="set.image" :alt="set.title">
@@ -33,7 +33,17 @@
                         ¡Contrata este show para tu evento!
                        </h3>
                        
-                        <set-form></set-form>
+                       
+                       
+               
+
+                </div>
+                <div class="col-12 row mt-4">
+
+                       
+                       
+                       
+                        <set-form :set_id="set_id"></set-form>
                
 
                 </div>

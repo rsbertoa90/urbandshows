@@ -10,7 +10,7 @@ export const store = new Vuex.Store({
         user : null,
         config : null,
         states:[],
-        adminComponent:'events-panel'
+        adminComponent:'contact-panel'
     },
     getters :{
         getUser(store){

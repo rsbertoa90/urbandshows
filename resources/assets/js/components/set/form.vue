@@ -8,6 +8,18 @@
                 </label>
                 <input v-model="formdata.name" class="form-control col-12 col-lg-4">
             </div>
+            <div class="row">
+                <label for="" class="col-12 col-lg-4">
+                    Tu Mail
+                </label>
+                <input v-model="formdata.mail" class="form-control col-12 col-lg-4">
+            </div>
+            <div class="row">
+                <label for="" class="col-12 col-lg-4">
+                    Dejanos un telefono
+                </label>
+                <input v-model="formdata.phone" class="form-control col-12 col-lg-4">
+            </div>
           
             <div class="col-12 row form-group-row">         
                 <label class="col-12 col-lg-4 " for=""> Provincia </label>
@@ -41,20 +53,24 @@
                 </label>
                 <textarea v-model="formdata.message" class="form-control col-12 col-lg-4" />
             </div>
-
+            <button class="btn-lg btn-outline-info" @click.prevent="submit()">Enviar</button>
         </form>
     </div>
 </template>
 
 <script>
 export default {
+    props:['set_id'],
     data(){
         return{
             formdata:{
                 name:'',
+                phone:'',
+                mail:'',
                 message:'',
                 date:'',
                 city_id:0,
+                set_id:null
 
             },
             state:null,
@@ -64,6 +80,19 @@ export default {
     computed:{
         states(){
             return this.$store.getters.getStates;
+        }
+    },
+    methods:{
+          submit(){
+            var vm = this;
+            vm.formdata.set_id = vm.set_id;
+                swal('Mensaje enviado','Nos comuicaremos con usted a la brevedad','success')
+                    .then (response => {
+                       vm.$http.post('/setform',vm.formdata)
+                        .then(res=>{
+                            window.location.replace("/");
+                        })
+                    });
         }
     }
 }

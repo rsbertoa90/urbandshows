@@ -1,9 +1,10 @@
 <template>
     <div class="w-100">
         <div class="row d-flex justify-content-center">
-            <div class="w-50 p-3 ">
-                <image-logo></image-logo>
-            </div>
+            <a href="/" class="w-50 p-3 ">
+               <img class="w-100" src="/storage/images/app/logo.png" 
+                        alt="logo">
+            </a>
         </div>
          <transition enter-active-class="animated slideInLeft faster"
                         leave-active-class="animated slideOutLeft faster">

@@ -90,18 +90,23 @@ export default {
 </script>
 
 <style lang="scss" scoped >
- $color-first : #1102FF;
+ 
+// violeta oscuro es b2037a
+$color-first : #242223;
 
 // El verde es 09cca2 
-$color-second : #24FFB8;
+$color-second : #313635;
+
+/* $color-second : #059274; */
 
 // Rosa fuerte es ff0aaf
-$color-focus: #1EAAFF; 
+$color-focus: #3b3a3b; 
 
 // Rosa claro es ff97dd
-$color-back: #0FE0E8;
+$color-back: #555555;
 
-$color-other: #104DE8;
+
+
 
 .displayed{
     min-height: 100px;

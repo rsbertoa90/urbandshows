@@ -20,27 +20,27 @@
 
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <link defer  rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link defer  href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     {{-- fontawesome --}}
     {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> --}}
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet" defer>
     {{-- <link href="{{ asset('css/animate.css') }}" rel="stylesheet"> --}}
 
     {{-- PRECONECTS --}}
-    <link rel="preconnect" href="https://use.fontawesome.com">
-    <link rel="preconnect" href="https://maps.google.com">
-    <link rel="preconnect" href="https://www.google.com">
+    <link defer  rel="preconnect" href="https://use.fontawesome.com">
+    <link defer  rel="preconnect" href="https://maps.google.com">
+    <link defer  rel="preconnect" href="https://www.google.com">
 
     <meta name="google-site-verification" content="5hrQpWvewb3fUtQrZXt-9_SA6kvPXhhwVfp53evz2_4" />
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127092569-1"></script>
+    <script  defer async src="https://www.googletagmanager.com/gtag/js?id=UA-127092569-1"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}

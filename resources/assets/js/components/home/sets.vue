@@ -1,7 +1,7 @@
 <template>
 <div class="container">
     <div class="row">
-        <div class="col-4 h-100" v-for="set in setswithimages" :key="set.id">
+        <div class="col-12 mt-4 col-lg-4 h-100" v-for="set in setswithimages" :key="set.id">
             <set-card class="h-100" :set="set"></set-card>
         </div>
     </div>

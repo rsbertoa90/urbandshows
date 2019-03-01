@@ -64,17 +64,23 @@ export default {
 
 <style scoped lang="scss">
 
+
 // violeta oscuro es b2037a
-$color-first : #b2037a;
+$color-first : #242223;
 
 // El verde es 09cca2 
-$color-second : #09cca2;
+$color-second : #313635;
+
+/* $color-second : #059274; */
 
 // Rosa fuerte es ff0aaf
-$color-focus: #ff0aaf; 
+$color-focus: #3b3a3b; 
 
 // Rosa claro es ff97dd
-$color-back: #ff97dd;
+$color-back: #555555;
+
+
+
 
 
 

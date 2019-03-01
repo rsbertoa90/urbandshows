@@ -34,10 +34,6 @@
                        </h3>
                        <br>
                        
-                       
-                       
-                       
-               
 
                 </div>
                 <div class="col-12 row mt-4">
@@ -47,17 +43,20 @@
                        
                         <set-form :set_id="set_id"></set-form>
                
-
                 </div>
+            </div>
+            <div class="row mt-4">
+                <relatedSets></relatedSets>
             </div>
         </div>
 </template>
 
 <script>
+import relatedSets from './related.vue';
 import setForm from './form.vue';
 export default {
     props:['set_id'],
-    components:{setForm},
+    components:{setForm,relatedSets},
     data(){
         return{}
     },

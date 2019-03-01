@@ -8,7 +8,7 @@
                     <h1> {{set.title}} </h1>
                     <p> {{set.description}} </p>
                      <p> {{set.details}} </p>
-                      <p> a partir de ${{set.base_price}} </p>
+                  
                     
                 </div>
                 <div class="col-12 col-lg-4">
@@ -32,6 +32,8 @@
                        <h3>
                         ¡Contrata este show para tu evento!
                        </h3>
+                       <br>
+                       
                        
                        
                        

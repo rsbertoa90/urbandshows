@@ -1,6 +1,8 @@
 <template>
    <div class="card h-100" style="width: 18rem;">
-    <img class="card-img-top" :src="set.image" :alt="set.title">
+       <div class="card-img-container">
+            <img class="card-img-top" :src="set.image" :alt="set.title">
+       </div>
     <div class="card-body d-flex flex-column justify-content-between">
         <h5 class="card-title merienda font-weight-bold"> {{set.title |ucFirst}} </h5>
         <p v-if="set.description" class="card-text">{{set.description|ucFirst}}</p>
@@ -27,5 +29,10 @@ export default {
 
     .card{
         min-height: 600px;
+    }
+
+    .card.img-container{
+        height: 200px;
+        overflow: hidden;
     }
 </style>

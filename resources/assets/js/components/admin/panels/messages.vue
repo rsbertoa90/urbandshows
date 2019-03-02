@@ -1,14 +1,17 @@
 <template>
     <div class="row">
-        <div class="col-9">
-            <messageCard v-if="selectedContact" 
-                        :contact="selectedContact">
-            </messageCard>
+        <div class="col-12 row" v-if="contacts">
+            <div class="col-9">
+                <messageCard v-if="selectedContact" 
+                            :contact="selectedContact">
+                </messageCard>
+            </div>
+            <div class="col-3" v-if="contacts">
+                <contactSide :contacts="contacts" @selected="selected" @reloadMessages="reload"></contactSide>
+            </div>
+
         </div>
-        <div class="col-3" v-if="contacts">
-            <contactSide :contacts="contacts" @selected="selected" @reloadMessages="reload"></contactSide>
-        </div>
-        <div v-else>
+        <div v-else class="col-12">
             <h3>No hay mensajes</h3>
         </div>
     </div>

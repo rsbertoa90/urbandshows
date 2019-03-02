@@ -17,7 +17,7 @@
                            <li v-for="song in set.songs"
                                 :key="song.id">
                                 <span class="fa fa-star"></span>
-                                <a v-if="song.sample" :href="song.sample">
+                                <a v-if="song.sample" :href="song.sample" class="songsample">
                                     {{song.name}}
                                 </a>
                                 <span v-if="!song.sample">
@@ -75,3 +75,10 @@ export default {
 
 }
 </script>
+<style lang="scss" scoped>
+.songsample{
+    cursor: pointer;
+    color:#0000ff;
+}
+</style>
+

@@ -1,7 +1,8 @@
 <template>
     <div class="d-flex flex-column panel">
         <div v-for="link in links" :key="link.label">
-             <div @click="SetAdminComponent(link.component)" class="link">
+             <div @click="SetAdminComponent(link.component)" class="link"
+                    :class="{'selected' : adminComponent == link.component}">
                  {{ link.label }}
              </div>
         </div>
@@ -47,6 +48,10 @@ export default {
         padding: 15px;
         font-size: 1.4rem;
         cursor: pointer;
+    }
+
+    .selected{
+        background-color: #0000ff99;
     }
 
     

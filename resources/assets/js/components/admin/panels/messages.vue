@@ -5,8 +5,11 @@
                         :contact="selectedContact">
             </messageCard>
         </div>
-        <div class="col-3">
+        <div class="col-3" v-if="contacts">
             <contactSide :contacts="contacts" @selected="selected" @reloadMessages="reload"></contactSide>
+        </div>
+        <div v-else>
+            <h3>No hay mensajes</h3>
         </div>
     </div>
 </template>

@@ -19,8 +19,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title" itemprop="name" style="height:60px"> {{set.title | ucFirst}}  </h5>
-                    <h4 v-if="!$store.getters.getConfig.hide_prices" class="second">  
-                    </h4>
+                   
                    
                     <a :href="set.slug" style="cursor:pointer" class="btn btn-outline-second  white-bold mb-4 mt-1"> Ver mas</a>
                     <p></p>

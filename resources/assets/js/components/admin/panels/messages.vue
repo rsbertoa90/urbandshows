@@ -6,7 +6,7 @@
                             :contact="selectedContact">
                 </messageCard>
             </div>
-            <div class="col-3" v-if="contacts">
+            <div class="col-3" v-if="contacts && contacts.length>0">
                 <contactSide :contacts="contacts" @selected="selected" @reloadMessages="reload"></contactSide>
             </div>
 

@@ -3,7 +3,7 @@
         <div class="d-flex align-items-stretch row">
             
             <set-card v-for="set in sets" :key="set.id"
-                    :set="set" class="col-4 mt-4"> 
+                    :set="set" class="col-12 col-lg-4 mt-4"> 
                     <button class="btn btn-info" @click="editSet(set)">
                         Editar
                     </button>

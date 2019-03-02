@@ -103,9 +103,9 @@ export default {
             });
             otherSong.order++;
             song.order--;
-            this.set.songs = _.sortBy(this.set.songs,'order');
             this.updateSong(song,'order');
             this.updateSong(otherSong,'order');
+            this.set.songs = _.sortBy(this.set.songs,'order'); 
          
         },
         moveDown(song){
@@ -114,9 +114,9 @@ export default {
             });
             otherSong.order--;
             song.order++;
-            this.set.songs = _.sortBy(this.set.songs,'order');
             this.updateSong(song,'order');
             this.updateSong(otherSong,'order');
+            this.set.songs = _.sortBy(this.set.songs,'order'); 
            
         }
         }

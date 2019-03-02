@@ -1,12 +1,12 @@
 <template>
     <div class="row">
-        <div class="col-12 row" v-if="contacts">
+        <div class="col-12 row" v-if="contacts && contacts.length > 0">
             <div class="col-9">
                 <messageCard v-if="selectedContact" 
                             :contact="selectedContact">
                 </messageCard>
             </div>
-            <div class="col-3" v-if="contacts && contacts.length>0">
+            <div class="col-3">
                 <contactSide :contacts="contacts" @selected="selected" @reloadMessages="reload"></contactSide>
             </div>
 
@@ -36,7 +36,7 @@ export default {
               this.$http.get('/api/contacts')
             .then(res => {
                 this.contacts = res.data;
-               console.log(this.contacts);
+               
             });
         },
         selected(event){

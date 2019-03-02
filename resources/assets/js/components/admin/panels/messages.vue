@@ -36,7 +36,7 @@ export default {
               this.$http.get('/api/contacts')
             .then(res => {
                 this.contacts = res.data;
-             
+               console.log(this.contacts);
             });
         },
         selected(event){

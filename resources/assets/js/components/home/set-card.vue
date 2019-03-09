@@ -31,8 +31,12 @@ export default {
         min-height: 600px;
     }
 
-    .card.img-container{
-        height: 200px;
+    .card-img-container{
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         overflow: hidden;
+        background-color: #000;
     }
 </style>

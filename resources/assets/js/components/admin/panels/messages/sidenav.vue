@@ -6,7 +6,7 @@
                     <td style="cursor:pointer" @click="select(contact)"> {{contact.created_at | datetime}} - {{contact.name}} </td>
                     <td> 
                         <div class="d-flex flex-column">
-                            <button class="btn btn-sm btn-outline-danger">X</button>
+                            <button class="btn btn-sm btn-outline-danger" @click="destroy(contact)">X</button>
                             <input @change="toggleSaw(contact)" type="checkbox" :checked="contact.saw" class="checkbox mt-2"> 
                         </div>
                     </td>
@@ -23,8 +23,11 @@ export default {
         select(contact){
             this.$emit('selected',contact);
         },
-        delete(contact){
-
+        destroy(contact){
+            this.$http.post('/admin/contact/delete/'+contact.id)
+                .then(res => {
+                   this.$emit('reload');
+                });
         },
         toggleSaw(contact){
             contact.saw = !contact.saw;

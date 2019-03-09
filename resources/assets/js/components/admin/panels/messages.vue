@@ -7,7 +7,7 @@
                 </messageCard>
             </div>
             <div class="col-3">
-                <contactSide :contacts="contacts" @selected="selected" @reloadMessages="reload"></contactSide>
+                <contactSide @reload="reload" :contacts="contacts" @selected="selected" @reloadMessages="reload"></contactSide>
             </div>
 
         </div>

@@ -5,26 +5,24 @@
       <!-- swiper -->
       <swiper :options="swiperOption" v-if="render">
         <swiper-slide  v-for="set in sets" :key="set.id">
-            <div class="card" itemscope itemtype="https://schema.org/set">
-                <div>
+            <a  :href="set.slug" class="card" itemscope itemtype="https://schema.org/set">
+                <div class="card-img-container">
                   <v-lazy-image v-if ="set.image" class="card-img card-img-top" 
                         :src="set.image"
                         :title="set.name"
                         itemprop="image" 
                         alt="Card image cap" />
                   <v-lazy-image v-else src="/storage/images/app/no-photo.png" alt="no image" />
-                    <div v-if="set.offer" class="card-img-overlay">
-                      <span v-if="set.offer" class=" badge bg-focus white-bold"> Oferta! </span>
-                    </div>
+                    
                 </div>
                 <div class="card-body">
                     <h5 class="card-title" itemprop="name" style="height:60px"> {{set.title | ucFirst}}  </h5>
                    
                    
                     <a :href="set.slug" style="cursor:pointer" class="btn btn-outline-second  white-bold mb-4 mt-1"> Ver mas</a>
-                    <p></p>
+                    
                 </div>
-            </div>
+            </a>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
@@ -109,4 +107,13 @@
   .card-img-overlay{
     max-height: 60%;
   }
+
+   .card-img-container{
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+        background-color: #000;
+    }
 </style>

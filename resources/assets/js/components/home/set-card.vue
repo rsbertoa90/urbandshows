@@ -1,14 +1,14 @@
 <template>
-   <div class="card h-100" style="width: 18rem;">
-       <div class="card-img-container">
+    <div class="card h-100" style="width: 18rem;">
+        <div class="card-img-container">
             <img class="card-img-top" :src="set.image" :alt="set.title">
-       </div>
-    <div class="card-body d-flex flex-column justify-content-between">
-        <h5 class="card-title merienda font-weight-bold"> {{set.title |ucFirst}} </h5>
-        <p v-if="set.description" class="card-text">{{set.description|ucFirst}}</p>
-        <a :href="set.slug" class="btn btn-outline-info text-info">Ver mas</a>
+        </div>
+        <a :href="set.slug" class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title merienda font-weight-bold"> {{set.title |ucFirst}} </h5>
+            <p v-if="set.description" class="card-text">{{set.description|ucFirst}}</p>
+            <a :href="set.slug" class="btn btn-outline-info text-info">Ver mas</a>
+        </a>
     </div>
-</div>
 </template>
 
 <script>

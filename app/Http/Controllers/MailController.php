@@ -26,7 +26,9 @@ class MailController extends Controller
        return $src;
     }
 
-
+    public function postulacion(){
+        return;
+    }
 
     public function regalosEmpresariales(Request $request)
     {

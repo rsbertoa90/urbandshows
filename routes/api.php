@@ -22,6 +22,7 @@ Route::get('/events','EventController@getAll');
 Route::get('/tags','TagController@getAll');
 Route::get('/sets','SetController@getAll');
 Route::get('/contacts','ContactController@getall');
+Route::get('/postulations','PostulationController@getall');
 
 Route::get('/metadatas','MetadataController@getAll');
 

@@ -23,8 +23,8 @@ class OptimizeImages
             $file = $request->file('image');
             $path = $file->path();
             $image = Image::make($path);
-            if ($image->width() > 500){
-                $image->widen(500);
+            if ($image->width() > 400){
+                $image->widen(400);
                 $image->save();
             }
             ImageOptimizer::optimize($path);

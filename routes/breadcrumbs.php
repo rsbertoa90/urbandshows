@@ -13,6 +13,16 @@ Breadcrumbs::for('contacto', function ($trail) {
     $trail->push('Contacto', '/contacto');
 });
 
+Breadcrumbs::for('quienes-somos', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Quienes somos', '/quienes-somos');
+});
+
+Breadcrumbs::for('trabaja-con-nosotros', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Trabaja con nosotros', '/trabaja-con-nosotros');
+});
+
 
 
 

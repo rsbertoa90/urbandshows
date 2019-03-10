@@ -39,6 +39,9 @@ Vue.component('app-super', require('./components/super/Super.vue'));
 Vue.component('app-set', require('./components/set/set.vue'));
 Vue.component('image-logo', require('./components/layout/images/image-logo.vue'));
 Vue.component('app-side-menu', require('./components/layout/Side-menu.vue'));
+Vue.component('app-trabaja-con-nosotros', require('./components/trabaja-con-nosotros/TrabajaConNosotros.vue'));
+Vue.component('app-quienes-somos', require('./components/quienes-somos/QuienesSomos.vue'));
+Vue.component('app-side-menu', require('./components/layout/Side-menu.vue'));
 
 Vue.component('app-home', require('./components/home/Home.vue'));
 Vue.component('app-contacto', require('./components/contacto/Contacto.vue'));

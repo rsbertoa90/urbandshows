@@ -34,7 +34,6 @@ class HomeController extends Controller
 
      public function index()
     {
-
         $meta = Metadata::getPage('home');
         return view('home',compact('meta'));
     }
@@ -55,48 +54,19 @@ class HomeController extends Controller
             
     }
 
-    public function cotizer()
-    {
-        $meta = Metadata::getPage('cotizador');
-        return view('cotizer',compact('meta'));
-    }
-
-    public function regalosEmpresariales(){
-         $meta = Metadata::getPage('regalos empresariales');
-        return view('regalos-empresariales',compact('meta'));
-    }
-
-    public function franquicia(){
-         $meta = Metadata::getPage('franquicia');
-        return view('franquicia',compact('meta'));
-    }
-
-    public function sucursales(){
-         $meta = Metadata::getPage('sucursales');
-        return view('sucursales',compact('meta'));
-    }
-
     public function contacto(){
          $meta = Metadata::getPage('contacto');
         return view('contacto',compact('meta'));
     }
 
-    public function slugHandler($slug)
-    {
-        dd($slug);
-        $category = Category::where('slug','/'.$slug)->get()->first();
-        if ($category){
-           return CategoryController::detail($category);           
-        }
+    public function quienesSomos(){
+          $meta = Metadata::getPage('quienes-somos');
+        return view('quienes-somos',compact('meta'));
+    }
 
-        $product = Product::where('slug',$slug)->get()->first();
-        if ($product){
-           return ProductController::detail($product);           
-        }
-
-        return redirect('/');
-
-        
+    public function trabajaConNosotros(){
+          $meta = Metadata::getPage('trabaja-con-nosotros');
+        return view('trabaja-con-nosotros',compact('meta'));
     }
 
 }

@@ -17,7 +17,7 @@
                      @click="showMenu = true" >
                 <span class="fa fa-bars"></span>
             </button>
-            <form class="form-inline col-10" action="/buscar">
+           <!--  <form class="form-inline col-10" action="/buscar">
                 <div class="input-group">
                     <input type="text" class="form-control" 
                             aria-label="Buscar productos"
@@ -30,7 +30,7 @@
                         </span>
                     </div>
                 </div>  
-            </form>
+            </form> -->
         </nav>
 
     
@@ -57,9 +57,7 @@ export default {
      }
     },
     computed :{
-        ...mapGetters({
-            categories : 'categories/getCategories'
-        }),
+       
     }
 }
 </script>

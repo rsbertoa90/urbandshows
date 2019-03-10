@@ -17,6 +17,7 @@ export default {
                 {label:'Eventos',component:'events-panel'},
                 {label:'Sets',component:'sets-panel'},
                 {label:'Mensajes',component:'contact-panel'},
+                {label:'Postulaciones',component:'postulations-panel'},
                 {label:'Metadatos',component:'meta-panel'},
                 
             ]

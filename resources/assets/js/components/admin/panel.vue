@@ -6,6 +6,7 @@
 import setsPanel from './panels/sets.vue';
 import metaPanel from './panels/meta.vue';
 import contactPanel from './panels/messages.vue';
+import postulationsPanel from './panels/postulations.vue';
 
 import eventsPanel from './panels/events.vue';
 
@@ -14,6 +15,7 @@ export default {
         setsPanel,
         metaPanel,
         contactPanel,
+        postulationsPanel,
         eventsPanel,
     
     },

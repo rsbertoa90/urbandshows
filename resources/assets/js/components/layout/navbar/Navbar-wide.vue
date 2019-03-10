@@ -23,14 +23,18 @@
                 <a href="/" 
                         >
                     <img class="w-100" src="/storage/images/app/logo.png" 
-                        alt="logo"
-                        >
-                        
+                        alt="logo" >
                 </a>
             </div>
 
-             <div class="col-4 offset-1">
-                <form class="form-inline" action="/buscar">
+            <div class="col-4">
+                <ul class="d-flex justify-content-around align-items-end mb-0">
+                    <li> <a href="/quienes-somos"> Quienes somos </a> </li>
+                    <li> <a href="/trabaja-con-nosotros"> Trabaja con nosotros  </a> </li>
+                </ul>
+
+
+             <!--    <form class="form-inline" action="/buscar">
                     <div class="input-group w-100">
                         <input type="text" class="form-control" 
                                  aria-label="Buscar productos"
@@ -44,7 +48,7 @@
                             </span>
                         </div>
                     </div>  
-                </form>
+                </form> -->
             </div>
 
            

@@ -7,6 +7,7 @@
         <mobile-admin v-if="$mq!='lg'" ></mobile-admin>
         <web-admin v-else></web-admin>
     </div>
+    
 
 </div>
 </template>

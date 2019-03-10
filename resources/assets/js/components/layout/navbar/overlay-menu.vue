@@ -15,6 +15,8 @@
                                 Contactanos
                             </a>
                         </li>
+                        <li> <a href="/quienes-somos"> Quienes somos </a> </li>
+                         <li> <a href="/trabaja-con-nosotros"> Trabaja con nosotros  </a> </li>
                         <li v-if="user.role_id < 3">
                             <a href="/admin">
                                 Administracion

@@ -54,10 +54,10 @@
         <div id="app" class="container">
             <app-whatsapp></app-whatsapp>
             <div class="row">
-                <app-navbar class="col-12"></app-navbar>
+                <app-navbar class="col-12 mb-4"></app-navbar>
                
 
-                    <div class="col-12 w-100 row" style="margin-left:0.2%">
+                    <div class="col-12 w-100 row mt-4" style="margin-left:0.2%">
                                 <main class="py-4 w-100 row">
                                     <div class="col-12">
                                         @yield('breadcrumb')

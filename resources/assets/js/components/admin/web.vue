@@ -8,7 +8,7 @@
         <div class="col-10">
             <admin-panel></admin-panel>
         </div>
-        <div style="height:50px; width:100vw">
+        <div style="height:500px; width:100vw">
 
         </div>
     </div>

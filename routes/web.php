@@ -17,22 +17,20 @@ Auth::routes();
 Route::middleware('CheckSuper')->prefix('super')->group(function(){
     Route::get('/', 'SuperController@panel');
 
-    Route::post('/category/image','CategoryController@uploadImage')->middleware('OptimizeImages');
-
+   
     Route::put('/metadata','MetadataController@update');
-    Route::get('/products','AdminController@tableView');
+  
 });
 
 
 Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
 
     Route::get('/','AdminController@admin');
-    Route::get('/cotizador','AdminController@cotizador');
-
+  
     Route::post('/tags','TagController@create');
     
     Route::post('/set','SetController@create');
-    Route::post('/set/image','SetController@updateImage');
+    Route::post('/set/image','SetController@updateImage')->middleware('OptimizeImages');;
     Route::put('/set','SetController@update');
 
     Route::post('/song','SongController@create');
@@ -42,9 +40,13 @@ Route::middleware('CheckAdmin')->prefix('admin')->group(function(){
     Route::post('/contact','ContactController@create');
     Route::put('/contact','ContactController@update');
     Route::post('/contact/delete/{id}','ContactController@destroy');
+
+    Route::post('/postulation','PostulationController@create');
+    Route::put('/postulation','PostulationController@update');
+    Route::post('/postulation/delete/{id}','PostulationController@destroy');
     
-    Route::post('/product/image','ProductImageController@create')->middleware('OptimizeImages');
-   
+    
+  
 
 
     Route::put('/config','ConfigController@update');
@@ -59,15 +61,13 @@ Route::get('/config','ConfigController@get');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', function(){return redirect('/');});
 
-Route::get('/cotizador','HomeController@cotizer');
-Route::get('/regalos-empresariales','HomeController@regalosEmpresariales');
-Route::post('/regalos-empresariales','MailController@regalosEmpresariales')->middleware('OptimizeImages');;
-Route::get('/franquicia','HomeController@franquicia');
-Route::post('/franquicia','MailController@franquicia');
-Route::get('/sucursales','HomeController@sucursales');
+
 Route::get('/contacto','HomeController@contacto');
 Route::post('/contacto','ContactController@create');
 Route::get('/buscar','ProductController@searchResults');
+Route::get('/quienes-somos','HomeController@quienesSomos');
+Route::get('/trabaja-con-nosotros','HomeController@trabajaConNosotros');
+Route::post('/postulacion','PostulationController@create');
 
 Route::get('/logout',function(){
     Auth::logout();
@@ -78,11 +78,6 @@ Auth::routes();
 
 Route::get('/getUser','HomeController@getUser');
 
-Route::post('/cotizer/send','OrderController@create');
-
-Route::get('/lista-de-precios','PdfController@prices');
-
-Route::post('/suscription','SuscriptionController@create');
 
 /* ESTAS RUTAS SIEMPRE AL FINAL */
 

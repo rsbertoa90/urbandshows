@@ -19,10 +19,11 @@ export default {
         sets(){
             return this.$store.getters['sets/getSets'];
         },
+        
         setswithimages(){
             if(this.sets){
                 return this.sets.filter(s => {
-                    return s.image != null;
+                    return (s.image != null && !s.paused);
                 });
             }
         }

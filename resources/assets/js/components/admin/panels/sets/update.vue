@@ -8,7 +8,17 @@
         <br>
         <p v-if="set.details" style="font-sstyle:italic"> {{set.details |ucFirst}} </p>
         <hr>
-        
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-block m-2 p-4 btn-outline-danger" v-if="!set.paused" @click="togglePaused">
+                    PAUSAR SET
+                </button>
+                <button class="btn btn-block m-2 p-4 btn-outline-success" v-if="set.paused" @click="togglePaused">
+                    ACTIVAR SET
+                </button>
+                
+            </div>
+        </div>
         <div class="row d-flex flex-column ">
             <div class="image-container">
                 <img v-if="set.image" :src="set.image" :alt="set.name">
@@ -104,6 +114,19 @@ export default {
         }
     },
     methods:{
+        togglePaused()
+        {   
+            this.set.paused = !this.set.paused;
+           let data = {
+                field :'paused',
+                value : this.set.paused ? 1 : 0,
+                id : this.set.id
+            }
+             this.$http.put('/admin/set',data)
+                .then(response => {
+
+                });
+        },
              saveImage :  function(event){
                 var vm =this;
                 var file = $('input[type="file"]')[0].files[0];

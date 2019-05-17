@@ -4,7 +4,7 @@
             <h1 class="text-center">Shows para fiestas y eventos</h1>
         </div>
        <p class="nice-fount text-center">
-           Elegi el show ideal para tu fiesta. Busca el estilo perfecto para lo que estas planeando, y si no lo encontras, contactate con nosotros y contanos que necesitas!. Armamos Tu show a medida.
+           Elegí el show ideal para tu fiesta. Buscá el estilo perfecto para lo que estas planeando, y si no lo encontras, contactate con nosotros y contanos que necesitas!. Armamos Tu show a medida.
 
        </p>
        <hr>

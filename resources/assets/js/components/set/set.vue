@@ -1,11 +1,25 @@
 <template>
         <div class="container" v-if="set">
-            <div class="row">
+              <div class="row">
+                <div class="col-12 justify-content-center d-flex">
+                  <h1> {{set.title |uc}} </h1>
+                </div>
+            </div>
+            
+            <div class="row mt-4" v-if="set.samplevid">
+                <div class="col-12 d-flex justify-content-center">
+                    <iframe width="100%" :height="$mq=='lg' ? '400px' :' 200px'"
+                        :src="'https://www.youtube.com/embed/'+set.samplevid">
+                    </iframe>
+                </div>
+            </div>
+          
+            <div class="row mt-4">
                 <div class="col-12 col-lg-4">
                     <img :src="set.image" :alt="set.title">
                 </div>
                 <div class="col-12 col-lg-4 d-flex flex-column">
-                    <h1> {{set.title}} </h1>
+                  
                     <p> {{set.description}} </p>
                      <p> {{set.details}} </p>
                   
@@ -45,6 +59,7 @@
                
                 </div>
             </div>
+         
             <div class="row mt-4">
                 <relatedSets></relatedSets>
             </div>

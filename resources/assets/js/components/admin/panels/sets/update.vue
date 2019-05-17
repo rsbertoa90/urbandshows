@@ -33,6 +33,17 @@
             </div>
 
             <div class="row">
+                <label class="col-4"> Video muestra: </label>
+                <div class="col-4">
+                    <textarea type="text" class=" form-control" 
+                        v-model.lazy="set.samplevid"
+                        @change="update('samplevid')" />
+                    <span class="text-warning"> Poner solo el id del video: </span>
+                    <span>https://www.youtube.com/watch?v=<span class="text-danger font-weight-bold">Q2u8TyOVpOo</span></span>
+                </div>
+            </div>
+
+            <div class="row">
                  <label class="col-4"> Descripcion: </label>
                 <textarea  type="text" class="form-control col-4" 
                 v-model.lazy="set.description"

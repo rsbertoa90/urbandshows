@@ -38,14 +38,12 @@
                     
                </ul>
            </p>
-            <h4>¿Todavia queres trabajar con nosotros?</h4>
+            <h4>¿Todavía queres trabajar con nosotros?</h4>
             <h4>Dejanos tus datos:</h4>
 
             <work-form></work-form>
 
-           <p class="text-cursive text-secondary">
-               Urband no es una empresa, es un colectivo de musicos. No tenemos empleados y nadie percibe sueldos. Cada quien se lleva su parte en los shows en los que toca. Todos cobramos en partes iguales.
-           </p>
+         
 
 
        </div>

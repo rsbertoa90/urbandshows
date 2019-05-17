@@ -12,7 +12,7 @@
                         v-model="formData.age">
             </div>
             <div class="row">
-                <label class="col-12 col-lg-3">Que instrumento tocas</label>
+                <label class="col-12 col-lg-3">Que instrumento tocás</label>
                 <input type="text" class="col-12 col-lg-3 form-control" 
                         v-model="formData.instrument">
             </div>
@@ -27,7 +27,7 @@
                         v-model="formData.email">
             </div>
             <div class="row">
-                <label class="col-12 col-lg-3">Telefono</label>
+                <label class="col-12 col-lg-3">Teléfono</label>
                 <input type="text" class="col-12 col-lg-3 form-control" 
                         v-model="formData.phone">
             </div>
